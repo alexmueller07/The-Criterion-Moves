@@ -1,0 +1,30 @@
+block,suite,backbone,method,token,source,n_cells,orders,is_ref,sum_abs_dc_mean,sum_abs_dc_min,sum_abs_dc_max,sum_abs_dc_n,endpoint_c_mean,endpoint_c_min,endpoint_c_max,endpoint_c_n,max_abs_dd_mean,max_abs_dd_min,max_abs_dd_max,max_abs_dd_n,chair60_mean,chair60_min,chair60_max,chair60_n,plasticity_mean,plasticity_min,plasticity_max,plasticity_n,f1_tripped_k,f1_n,chair_ci_excl0_k,chair_ci_n,better_sum_abs_dc_k,better_sum_abs_dc_n,better_chair_k,better_chair_n,P1,P2,P3,P4,overall,bold,notes
+pilot-llava,pilot,llava15,SEQ,seq,scorecard,4,o1;o2,1,2.5482,2.2773,2.6385,4,1.0269,1.0269,1.0269,4,0.471775,0.225,1.2121,4,0.2,0.2,0.2,4,0.65,0.65,0.65,4,1,4,,,,,,,ABSENT,ABSENT,FAIL,ABSENT,ref,plasticity,
+pilot-llava,pilot,llava15,JOINT,joint,aggregate,2,o1,0,0.55,0.5,0.6,2,-0.075,-0.1,-0.05,2,0.2,0.05,0.35,2,0.155,0.15,0.16,2,,,,0,1,2,,,2,2,1,2,ABSENT,ABSENT,ABSENT,ABSENT,--,,a
+pilot-llava,pilot,llava15,ER,er,scorecard,2,o1,0,2.6385,2.6385,2.6385,2,1.0269,1.0269,1.0269,2,0.225,0.225,0.225,2,0.2157,0.2157,0.2157,2,0.65,0.65,0.65,2,0,2,0,2,0,2,0,2,FAIL,PASS,PASS,FAIL,FAIL,,
+pilot-llava,pilot,llava15,EWC,ewc,scorecard,1,o1,0,0.0902,0.0902,0.0902,1,0.1298,0.1298,0.1298,1,0.0328,0.0328,0.0328,1,0.2,0.2,0.2,1,0.65,0.65,0.65,1,0,1,0,1,1,1,0,1,PASS,PASS,PASS,FAIL,FAIL,,
+pilot-llava,pilot,llava15,LwF,lwf,scorecard,0,,0,,,,0,,,,0,,,,0,,,,0,,,,0,,,,,,,,,ABSENT,ABSENT,ABSENT,ABSENT,INCOMPLETE,,"ABSENT: 0 complete cells in this scorecard (1 incomplete) -- o1/s17: missing EVAL_DONE stages [4], IN-PROGRESS: psL_lwf_o1_s17_k4 lacks EVAL_DONE"
+pilot-llava,pilot,llava15,post-hoc b* (labeled)ell,__posthoc_labeled,logits,2,o1,0,0.054745,0.040316,0.069173,2,-0.033616,-0.035011,-0.032222,2,0.023798,0.022355,0.025241,2,,,,0,,,,0,0,2,,,2,2,,,PASS,ABSENT,PASS,ABSENT,INCOMPLETE,,l;corrected_arm=seq
+pilot-llava,pilot,llava15,post-hoc barb (label-free)ell,__posthoc_labelfree,logits,2,o1,0,0.035674,0.03512,0.036227,2,-0.039073,-0.043604,-0.034542,2,0.023636,0.017671,0.029601,2,,,,0,,,,0,0,2,,,2,2,,,PASS,ABSENT,PASS,ABSENT,INCOMPLETE,,l;corrected_arm=seq
+pilot-llava,pilot,llava15,anchor-v1 (cecf),cecf,scorecard,1,o1,0,0.3402,0.3402,0.3402,1,0.5602,0.5602,0.5602,1,0.0461,0.0461,0.0461,1,0.1304,0.1304,0.1304,1,0.64,0.64,0.64,1,0,1,1,1,1,1,1,1,PASS,PASS,PASS,PASS,PASS,,
+pilot-llava,pilot,llava15,anchor-v2,anchor,scorecard,3,o1,0,0.0643,0.0643,0.0643,3,0.2843,0.2843,0.2843,3,0.0103,0.0103,0.0103,3,0.0476,0.0476,0.0476,3,0.64,0.64,0.64,3,0,3,3,3,3,3,3,3,PASS,PASS,PASS,PASS,PASS,max_abs_dd,
+pilot-llava,pilot,llava15,critp(0.1),critp,scorecard,3,o1,0,0.0643,0.0643,0.0643,3,0.2843,0.2843,0.2843,3,0.0103,0.0103,0.0103,3,0.0476,0.0476,0.0476,3,0.64,0.64,0.64,3,0,3,3,3,3,3,3,3,PASS,PASS,PASS,PASS,PASS,,
+pilot-llava,pilot,llava15,critp(1.0),critp1,scorecard,1,o1,0,0.0643,0.0643,0.0643,1,0.2843,0.2843,0.2843,1,0.0103,0.0103,0.0103,1,0.0698,0.0698,0.0698,1,0.64,0.64,0.64,1,0,1,1,1,1,1,1,1,PASS,PASS,PASS,PASS,PASS,,
+pilot-llava,pilot,llava15,anchorcrit,anchorcrit,scorecard,2,o1,0,0.0617,0.0617,0.0617,2,0.2817,0.2817,0.2817,2,0.1235,0.1235,0.1235,2,0.0361,0.0361,0.0361,2,0.64,0.64,0.64,2,0,2,2,2,2,2,2,2,PASS,PASS,PASS,PASS,PASS,sum_abs_dc;chair60,
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,SEQ,seq,scorecard,2,o1,1,2.6385,2.6385,2.6385,2,1.0269,1.0269,1.0269,2,0.225,0.225,0.225,2,0.2,0.2,0.2,2,0.65,0.65,0.65,2,0,2,,,,,,,ABSENT,ABSENT,PASS,ABSENT,ref,plasticity,
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,JOINT,joint,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,ER,er,scorecard,1,o1,0,2.6385,2.6385,2.6385,1,1.0269,1.0269,1.0269,1,0.225,0.225,0.225,1,0.2157,0.2157,0.2157,1,0.65,0.65,0.65,1,0,1,0,1,0,1,0,1,FAIL,PASS,PASS,FAIL,FAIL,,
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,EWC,ewc,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,LwF,lwf,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,post-hoc b* (labeled)ell,__posthoc_labeled,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,post-hoc barb (label-free)ell,__posthoc_labelfree,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,anchor-v1 (cecf),cecf,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,anchor-v2,anchor,scorecard,2,o1,0,0.0643,0.0643,0.0643,2,0.2843,0.2843,0.2843,2,0.0103,0.0103,0.0103,2,0.0476,0.0476,0.0476,2,0.64,0.64,0.64,2,0,2,2,2,2,2,2,2,PASS,PASS,PASS,PASS,PASS,sum_abs_dc;max_abs_dd;chair60,
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,critp(0.1),critp,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,critp(1.0),critp1,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot / Qwen2.5-VL-7B,pilot,qwen25vl,anchorcrit,anchorcrit,,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ABSENT: arm not in this scorecard
+pilot-llava (pilot reference),pilot,llava15,SEQ (pilot),pilot:SEQ,pilot_reference,1,o1,,1.243,,,1,0.744,,,1,0.151,,,1,0.0894,,,1,0.6592,,,1,,,,,,,,,,,,,,,pilot reference; context only
+pilot-llava (pilot reference),pilot,llava15,anchor-v2 (pilot),pilot:anchor-v2,pilot_reference,1,o1,,0.791,,,1,0.768,,,1,0.147,,,1,0.0766,,,1,0.6558,,,1,,,,,,,,,,,,,,,pilot reference; context only
+pilot-llava (pilot reference),pilot,llava15,JOINT (pilot),pilot:JOINT,pilot_reference,1,o1,,1.278,,,1,-0.019,,,1,0.21,,,1,0.0904,,,1,0.6339,,,1,,,,,,,,,,,,,,,pilot reference; context only
+pilot-llava (pilot reference),pilot,llava15,ER (pilot),pilot:ER,pilot_reference,1,o1,,1.358,,,1,0.853,,,1,0.116,,,1,0.0957,,,1,0.6569,,,1,,,,,,,,,,,,,,,pilot reference; context only
+pilot-llava (pilot reference),pilot,llava15,anchor-v1 (pilot),pilot:anchor-v1,pilot_reference,1,o1,,3.43,,,1,1.427,,,1,0.477,,,1,0.0856,,,1,0.6575,,,1,,,,,,,,,,,,,,,pilot reference; context only

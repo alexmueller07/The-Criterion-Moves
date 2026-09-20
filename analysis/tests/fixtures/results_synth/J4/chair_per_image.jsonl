@@ -1,0 +1,60 @@
+{"id": "chair_J4_000", "coco_id": "100000", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_001", "coco_id": "100001", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_002", "coco_id": "100002", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_003", "coco_id": "100003", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_004", "coco_id": "100004", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_005", "coco_id": "100005", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_006", "coco_id": "100006", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_007", "coco_id": "100007", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": true}
+{"id": "chair_J4_008", "coco_id": "100008", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_009", "coco_id": "100009", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_010", "coco_id": "100010", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_011", "coco_id": "100011", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_012", "coco_id": "100012", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_013", "coco_id": "100013", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_014", "coco_id": "100014", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_015", "coco_id": "100015", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_016", "coco_id": "100016", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_017", "coco_id": "100017", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_018", "coco_id": "100018", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_019", "coco_id": "100019", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_020", "coco_id": "100020", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_021", "coco_id": "100021", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_022", "coco_id": "100022", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_023", "coco_id": "100023", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_024", "coco_id": "100024", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_025", "coco_id": "100025", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_026", "coco_id": "100026", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_027", "coco_id": "100027", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_028", "coco_id": "100028", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_029", "coco_id": "100029", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_030", "coco_id": "100030", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_031", "coco_id": "100031", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_032", "coco_id": "100032", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_033", "coco_id": "100033", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_034", "coco_id": "100034", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_035", "coco_id": "100035", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_036", "coco_id": "100036", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_037", "coco_id": "100037", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_038", "coco_id": "100038", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_039", "coco_id": "100039", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_040", "coco_id": "100040", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_041", "coco_id": "100041", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_042", "coco_id": "100042", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_043", "coco_id": "100043", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_044", "coco_id": "100044", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_045", "coco_id": "100045", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_046", "coco_id": "100046", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_047", "coco_id": "100047", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_048", "coco_id": "100048", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_049", "coco_id": "100049", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_050", "coco_id": "100050", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_051", "coco_id": "100051", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_052", "coco_id": "100052", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_053", "coco_id": "100053", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_054", "coco_id": "100054", "mentioned": ["cat", "chair", "dog"], "hallucinated": ["cat"], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_055", "coco_id": "100055", "mentioned": ["chair", "dog"], "hallucinated": [], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_056", "coco_id": "100056", "mentioned": ["chair", "dog"], "hallucinated": [], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_057", "coco_id": "100057", "mentioned": ["chair", "dog"], "hallucinated": [], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_058", "coco_id": "100058", "mentioned": ["chair", "dog"], "hallucinated": [], "n_new_tokens": 180, "truncated": false}
+{"id": "chair_J4_059", "coco_id": "100059", "mentioned": ["chair", "dog"], "hallucinated": [], "n_new_tokens": 180, "truncated": false}

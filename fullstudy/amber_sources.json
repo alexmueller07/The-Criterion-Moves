@@ -1,0 +1,4 @@
+[
+  {"type": "hf_dataset", "repo": "yifanzhang114/AMBER", "split": "test", "image_col": "image", "id_col": "image_name"},
+  {"type": "hf_dataset", "repo": "junyangwang0410/AMBER", "split": "train", "image_col": "image", "id_col": "id"}
+]

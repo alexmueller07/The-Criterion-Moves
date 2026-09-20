@@ -1,0 +1,10 @@
+{
+  "metric": "mc_acc",
+  "score": 0.85,
+  "n": 500,
+  "parse_fail_rate": 0.002,
+  "ckpt": "S1",
+  "task": "scienceqa",
+  "mean_new_tokens": 11.0,
+  "truncation_rate": 0.003
+}

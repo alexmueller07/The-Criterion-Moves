@@ -1,0 +1,20 @@
+{
+ "G4_minus_S4_at60": {
+  "point": -0.0128,
+  "ci95": [
+   -0.0228,
+   -0.0028
+  ],
+  "n_pairs": 500,
+  "excludes_zero": true
+ },
+ "G4_minus_J4_at60": {
+  "point": -0.0138,
+  "ci95": [
+   -0.0257,
+   -0.0019
+  ],
+  "n_pairs": 500,
+  "excludes_zero": true
+ }
+}

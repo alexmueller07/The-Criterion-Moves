@@ -1,0 +1,1278 @@
+{
+ "ks": [
+  30,
+  60,
+  90
+ ],
+ "checkpoints": {
+  "S0": {
+   "full": {
+    "chair_i": 0.15641711229946523,
+    "chair_s": 0.484,
+    "mentions_per_caption": 7.48,
+    "n_mentions": 3740,
+    "n_hal_mentions": 585
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04633982538616521,
+     "chair_s": 0.108,
+     "mentions_per_caption": 2.978,
+     "n_mentions": 1489,
+     "n_hal_mentions": 69,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.10518731988472622,
+     "chair_s": 0.336,
+     "mentions_per_caption": 5.552,
+     "n_mentions": 2776,
+     "n_hal_mentions": 292,
+     "frac_captions_over_budget": 0.858
+    },
+    "90": {
+     "chair_i": 0.15487094088259784,
+     "chair_s": 0.478,
+     "mentions_per_caption": 7.206,
+     "n_mentions": 3603,
+     "n_hal_mentions": 558,
+     "frac_captions_over_budget": 0.366
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1115,
+     927,
+     1010,
+     688
+    ],
+    "n_hal": [
+     41,
+     103,
+     248,
+     193
+    ],
+    "hal_rate": [
+     0.036771300448430494,
+     0.1111111111111111,
+     0.24554455445544554,
+     0.2805232558139535
+    ]
+   },
+   "mean_words": 83.402,
+   "median_words": 86,
+   "mean_new_tokens": 108.4,
+   "mentions_per_100_words": 8.968609865470851
+  },
+  "S1": {
+   "full": {
+    "chair_i": 0.13723937714436527,
+    "chair_s": 0.482,
+    "mentions_per_caption": 7.578,
+    "n_mentions": 3789,
+    "n_hal_mentions": 520
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04178272980501393,
+     "chair_s": 0.096,
+     "mentions_per_caption": 2.872,
+     "n_mentions": 1436,
+     "n_hal_mentions": 60,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.08695652173913043,
+     "chair_s": 0.29,
+     "mentions_per_caption": 5.336,
+     "n_mentions": 2668,
+     "n_hal_mentions": 232,
+     "frac_captions_over_budget": 0.91
+    },
+    "90": {
+     "chair_i": 0.12965555866704004,
+     "chair_s": 0.458,
+     "mentions_per_caption": 7.142,
+     "n_mentions": 3571,
+     "n_hal_mentions": 463,
+     "frac_captions_over_budget": 0.504
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1143,
+     956,
+     979,
+     711
+    ],
+    "n_hal": [
+     43,
+     106,
+     222,
+     149
+    ],
+    "hal_rate": [
+     0.03762029746281715,
+     0.1108786610878661,
+     0.22676200204290092,
+     0.20956399437412096
+    ]
+   },
+   "mean_words": 88.642,
+   "median_words": 91,
+   "mean_new_tokens": 115.0,
+   "mentions_per_100_words": 8.548994833149072
+  },
+  "S2": {
+   "full": {
+    "chair_i": 0.14434873401200732,
+    "chair_s": 0.494,
+    "mentions_per_caption": 7.662,
+    "n_mentions": 3831,
+    "n_hal_mentions": 553
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.042740841248303935,
+     "chair_s": 0.1,
+     "mentions_per_caption": 2.948,
+     "n_mentions": 1474,
+     "n_hal_mentions": 63,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.0936232952451161,
+     "chair_s": 0.312,
+     "mentions_per_caption": 5.426,
+     "n_mentions": 2713,
+     "n_hal_mentions": 254,
+     "frac_captions_over_budget": 0.898
+    },
+    "90": {
+     "chair_i": 0.1375207526286663,
+     "chair_s": 0.468,
+     "mentions_per_caption": 7.228,
+     "n_mentions": 3614,
+     "n_hal_mentions": 497,
+     "frac_captions_over_budget": 0.52
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1168,
+     959,
+     981,
+     723
+    ],
+    "n_hal": [
+     45,
+     92,
+     239,
+     177
+    ],
+    "hal_rate": [
+     0.038527397260273974,
+     0.09593326381647549,
+     0.2436289500509684,
+     0.24481327800829875
+    ]
+   },
+   "mean_words": 88.348,
+   "median_words": 91,
+   "mean_new_tokens": 114.6,
+   "mentions_per_100_words": 8.672522298184452
+  },
+  "S3": {
+   "full": {
+    "chair_i": 0.1504424778761062,
+    "chair_s": 0.504,
+    "mentions_per_caption": 7.684,
+    "n_mentions": 3842,
+    "n_hal_mentions": 578
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04845505617977528,
+     "chair_s": 0.11,
+     "mentions_per_caption": 2.848,
+     "n_mentions": 1424,
+     "n_hal_mentions": 69,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.10161229846269217,
+     "chair_s": 0.322,
+     "mentions_per_caption": 5.334,
+     "n_mentions": 2667,
+     "n_hal_mentions": 271,
+     "frac_captions_over_budget": 0.908
+    },
+    "90": {
+     "chair_i": 0.14149621742785093,
+     "chair_s": 0.482,
+     "mentions_per_caption": 7.138,
+     "n_mentions": 3569,
+     "n_hal_mentions": 505,
+     "frac_captions_over_budget": 0.496
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1121,
+     999,
+     958,
+     764
+    ],
+    "n_hal": [
+     52,
+     98,
+     247,
+     181
+    ],
+    "hal_rate": [
+     0.0463871543264942,
+     0.0980980980980981,
+     0.2578288100208768,
+     0.2369109947643979
+    ]
+   },
+   "mean_words": 89.26,
+   "median_words": 90,
+   "mean_new_tokens": 115.5,
+   "mentions_per_100_words": 8.60855926506834
+  },
+  "S4": {
+   "full": {
+    "chair_i": 0.12727782450238295,
+    "chair_s": 0.456,
+    "mentions_per_caption": 7.134,
+    "n_mentions": 3567,
+    "n_hal_mentions": 454
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.038173142467621,
+     "chair_s": 0.088,
+     "mentions_per_caption": 2.934,
+     "n_mentions": 1467,
+     "n_hal_mentions": 56,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.08941264496820052,
+     "chair_s": 0.314,
+     "mentions_per_caption": 5.346,
+     "n_mentions": 2673,
+     "n_hal_mentions": 239,
+     "frac_captions_over_budget": 0.812
+    },
+    "90": {
+     "chair_i": 0.1212474497231128,
+     "chair_s": 0.442,
+     "mentions_per_caption": 6.862,
+     "n_mentions": 3431,
+     "n_hal_mentions": 416,
+     "frac_captions_over_budget": 0.34
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1042,
+     957,
+     895,
+     673
+    ],
+    "n_hal": [
+     27,
+     92,
+     183,
+     152
+    ],
+    "hal_rate": [
+     0.025911708253358926,
+     0.0961337513061651,
+     0.20446927374301677,
+     0.22585438335809807
+    ]
+   },
+   "mean_words": 80.972,
+   "median_words": 84,
+   "mean_new_tokens": 104.8,
+   "mentions_per_100_words": 8.810452996097416
+  },
+  "J1": {
+   "full": {
+    "chair_i": 0.14935577175913753,
+    "chair_s": 0.502,
+    "mentions_per_caption": 7.606,
+    "n_mentions": 3803,
+    "n_hal_mentions": 568
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04125874125874126,
+     "chair_s": 0.092,
+     "mentions_per_caption": 2.86,
+     "n_mentions": 1430,
+     "n_hal_mentions": 59,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.10003732736095558,
+     "chair_s": 0.31,
+     "mentions_per_caption": 5.358,
+     "n_mentions": 2679,
+     "n_hal_mentions": 268,
+     "frac_captions_over_budget": 0.926
+    },
+    "90": {
+     "chair_i": 0.14345755113477165,
+     "chair_s": 0.472,
+     "mentions_per_caption": 7.138,
+     "n_mentions": 3569,
+     "n_hal_mentions": 512,
+     "frac_captions_over_budget": 0.494
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1137,
+     972,
+     979,
+     715
+    ],
+    "n_hal": [
+     37,
+     103,
+     261,
+     167
+    ],
+    "hal_rate": [
+     0.032541776605101144,
+     0.10596707818930041,
+     0.2665985699693565,
+     0.23356643356643356
+    ]
+   },
+   "mean_words": 88.7,
+   "median_words": 90,
+   "mean_new_tokens": 115.0,
+   "mentions_per_100_words": 8.574971815107103
+  },
+  "J2": {
+   "full": {
+    "chair_i": 0.16501821967725144,
+    "chair_s": 0.548,
+    "mentions_per_caption": 7.684,
+    "n_mentions": 3842,
+    "n_hal_mentions": 634
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04488950276243094,
+     "chair_s": 0.102,
+     "mentions_per_caption": 2.896,
+     "n_mentions": 1448,
+     "n_hal_mentions": 65,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.10224719101123596,
+     "chair_s": 0.346,
+     "mentions_per_caption": 5.34,
+     "n_mentions": 2670,
+     "n_hal_mentions": 273,
+     "frac_captions_over_budget": 0.914
+    },
+    "90": {
+     "chair_i": 0.16013344453711426,
+     "chair_s": 0.526,
+     "mentions_per_caption": 7.194,
+     "n_mentions": 3597,
+     "n_hal_mentions": 576,
+     "frac_captions_over_budget": 0.518
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1147,
+     993,
+     990,
+     712
+    ],
+    "n_hal": [
+     46,
+     112,
+     282,
+     194
+    ],
+    "hal_rate": [
+     0.04010462074978204,
+     0.11278952668680765,
+     0.28484848484848485,
+     0.27247191011235955
+    ]
+   },
+   "mean_words": 89.664,
+   "median_words": 92,
+   "mean_new_tokens": 116.6,
+   "mentions_per_100_words": 8.5697715917202
+  },
+  "J3": {
+   "full": {
+    "chair_i": 0.15010351966873706,
+    "chair_s": 0.484,
+    "mentions_per_caption": 7.728,
+    "n_mentions": 3864,
+    "n_hal_mentions": 580
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04607977991746905,
+     "chair_s": 0.108,
+     "mentions_per_caption": 2.908,
+     "n_mentions": 1454,
+     "n_hal_mentions": 67,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.09090909090909091,
+     "chair_s": 0.29,
+     "mentions_per_caption": 5.412,
+     "n_mentions": 2706,
+     "n_hal_mentions": 246,
+     "frac_captions_over_budget": 0.918
+    },
+    "90": {
+     "chair_i": 0.14130737134909596,
+     "chair_s": 0.46,
+     "mentions_per_caption": 7.19,
+     "n_mentions": 3595,
+     "n_hal_mentions": 508,
+     "frac_captions_over_budget": 0.516
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1150,
+     1018,
+     963,
+     733
+    ],
+    "n_hal": [
+     46,
+     111,
+     243,
+     180
+    ],
+    "hal_rate": [
+     0.04,
+     0.10903732809430255,
+     0.2523364485981308,
+     0.24556616643929058
+    ]
+   },
+   "mean_words": 89.894,
+   "median_words": 91,
+   "mean_new_tokens": 116.6,
+   "mentions_per_100_words": 8.596791776981778
+  },
+  "J4": {
+   "full": {
+    "chair_i": 0.15608125482129082,
+    "chair_s": 0.502,
+    "mentions_per_caption": 7.778,
+    "n_mentions": 3889,
+    "n_hal_mentions": 607
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04410751206064783,
+     "chair_s": 0.108,
+     "mentions_per_caption": 2.902,
+     "n_mentions": 1451,
+     "n_hal_mentions": 64,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.09040178571428571,
+     "chair_s": 0.3,
+     "mentions_per_caption": 5.376,
+     "n_mentions": 2688,
+     "n_hal_mentions": 243,
+     "frac_captions_over_budget": 0.912
+    },
+    "90": {
+     "chair_i": 0.14671814671814673,
+     "chair_s": 0.48,
+     "mentions_per_caption": 7.252,
+     "n_mentions": 3626,
+     "n_hal_mentions": 532,
+     "frac_captions_over_budget": 0.538
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1152,
+     1010,
+     964,
+     763
+    ],
+    "n_hal": [
+     43,
+     114,
+     247,
+     203
+    ],
+    "hal_rate": [
+     0.03732638888888889,
+     0.11287128712871287,
+     0.25622406639004147,
+     0.26605504587155965
+    ]
+   },
+   "mean_words": 90.198,
+   "median_words": 92,
+   "mean_new_tokens": 116.8,
+   "mentions_per_100_words": 8.62325106986851
+  },
+  "E1": {
+   "full": {
+    "chair_i": 0.13786764705882354,
+    "chair_s": 0.478,
+    "mentions_per_caption": 7.616,
+    "n_mentions": 3808,
+    "n_hal_mentions": 525
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.043447792571829014,
+     "chair_s": 0.094,
+     "mentions_per_caption": 2.854,
+     "n_mentions": 1427,
+     "n_hal_mentions": 62,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.08496978851963746,
+     "chair_s": 0.276,
+     "mentions_per_caption": 5.296,
+     "n_mentions": 2648,
+     "n_hal_mentions": 225,
+     "frac_captions_over_budget": 0.912
+    },
+    "90": {
+     "chair_i": 0.1298050139275766,
+     "chair_s": 0.464,
+     "mentions_per_caption": 7.18,
+     "n_mentions": 3590,
+     "n_hal_mentions": 466,
+     "frac_captions_over_budget": 0.496
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1174,
+     934,
+     974,
+     726
+    ],
+    "n_hal": [
+     45,
+     93,
+     234,
+     153
+    ],
+    "hal_rate": [
+     0.03833049403747871,
+     0.09957173447537473,
+     0.2402464065708419,
+     0.21074380165289255
+    ]
+   },
+   "mean_words": 88.86,
+   "median_words": 90,
+   "mean_new_tokens": 115.5,
+   "mentions_per_100_words": 8.57078550528922
+  },
+  "E2": {
+   "full": {
+    "chair_i": 0.14274258219727345,
+    "chair_s": 0.474,
+    "mentions_per_caption": 7.482,
+    "n_mentions": 3741,
+    "n_hal_mentions": 534
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.0443213296398892,
+     "chair_s": 0.108,
+     "mentions_per_caption": 2.888,
+     "n_mentions": 1444,
+     "n_hal_mentions": 64,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.09511376352107423,
+     "chair_s": 0.304,
+     "mentions_per_caption": 5.362,
+     "n_mentions": 2681,
+     "n_hal_mentions": 255,
+     "frac_captions_over_budget": 0.92
+    },
+    "90": {
+     "chair_i": 0.13764838892029396,
+     "chair_s": 0.454,
+     "mentions_per_caption": 7.076,
+     "n_mentions": 3538,
+     "n_hal_mentions": 487,
+     "frac_captions_over_budget": 0.488
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1149,
+     949,
+     950,
+     693
+    ],
+    "n_hal": [
+     42,
+     109,
+     221,
+     162
+    ],
+    "hal_rate": [
+     0.03655352480417755,
+     0.1148577449947313,
+     0.2326315789473684,
+     0.23376623376623376
+    ]
+   },
+   "mean_words": 87.518,
+   "median_words": 90,
+   "mean_new_tokens": 114.0,
+   "mentions_per_100_words": 8.549098471171645
+  },
+  "E3": {
+   "full": {
+    "chair_i": 0.15438871473354232,
+    "chair_s": 0.518,
+    "mentions_per_caption": 7.656,
+    "n_mentions": 3828,
+    "n_hal_mentions": 591
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04013840830449827,
+     "chair_s": 0.094,
+     "mentions_per_caption": 2.89,
+     "n_mentions": 1445,
+     "n_hal_mentions": 58,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.09896219421793921,
+     "chair_s": 0.322,
+     "mentions_per_caption": 5.396,
+     "n_mentions": 2698,
+     "n_hal_mentions": 267,
+     "frac_captions_over_budget": 0.896
+    },
+    "90": {
+     "chair_i": 0.14214186369958276,
+     "chair_s": 0.484,
+     "mentions_per_caption": 7.19,
+     "n_mentions": 3595,
+     "n_hal_mentions": 511,
+     "frac_captions_over_budget": 0.47
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1135,
+     1003,
+     953,
+     737
+    ],
+    "n_hal": [
+     43,
+     105,
+     237,
+     206
+    ],
+    "hal_rate": [
+     0.03788546255506608,
+     0.10468594217347957,
+     0.24868835257082897,
+     0.27951153324287653
+    ]
+   },
+   "mean_words": 88.004,
+   "median_words": 89,
+   "mean_new_tokens": 113.7,
+   "mentions_per_100_words": 8.699604563428935
+  },
+  "E4": {
+   "full": {
+    "chair_i": 0.1481581798483207,
+    "chair_s": 0.518,
+    "mentions_per_caption": 7.384,
+    "n_mentions": 3692,
+    "n_hal_mentions": 547
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.03912148249828414,
+     "chair_s": 0.09,
+     "mentions_per_caption": 2.914,
+     "n_mentions": 1457,
+     "n_hal_mentions": 57,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.09568480300187618,
+     "chair_s": 0.312,
+     "mentions_per_caption": 5.33,
+     "n_mentions": 2665,
+     "n_hal_mentions": 255,
+     "frac_captions_over_budget": 0.856
+    },
+    "90": {
+     "chair_i": 0.13966160022942356,
+     "chair_s": 0.486,
+     "mentions_per_caption": 6.974,
+     "n_mentions": 3487,
+     "n_hal_mentions": 487,
+     "frac_captions_over_budget": 0.42
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1109,
+     925,
+     918,
+     740
+    ],
+    "n_hal": [
+     36,
+     89,
+     231,
+     191
+    ],
+    "hal_rate": [
+     0.032461677186654644,
+     0.09621621621621622,
+     0.25163398692810457,
+     0.2581081081081081
+    ]
+   },
+   "mean_words": 84.372,
+   "median_words": 87,
+   "mean_new_tokens": 108.9,
+   "mentions_per_100_words": 8.751718579623573
+  },
+  "F1": {
+   "full": {
+    "chair_i": 0.10800332317917474,
+    "chair_s": 0.354,
+    "mentions_per_caption": 7.222,
+    "n_mentions": 3611,
+    "n_hal_mentions": 390
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.031982942430703626,
+     "chair_s": 0.074,
+     "mentions_per_caption": 2.814,
+     "n_mentions": 1407,
+     "n_hal_mentions": 45,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.06996521066872825,
+     "chair_s": 0.22,
+     "mentions_per_caption": 5.174,
+     "n_mentions": 2587,
+     "n_hal_mentions": 181,
+     "frac_captions_over_budget": 0.91
+    },
+    "90": {
+     "chair_i": 0.1056338028169014,
+     "chair_s": 0.342,
+     "mentions_per_caption": 6.816,
+     "n_mentions": 3408,
+     "n_hal_mentions": 360,
+     "frac_captions_over_budget": 0.464
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1142,
+     865,
+     935,
+     669
+    ],
+    "n_hal": [
+     29,
+     79,
+     171,
+     111
+    ],
+    "hal_rate": [
+     0.025394045534150613,
+     0.09132947976878612,
+     0.18288770053475936,
+     0.16591928251121077
+    ]
+   },
+   "mean_words": 87.344,
+   "median_words": 89,
+   "mean_new_tokens": 114.1,
+   "mentions_per_100_words": 8.268455761128411
+  },
+  "F2": {
+   "full": {
+    "chair_i": 0.1150516615470539,
+    "chair_s": 0.414,
+    "mentions_per_caption": 7.162,
+    "n_mentions": 3581,
+    "n_hal_mentions": 412
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.03508771929824561,
+     "chair_s": 0.084,
+     "mentions_per_caption": 2.85,
+     "n_mentions": 1425,
+     "n_hal_mentions": 50,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.07677689091600153,
+     "chair_s": 0.254,
+     "mentions_per_caption": 5.262,
+     "n_mentions": 2631,
+     "n_hal_mentions": 202,
+     "frac_captions_over_budget": 0.892
+    },
+    "90": {
+     "chair_i": 0.11104565537555228,
+     "chair_s": 0.396,
+     "mentions_per_caption": 6.79,
+     "n_mentions": 3395,
+     "n_hal_mentions": 377,
+     "frac_captions_over_budget": 0.486
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1142,
+     935,
+     897,
+     607
+    ],
+    "n_hal": [
+     33,
+     80,
+     184,
+     115
+    ],
+    "hal_rate": [
+     0.028896672504378284,
+     0.0855614973262032,
+     0.20512820512820512,
+     0.18945634266886327
+    ]
+   },
+   "mean_words": 87.84,
+   "median_words": 90,
+   "mean_new_tokens": 114.6,
+   "mentions_per_100_words": 8.153460837887067
+  },
+  "F3": {
+   "full": {
+    "chair_i": 0.1419062832800852,
+    "chair_s": 0.502,
+    "mentions_per_caption": 7.512,
+    "n_mentions": 3756,
+    "n_hal_mentions": 533
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04682040531097135,
+     "chair_s": 0.112,
+     "mentions_per_caption": 2.862,
+     "n_mentions": 1431,
+     "n_hal_mentions": 67,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.10309278350515463,
+     "chair_s": 0.342,
+     "mentions_per_caption": 5.432,
+     "n_mentions": 2716,
+     "n_hal_mentions": 280,
+     "frac_captions_over_budget": 0.898
+    },
+    "90": {
+     "chair_i": 0.13489157983666572,
+     "chair_s": 0.474,
+     "mentions_per_caption": 7.102,
+     "n_mentions": 3551,
+     "n_hal_mentions": 479,
+     "frac_captions_over_budget": 0.448
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1111,
+     991,
+     947,
+     707
+    ],
+    "n_hal": [
+     43,
+     94,
+     226,
+     170
+    ],
+    "hal_rate": [
+     0.0387038703870387,
+     0.09485368314833502,
+     0.23864836325237593,
+     0.24045261669024046
+    ]
+   },
+   "mean_words": 87.284,
+   "median_words": 88,
+   "mean_new_tokens": 113.5,
+   "mentions_per_100_words": 8.60638834150589
+  },
+  "F4": {
+   "full": {
+    "chair_i": 0.12584080717488788,
+    "chair_s": 0.45,
+    "mentions_per_caption": 7.136,
+    "n_mentions": 3568,
+    "n_hal_mentions": 449
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.03696098562628337,
+     "chair_s": 0.086,
+     "mentions_per_caption": 2.922,
+     "n_mentions": 1461,
+     "n_hal_mentions": 54,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.08557364634608103,
+     "chair_s": 0.284,
+     "mentions_per_caption": 5.282,
+     "n_mentions": 2641,
+     "n_hal_mentions": 226,
+     "frac_captions_over_budget": 0.836
+    },
+    "90": {
+     "chair_i": 0.11981159846923756,
+     "chair_s": 0.426,
+     "mentions_per_caption": 6.794,
+     "n_mentions": 3397,
+     "n_hal_mentions": 407,
+     "frac_captions_over_budget": 0.368
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1069,
+     939,
+     901,
+     659
+    ],
+    "n_hal": [
+     30,
+     76,
+     207,
+     136
+    ],
+    "hal_rate": [
+     0.02806361085126286,
+     0.08093716719914804,
+     0.2297447280799112,
+     0.20637329286798178
+    ]
+   },
+   "mean_words": 82.186,
+   "median_words": 84,
+   "mean_new_tokens": 106.6,
+   "mentions_per_100_words": 8.682744019662715
+  },
+  "G1": {
+   "full": {
+    "chair_i": 0.1074561403508772,
+    "chair_s": 0.372,
+    "mentions_per_caption": 7.296,
+    "n_mentions": 3648,
+    "n_hal_mentions": 392
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.02844950213371266,
+     "chair_s": 0.062,
+     "mentions_per_caption": 2.812,
+     "n_mentions": 1406,
+     "n_hal_mentions": 40,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.07169811320754717,
+     "chair_s": 0.242,
+     "mentions_per_caption": 5.3,
+     "n_mentions": 2650,
+     "n_hal_mentions": 190,
+     "frac_captions_over_budget": 0.922
+    },
+    "90": {
+     "chair_i": 0.10331890331890332,
+     "chair_s": 0.362,
+     "mentions_per_caption": 6.93,
+     "n_mentions": 3465,
+     "n_hal_mentions": 358,
+     "frac_captions_over_budget": 0.484
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1137,
+     922,
+     951,
+     638
+    ],
+    "n_hal": [
+     24,
+     93,
+     176,
+     99
+    ],
+    "hal_rate": [
+     0.021108179419525065,
+     0.10086767895878525,
+     0.18506834910620398,
+     0.15517241379310345
+    ]
+   },
+   "mean_words": 87.71,
+   "median_words": 89,
+   "mean_new_tokens": 114.1,
+   "mentions_per_100_words": 8.318321742104663
+  },
+  "G2": {
+   "full": {
+    "chair_i": 0.10426136363636364,
+    "chair_s": 0.384,
+    "mentions_per_caption": 7.04,
+    "n_mentions": 3520,
+    "n_hal_mentions": 367
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.027624309392265192,
+     "chair_s": 0.07,
+     "mentions_per_caption": 2.896,
+     "n_mentions": 1448,
+     "n_hal_mentions": 40,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.0748324646314222,
+     "chair_s": 0.242,
+     "mentions_per_caption": 5.372,
+     "n_mentions": 2686,
+     "n_hal_mentions": 201,
+     "frac_captions_over_budget": 0.834
+    },
+    "90": {
+     "chair_i": 0.1012206013694552,
+     "chair_s": 0.37,
+     "mentions_per_caption": 6.718,
+     "n_mentions": 3359,
+     "n_hal_mentions": 340,
+     "frac_captions_over_budget": 0.406
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1102,
+     921,
+     899,
+     598
+    ],
+    "n_hal": [
+     23,
+     79,
+     165,
+     100
+    ],
+    "hal_rate": [
+     0.020871143375680582,
+     0.08577633007600434,
+     0.1835372636262514,
+     0.16722408026755853
+    ]
+   },
+   "mean_words": 83.744,
+   "median_words": 85,
+   "mean_new_tokens": 109.0,
+   "mentions_per_100_words": 8.406572411157814
+  },
+  "G3": {
+   "full": {
+    "chair_i": 0.14293290904269423,
+    "chair_s": 0.474,
+    "mentions_per_caption": 7.542,
+    "n_mentions": 3771,
+    "n_hal_mentions": 539
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.04384133611691023,
+     "chair_s": 0.1,
+     "mentions_per_caption": 2.874,
+     "n_mentions": 1437,
+     "n_hal_mentions": 63,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.10040755835494627,
+     "chair_s": 0.314,
+     "mentions_per_caption": 5.398,
+     "n_mentions": 2699,
+     "n_hal_mentions": 271,
+     "frac_captions_over_budget": 0.874
+    },
+    "90": {
+     "chair_i": 0.13412563667232597,
+     "chair_s": 0.438,
+     "mentions_per_caption": 7.068,
+     "n_mentions": 3534,
+     "n_hal_mentions": 474,
+     "frac_captions_over_budget": 0.448
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1126,
+     965,
+     972,
+     708
+    ],
+    "n_hal": [
+     48,
+     90,
+     229,
+     172
+    ],
+    "hal_rate": [
+     0.04262877442273535,
+     0.09326424870466321,
+     0.23559670781893005,
+     0.24293785310734464
+    ]
+   },
+   "mean_words": 87.038,
+   "median_words": 88,
+   "mean_new_tokens": 112.9,
+   "mentions_per_100_words": 8.665180725660056
+  },
+  "G4": {
+   "full": {
+    "chair_i": 0.10914454277286136,
+    "chair_s": 0.374,
+    "mentions_per_caption": 6.78,
+    "n_mentions": 3390,
+    "n_hal_mentions": 370
+   },
+   "at_k": {
+    "30": {
+     "chair_i": 0.039509536784741145,
+     "chair_s": 0.1,
+     "mentions_per_caption": 2.936,
+     "n_mentions": 1468,
+     "n_hal_mentions": 58,
+     "frac_captions_over_budget": 1.0
+    },
+    "60": {
+     "chair_i": 0.07660533233195645,
+     "chair_s": 0.258,
+     "mentions_per_caption": 5.326,
+     "n_mentions": 2663,
+     "n_hal_mentions": 204,
+     "frac_captions_over_budget": 0.774
+    },
+    "90": {
+     "chair_i": 0.1055352798053528,
+     "chair_s": 0.36,
+     "mentions_per_caption": 6.576,
+     "n_mentions": 3288,
+     "n_hal_mentions": 347,
+     "frac_captions_over_budget": 0.308
+    }
+   },
+   "position_quartiles": {
+    "n_mentions": [
+     1028,
+     899,
+     877,
+     586
+    ],
+    "n_hal": [
+     31,
+     70,
+     151,
+     118
+    ],
+    "hal_rate": [
+     0.030155642023346304,
+     0.0778642936596218,
+     0.17217787913340935,
+     0.20136518771331058
+    ]
+   },
+   "mean_words": 77.818,
+   "median_words": 78,
+   "mean_new_tokens": 100.9,
+   "mentions_per_100_words": 8.712637179058829
+  }
+ },
+ "bootstrap": {
+  "S4_minus_J4@full": {
+   "gap": -0.028803430318907863,
+   "ci95": [
+    -0.043309823853969975,
+    -0.014384009702734402
+   ]
+  },
+  "S4_minus_J4@60": {
+   "gap": -0.000989140746085193,
+   "ci95": [
+    -0.013436206247647728,
+    0.011283869692645734
+   ]
+  },
+  "S3_minus_S1@full": {
+   "gap": 0.013203100731740941,
+   "ci95": [
+    -0.001007792039833172,
+    0.027345334540014143
+   ]
+  },
+  "S3_minus_S1@60": {
+   "gap": 0.014655776723561734,
+   "ci95": [
+    0.002289076324886369,
+    0.027883442840762246
+   ]
+  }
+ }
+}

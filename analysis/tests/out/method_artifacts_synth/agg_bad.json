@@ -1,0 +1,219 @@
+{
+ "f1_tol": 0.3,
+ "suites": {
+  "pilot": {
+   "n_stages": 4
+  }
+ },
+ "backbones": {
+  "llava15": {
+   "base": {},
+   "suites": {
+    "pilot": {
+     "arms": {},
+     "scorecard": [
+      {
+       "arm": "seq",
+       "cells": [
+        {
+         "order": "o1",
+         "seed": 17,
+         "complete": true,
+         "sum_abs_dc": 2.6485,
+         "post_settle": 2.4185,
+         "endpoint_c": 1.0269,
+         "max_abs_dd": 0.225,
+         "endpoint_chair_i60": 0.2,
+         "plasticity": 0.65,
+         "dc_steps": [
+          0.22,
+          0.6958,
+          0.1806,
+          1.5421
+         ]
+        },
+        {
+         "order": "o1",
+         "seed": 23,
+         "complete": true,
+         "sum_abs_dc": 2.2773,
+         "post_settle": 2.0573,
+         "endpoint_c": 1.0269,
+         "max_abs_dd": 1.2121,
+         "endpoint_chair_i60": 0.2,
+         "plasticity": 0.65,
+         "dc_steps": [
+          0.22,
+          0.3861,
+          0.1291,
+          1.5421
+         ]
+        },
+        {
+         "order": "o1",
+         "seed": 31,
+         "complete": true,
+         "sum_abs_dc": 2.6385,
+         "post_settle": 2.4185,
+         "endpoint_c": 1.0269,
+         "max_abs_dd": 0.225,
+         "endpoint_chair_i60": 0.2,
+         "plasticity": 0.65,
+         "dc_steps": [
+          0.22,
+          0.6958,
+          0.1806,
+          1.5421
+         ]
+        },
+        {
+         "order": "o2",
+         "seed": 17,
+         "complete": true,
+         "sum_abs_dc": 2.6385,
+         "post_settle": 2.4185,
+         "endpoint_c": 1.0269,
+         "max_abs_dd": 0.225,
+         "endpoint_chair_i60": 0.2,
+         "plasticity": 0.65,
+         "dc_steps": [
+          0.22,
+          0.6958,
+          0.1806,
+          1.5421
+         ]
+        }
+       ],
+       "n_complete": 4
+      },
+      {
+       "arm": "anchor",
+       "cells": [
+        {
+         "order": "o1",
+         "seed": 17,
+         "complete": true,
+         "sum_abs_dc": 0.0643,
+         "post_settle": 0.0,
+         "endpoint_c": 0.2843,
+         "max_abs_dd": 0.0103,
+         "endpoint_chair_i60": 0.0476,
+         "plasticity": 0.64,
+         "dc_steps": [
+          0.0643,
+          0.0,
+          0.0,
+          0.0
+         ]
+        },
+        {
+         "order": "o1",
+         "seed": 23,
+         "complete": true,
+         "sum_abs_dc": 0.0643,
+         "post_settle": 0.0,
+         "endpoint_c": 0.2843,
+         "max_abs_dd": 0.0103,
+         "endpoint_chair_i60": 0.0476,
+         "plasticity": 0.64,
+         "dc_steps": [
+          0.0643,
+          0.0,
+          0.0,
+          0.0
+         ]
+        },
+        {
+         "order": "o1",
+         "seed": 31,
+         "complete": true,
+         "sum_abs_dc": 0.0643,
+         "post_settle": 0.0,
+         "endpoint_c": 0.2843,
+         "max_abs_dd": 0.0103,
+         "endpoint_chair_i60": 0.0476,
+         "plasticity": 0.64,
+         "dc_steps": [
+          0.0643,
+          0.0,
+          0.0,
+          0.0
+         ]
+        }
+       ],
+       "n_complete": 3
+      },
+      {
+       "arm": "joint",
+       "cells": [
+        {
+         "order": "o1",
+         "seed": 17,
+         "complete": true,
+         "sum_abs_dc": 0.5,
+         "post_settle": 0.3,
+         "endpoint_c": -0.1,
+         "max_abs_dd": 0.05,
+         "endpoint_chair_i60": 0.15,
+         "dc_steps": [
+          0.2,
+          0.1,
+          0.1,
+          0.1
+         ]
+        },
+        {
+         "order": "o1",
+         "seed": 23,
+         "complete": true,
+         "sum_abs_dc": 0.6,
+         "post_settle": 0.4,
+         "endpoint_c": -0.05,
+         "max_abs_dd": 0.35,
+         "endpoint_chair_i60": 0.16,
+         "dc_steps": [
+          0.2,
+          0.2,
+          0.1,
+          0.1
+         ]
+        },
+        {
+         "order": "o1",
+         "seed": 31,
+         "complete": false
+        }
+       ],
+       "n_complete": 2,
+       "vs_seq": {
+        "n_matched": 2,
+        "sum_abs_dc_lower": [
+         2,
+         2
+        ],
+        "post_settle_lower": [
+         2,
+         2
+        ],
+        "chair_i_lower": [
+         1,
+         2
+        ],
+        "chair_i60_lower": [
+         1,
+         2
+        ],
+        "plasticity_not_worse": [
+         0,
+         0
+        ],
+        "plasticity_tol": 0.02,
+        "per_cell": []
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

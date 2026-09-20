@@ -1,0 +1,547 @@
+{
+ "label": "PILOT-RUN REFERENCES: LLaVA-1.5-7B, pilot suite, order o1 (scienceqa, textvqa, flickr, vizwiz), one seed, one cell per arm; exploratory post-hoc method results from analysis/method_comparison.py (2026-08-31). Context only for full-study scorecards: different backbone/seed/cell, never an input to any PASS/FAIL verdict.",
+ "source": {
+  "method_comparison": "analysis/diag/method_comparison.json",
+  "length_controlled_chair": "length_controlled_chair.json",
+  "g4_bootstrap_cis": "g4_bootstrap_cis.json"
+ },
+ "base": {
+  "ckpt": "S0",
+  "H": 0.7711,
+  "FA": 0.0542,
+  "dprime": 2.348,
+  "c": 0.431,
+  "yes_rate": 0.4127,
+  "chair_i": 0.1564,
+  "tok": 108.4,
+  "chair_i_at_60": 0.1052
+ },
+ "arms": {
+  "SEQ": {
+   "letter": "S",
+   "label": "plain sequential",
+   "checkpoints": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4"
+   ],
+   "stages": [
+    {
+     "stage": 0,
+     "ckpt": "S0",
+     "task_learned": null,
+     "c": 0.431,
+     "dprime": 2.348,
+     "yes_rate": 0.4127,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1564,
+     "tok": 108.4,
+     "new_task_acc": null,
+     "chair_i_at_60": 0.1052
+    },
+    {
+     "stage": 1,
+     "ckpt": "S1",
+     "task_learned": "scienceqa",
+     "c": 0.339,
+     "dprime": 2.353,
+     "yes_rate": 0.4319,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1372,
+     "tok": 115.0,
+     "new_task_acc": 0.818,
+     "chair_i_at_60": 0.087
+    },
+    {
+     "stage": 2,
+     "ckpt": "S2",
+     "task_learned": "textvqa",
+     "c": -0.034,
+     "dprime": 2.197,
+     "yes_rate": 0.5074,
+     "leak_textvqa": 0.01,
+     "chair_i": 0.1443,
+     "tok": 114.6,
+     "new_task_acc": 0.571,
+     "chair_i_at_60": 0.0936
+    },
+    {
+     "stage": 3,
+     "ckpt": "S3",
+     "task_learned": "flickr",
+     "c": 0.177,
+     "dprime": 2.314,
+     "yes_rate": 0.4638,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1504,
+     "tok": 115.5,
+     "new_task_acc": 0.5365,
+     "chair_i_at_60": 0.1016
+    },
+    {
+     "stage": 4,
+     "ckpt": "S4",
+     "task_learned": "vizwiz",
+     "c": 0.744,
+     "dprime": 2.39,
+     "yes_rate": 0.3501,
+     "leak_textvqa": 0.146,
+     "chair_i": 0.1273,
+     "tok": 104.8,
+     "new_task_acc": 0.7112,
+     "chair_i_at_60": 0.0894
+    }
+   ],
+   "scorecard": {
+    "sum_abs_dc": 1.243,
+    "abs_dc_per_stage": [
+     0.092,
+     0.373,
+     0.211,
+     0.567
+    ],
+    "sum_abs_dc_post_settling": 1.151,
+    "endpoint_c": 0.744,
+    "max_abs_dd": 0.151,
+    "f1_tripped": false,
+    "endpoint_leak": 0.146,
+    "endpoint_chair_i": 0.1273,
+    "endpoint_chair_at_60": 0.0894,
+    "mean_plasticity": 0.6592
+   }
+  },
+  "anchor-v2": {
+   "letter": "G",
+   "label": "symmetric decision-axis anchor",
+   "checkpoints": [
+    "S0",
+    "G1",
+    "G2",
+    "G3",
+    "G4"
+   ],
+   "stages": [
+    {
+     "stage": 0,
+     "ckpt": "S0",
+     "task_learned": null,
+     "c": 0.431,
+     "dprime": 2.348,
+     "yes_rate": 0.4127,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1564,
+     "tok": 108.4,
+     "new_task_acc": null,
+     "chair_i_at_60": 0.1052
+    },
+    {
+     "stage": 1,
+     "ckpt": "G1",
+     "task_learned": "scienceqa",
+     "c": 0.838,
+     "dprime": 2.413,
+     "yes_rate": 0.3321,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1075,
+     "tok": 114.1,
+     "new_task_acc": 0.796,
+     "chair_i_at_60": 0.0717
+    },
+    {
+     "stage": 2,
+     "ckpt": "G2",
+     "task_learned": "textvqa",
+     "c": 0.718,
+     "dprime": 2.422,
+     "yes_rate": 0.358,
+     "leak_textvqa": 0.018,
+     "chair_i": 0.1043,
+     "tok": 109.0,
+     "new_task_acc": 0.5666,
+     "chair_i_at_60": 0.0748
+    },
+    {
+     "stage": 3,
+     "ckpt": "G3",
+     "task_learned": "flickr",
+     "c": 0.875,
+     "dprime": 2.495,
+     "yes_rate": 0.3311,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1429,
+     "tok": 112.9,
+     "new_task_acc": 0.5375,
+     "chair_i_at_60": 0.1004
+    },
+    {
+     "stage": 4,
+     "ckpt": "G4",
+     "task_learned": "vizwiz",
+     "c": 0.768,
+     "dprime": 2.336,
+     "yes_rate": 0.341,
+     "leak_textvqa": 0.164,
+     "chair_i": 0.1091,
+     "tok": 100.9,
+     "new_task_acc": 0.7232,
+     "chair_i_at_60": 0.0766
+    }
+   ],
+   "scorecard": {
+    "sum_abs_dc": 0.791,
+    "abs_dc_per_stage": [
+     0.407,
+     0.12,
+     0.157,
+     0.107
+    ],
+    "sum_abs_dc_post_settling": 0.384,
+    "endpoint_c": 0.768,
+    "max_abs_dd": 0.147,
+    "f1_tripped": false,
+    "endpoint_leak": 0.164,
+    "endpoint_chair_i": 0.1091,
+    "endpoint_chair_at_60": 0.0766,
+    "mean_plasticity": 0.6558
+   }
+  },
+  "JOINT": {
+   "letter": "J",
+   "label": "matched joint control",
+   "checkpoints": [
+    "S0",
+    "J1",
+    "J2",
+    "J3",
+    "J4"
+   ],
+   "stages": [
+    {
+     "stage": 0,
+     "ckpt": "S0",
+     "task_learned": null,
+     "c": 0.431,
+     "dprime": 2.348,
+     "yes_rate": 0.4127,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1564,
+     "tok": 108.4,
+     "new_task_acc": null,
+     "chair_i_at_60": 0.1052
+    },
+    {
+     "stage": 1,
+     "ckpt": "J1",
+     "task_learned": "scienceqa",
+     "c": 0.748,
+     "dprime": 2.427,
+     "yes_rate": 0.352,
+     "leak_textvqa": 0.034,
+     "chair_i": 0.1494,
+     "tok": 115.0,
+     "new_task_acc": 0.728,
+     "chair_i_at_60": 0.1
+    },
+    {
+     "stage": 2,
+     "ckpt": "J2",
+     "task_learned": "textvqa",
+     "c": -0.115,
+     "dprime": 2.138,
+     "yes_rate": 0.5259,
+     "leak_textvqa": 0.016,
+     "chair_i": 0.165,
+     "tok": 116.6,
+     "new_task_acc": 0.5628,
+     "chair_i_at_60": 0.1022
+    },
+    {
+     "stage": 3,
+     "ckpt": "J3",
+     "task_learned": "flickr",
+     "c": -0.018,
+     "dprime": 2.188,
+     "yes_rate": 0.5039,
+     "leak_textvqa": 0.022,
+     "chair_i": 0.1501,
+     "tok": 116.6,
+     "new_task_acc": 0.5331,
+     "chair_i_at_60": 0.0909
+    },
+    {
+     "stage": 4,
+     "ckpt": "J4",
+     "task_learned": "vizwiz",
+     "c": -0.019,
+     "dprime": 2.185,
+     "yes_rate": 0.5042,
+     "leak_textvqa": 0.022,
+     "chair_i": 0.1561,
+     "tok": 116.8,
+     "new_task_acc": 0.7116,
+     "chair_i_at_60": 0.0904
+    }
+   ],
+   "scorecard": {
+    "sum_abs_dc": 1.278,
+    "abs_dc_per_stage": [
+     0.317,
+     0.863,
+     0.097,
+     0.001
+    ],
+    "sum_abs_dc_post_settling": 0.961,
+    "endpoint_c": -0.019,
+    "max_abs_dd": 0.21,
+    "f1_tripped": false,
+    "endpoint_leak": 0.022,
+    "endpoint_chair_i": 0.1561,
+    "endpoint_chair_at_60": 0.0904,
+    "mean_plasticity": 0.6339
+   }
+  },
+  "ER": {
+   "letter": "E",
+   "label": "experience replay, 100 exemplars",
+   "checkpoints": [
+    "S0",
+    "E1",
+    "E2",
+    "E3",
+    "E4"
+   ],
+   "stages": [
+    {
+     "stage": 0,
+     "ckpt": "S0",
+     "task_learned": null,
+     "c": 0.431,
+     "dprime": 2.348,
+     "yes_rate": 0.4127,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1564,
+     "tok": 108.4,
+     "new_task_acc": null,
+     "chair_i_at_60": 0.1052
+    },
+    {
+     "stage": 1,
+     "ckpt": "E1",
+     "task_learned": "scienceqa",
+     "c": 0.331,
+     "dprime": 2.344,
+     "yes_rate": 0.4332,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1379,
+     "tok": 115.5,
+     "new_task_acc": 0.828,
+     "chair_i_at_60": 0.085
+    },
+    {
+     "stage": 2,
+     "ckpt": "E2",
+     "task_learned": "textvqa",
+     "c": -0.037,
+     "dprime": 2.237,
+     "yes_rate": 0.5079,
+     "leak_textvqa": 0.018,
+     "chair_i": 0.1427,
+     "tok": 114.0,
+     "new_task_acc": 0.5566,
+     "chair_i_at_60": 0.0951
+    },
+    {
+     "stage": 3,
+     "ckpt": "E3",
+     "task_learned": "flickr",
+     "c": 0.063,
+     "dprime": 2.232,
+     "yes_rate": 0.4864,
+     "leak_textvqa": 0.008,
+     "chair_i": 0.1544,
+     "tok": 113.7,
+     "new_task_acc": 0.5387,
+     "chair_i_at_60": 0.099
+    },
+    {
+     "stage": 4,
+     "ckpt": "E4",
+     "task_learned": "vizwiz",
+     "c": 0.853,
+     "dprime": 2.419,
+     "yes_rate": 0.3293,
+     "leak_textvqa": 0.126,
+     "chair_i": 0.1482,
+     "tok": 108.9,
+     "new_task_acc": 0.7044,
+     "chair_i_at_60": 0.0957
+    }
+   ],
+   "scorecard": {
+    "sum_abs_dc": 1.358,
+    "abs_dc_per_stage": [
+     0.1,
+     0.368,
+     0.1,
+     0.79
+    ],
+    "sum_abs_dc_post_settling": 1.258,
+    "endpoint_c": 0.853,
+    "max_abs_dd": 0.116,
+    "f1_tripped": false,
+    "endpoint_leak": 0.126,
+    "endpoint_chair_i": 0.1482,
+    "endpoint_chair_at_60": 0.0957,
+    "mean_plasticity": 0.6569
+   }
+  },
+  "anchor-v1": {
+   "letter": "F",
+   "label": "one-sided anchor (falsified)",
+   "checkpoints": [
+    "S0",
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+   ],
+   "stages": [
+    {
+     "stage": 0,
+     "ckpt": "S0",
+     "task_learned": null,
+     "c": 0.431,
+     "dprime": 2.348,
+     "yes_rate": 0.4127,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1564,
+     "tok": 108.4,
+     "new_task_acc": null,
+     "chair_i_at_60": 0.1052
+    },
+    {
+     "stage": 1,
+     "ckpt": "F1",
+     "task_learned": "scienceqa",
+     "c": 2.021,
+     "dprime": 1.871,
+     "yes_rate": 0.0702,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.108,
+     "tok": 114.1,
+     "new_task_acc": 0.818,
+     "chair_i_at_60": 0.07
+    },
+    {
+     "stage": 2,
+     "ckpt": "F2",
+     "task_learned": "textvqa",
+     "c": 1.843,
+     "dprime": 2.73,
+     "yes_rate": 0.1584,
+     "leak_textvqa": 0.014,
+     "chair_i": 0.1151,
+     "tok": 114.6,
+     "new_task_acc": 0.5604,
+     "chair_i_at_60": 0.0768
+    },
+    {
+     "stage": 3,
+     "ckpt": "F3",
+     "task_learned": "flickr",
+     "c": 2.466,
+     "dprime": 2.092,
+     "yes_rate": 0.039,
+     "leak_textvqa": 0.0,
+     "chair_i": 0.1419,
+     "tok": 113.5,
+     "new_task_acc": 0.5394,
+     "chair_i_at_60": 0.1031
+    },
+    {
+     "stage": 4,
+     "ckpt": "F4",
+     "task_learned": "vizwiz",
+     "c": 1.427,
+     "dprime": 2.572,
+     "yes_rate": 0.2237,
+     "leak_textvqa": 0.178,
+     "chair_i": 0.1258,
+     "tok": 106.6,
+     "new_task_acc": 0.712,
+     "chair_i_at_60": 0.0856
+    }
+   ],
+   "scorecard": {
+    "sum_abs_dc": 3.43,
+    "abs_dc_per_stage": [
+     1.59,
+     0.178,
+     0.623,
+     1.039
+    ],
+    "sum_abs_dc_post_settling": 1.84,
+    "endpoint_c": 1.427,
+    "max_abs_dd": 0.477,
+    "f1_tripped": true,
+    "endpoint_leak": 0.178,
+    "endpoint_chair_i": 0.1258,
+    "endpoint_chair_at_60": 0.0856,
+    "mean_plasticity": 0.6575
+   }
+  }
+ },
+ "endpoint_chair_at_60_paired_bootstrap": {
+  "note": "G4 (anchor-v2) minus S4 / J4 at k=60; paired images, B=10000, seed 17",
+  "G4_minus_S4_at60": {
+   "point": -0.0128,
+   "ci95": [
+    -0.0228,
+    -0.0028
+   ],
+   "n_pairs": 500,
+   "excludes_zero": true
+  },
+  "G4_minus_J4_at60": {
+   "point": -0.0138,
+   "ci95": [
+    -0.0257,
+    -0.0019
+   ],
+   "n_pairs": 500,
+   "excludes_zero": true
+  }
+ },
+ "length_controlled_bootstrap_measurement": {
+  "S4_minus_J4@full": {
+   "gap": -0.028803430318907863,
+   "ci95": [
+    -0.043309823853969975,
+    -0.014384009702734402
+   ]
+  },
+  "S4_minus_J4@60": {
+   "gap": -0.000989140746085193,
+   "ci95": [
+    -0.013436206247647728,
+    0.011283869692645734
+   ]
+  },
+  "S3_minus_S1@full": {
+   "gap": 0.013203100731740941,
+   "ci95": [
+    -0.001007792039833172,
+    0.027345334540014143
+   ]
+  },
+  "S3_minus_S1@60": {
+   "gap": 0.014655776723561734,
+   "ci95": [
+    0.002289076324886369,
+    0.027883442840762246
+   ]
+  }
+ }
+}

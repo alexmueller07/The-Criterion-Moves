@@ -1,0 +1,1 @@
+{"argv": ["eval_gen.py", "--backbone", "llava15", "--out", "psL_anchor_o1_s17_k1"]}

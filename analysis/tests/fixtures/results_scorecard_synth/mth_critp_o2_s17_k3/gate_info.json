@@ -1,0 +1,1 @@
+{"argv": ["eval_gen.py", "--backbone", "qwen25vl", "--out", "mth_critp_o2_s17_k3"]}

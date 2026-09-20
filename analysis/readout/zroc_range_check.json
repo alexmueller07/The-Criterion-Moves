@@ -1,0 +1,46 @@
+{
+  "seq": {
+    "n": 9,
+    "mean_r2": 0.9569,
+    "mean_zfa_range": 0.4441,
+    "mean_resid_rmse": 0.0183
+  },
+  "anchor": {
+    "n": 9,
+    "mean_r2": 0.5857,
+    "mean_zfa_range": 0.2121,
+    "mean_resid_rmse": 0.0316
+  },
+  "joint": {
+    "n": 2,
+    "mean_r2": 0.9446,
+    "mean_zfa_range": 0.1417,
+    "mean_resid_rmse": 0.0072
+  },
+  "binormal_diagnostics": {
+    "seq": {
+      "n": 9,
+      "mean_b": 0.7155,
+      "mean_d_a": 2.1587,
+      "mean_A_z": 0.9365,
+      "mean_r": 7.053,
+      "cells_improperness_indiscernible": 9
+    },
+    "anchor": {
+      "n": 9,
+      "mean_b": 0.5457,
+      "mean_d_a": 1.7884,
+      "mean_A_z": 0.8903,
+      "mean_r": 4.321,
+      "cells_improperness_indiscernible": 5
+    },
+    "joint": {
+      "n": 2,
+      "mean_b": 0.6692,
+      "mean_d_a": 2.1812,
+      "mean_A_z": 0.9385,
+      "mean_r": 6.237,
+      "cells_improperness_indiscernible": 2
+    }
+  }
+}

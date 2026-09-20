@@ -1,0 +1,1 @@
+fake inputs for test_method_artifacts.py

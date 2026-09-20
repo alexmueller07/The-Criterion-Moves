@@ -1,0 +1,5 @@
+block,variant,cell,order,seed,post_settle_variant,post_settle_original,delta_post_settle,churn_removed,position_vs_original_range,original_range_min,original_range_max,original_n,status
+pilot-llava,neutral,o1/s17,o1,17,0.1992,2.4185,-2.2193,0.917635,below,2.0573,2.4185,4,matched
+pilot-llava,neutral,o1/s23,o1,23,0.1992,2.0573,-1.8581,0.903174,below,2.0573,2.4185,4,matched
+pilot-llava,neutral,o1/s31,o1,31,0.1992,2.4185,-2.2193,0.917635,below,2.0573,2.4185,4,matched
+pilot-llava,amplified,o1/s17,o1,17,2.6814,2.4185,0.2629,-0.108704,above,2.0573,2.4185,4,matched

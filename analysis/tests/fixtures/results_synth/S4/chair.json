@@ -1,0 +1,9 @@
+{
+  "ckpt": "S4",
+  "n_captions": 60,
+  "chair_s": 0.505,
+  "chair_i": 0.555,
+  "mentions_per_caption": 5.4,
+  "mean_new_tokens": 140.0,
+  "truncation_rate": 0.04
+}

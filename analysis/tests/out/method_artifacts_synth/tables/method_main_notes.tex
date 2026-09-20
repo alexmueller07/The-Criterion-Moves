@@ -1,0 +1,14 @@
+% Auto-generated audit notes for method_main.tex.
+{\footnotesize
+Rows are arms with at least one complete (ordering, seed) cell in the block's scorecard; a row of '--' is an arm present in another block (or with zero complete cells here). Nothing is imputed.\\
+Each entry is the mean over complete cells with the [min--max] across cells (a single cell shows the value alone); cells are (ordering, seed) runs, orderings are strata, and no cross-seed confidence interval is computed (design\_notes/review\_statistics.md sec.~2). Per-cell values: method\_main\_cells.csv.\\
+Reference arm and base cell are named in each block header. $\Sigma|\Delta c|=\sum_k |c_k-c_{k-1}|$ with $c_0$ = base (pooled POPE, clipped $z$); max$|\Delta d'| = \max_k |d'_k - d'_{\mathrm{base}}|$\\
+CHAIR$_i$@60 = per-mention CHAIR$_i$ over the first 60 words of the endpoint captions; the superscript $k/n$ counts matched cells whose paired image-bootstrap CI95 of arm $-$ ref excludes 0 on the reducing side ($B$ and seed in the block header).\\
+Plasticity = mean over stages of the just-trained task's score (pilot scorers mc\_acc / vqa\_acc / caption\_uf1; the caption task is a trajectory signal, not an accuracy).\\
+'$<$ SEQ' = matched cells in which the arm's $\Sigma|\Delta c|$ (first) and endpoint CHAIR$_i$@60 (second) are below the reference.\\
+P1--P4 are the pre-registered predictions with the rules of analysis/method\_scorecard.py (P1 $\Sigma|\Delta c|$ lower in $\geq 2/3$ matched cells; P2 plasticity $\geq$ ref $- 0.02$ in every cell; P3 max$|\Delta d'| < 0.30$ in every cell; P4 CHAIR$_i$@60 CI excludes 0 below ref in $\geq$ half); P = pass, F = fail, -- = inputs absent; overall PASS needs all four.\\
+$\dagger$: falsifier F1 tripped ($|\Delta d'| > 0.30$) in at least one cell (count in the CSV).\\
+$\ell$ rows: zero-training inference-time correction of the POPE answer-position logits (analysis/logit\_bias\_analysis.py). Per stage a scalar is added to $g = z_{yes} - z_{no}$: $b^{*}$ (labeled) matches the base criterion on a stratified calibration split, $\bar b$ (label-free) matches the mean gap; decisions at 0 on the held-out split; $c$, $d'$ are means over calibration-split seeds. CHAIR and plasticity do not apply (captions and task outputs are unchanged). '$<$ SEQ' and P1/P3 compare against the UNCORRECTED logit trajectory of the same cell (same instrument and split), so they are not directly comparable with the text-parsed rows; P2/P4 are not applicable.\\
+$a$ row: JOINT from fs\_aggregate.json (stage-boundary checkpoints of the joint run scored by the same scorers); the scorecard has no staged JOINT cells, so no paired CI and no verdicts.\\
+$p$ rows: pilot-run reference (LLaVA-1.5-7B, ordering o1, one seed; analysis/reference\_numbers.json) -- context only, never an input to a verdict, never bolded.\\
+}

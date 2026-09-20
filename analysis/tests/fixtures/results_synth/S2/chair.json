@@ -1,0 +1,9 @@
+{
+  "ckpt": "S2",
+  "n_captions": 60,
+  "chair_s": 0.303,
+  "chair_i": 0.333,
+  "mentions_per_caption": 5.2,
+  "mean_new_tokens": 120.0,
+  "truncation_rate": 0.02
+}

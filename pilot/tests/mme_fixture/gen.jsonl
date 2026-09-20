@@ -1,0 +1,10 @@
+{"id": "mme_existence_imgA_0", "subtask": "existence", "mme_image": "existence/imgA", "gt": "yes", "output": "Yes, there is a cat.", "n_new_tokens": 6, "truncated": false}
+{"id": "mme_existence_imgA_1", "subtask": "existence", "mme_image": "existence/imgA", "gt": "no", "output": "No.", "n_new_tokens": 2, "truncated": false}
+{"id": "mme_existence_imgB_0", "subtask": "existence", "mme_image": "existence/imgB", "gt": "yes", "output": "No", "n_new_tokens": 1, "truncated": false}
+{"id": "mme_existence_imgB_1", "subtask": "existence", "mme_image": "existence/imgB", "gt": "no", "output": "Maybe", "n_new_tokens": 1, "truncated": false}
+{"id": "mme_count_imgC_0", "subtask": "count", "mme_image": "count/imgC", "gt": "yes", "output": "yes", "n_new_tokens": 1, "truncated": false}
+{"id": "mme_count_imgC_1", "subtask": "count", "mme_image": "count/imgC", "gt": "no", "output": "Yes there are two", "n_new_tokens": 4, "truncated": false}
+{"id": "mme_position_imgE_0", "subtask": "position", "mme_image": "position/imgE", "gt": "yes", "output": "Yes", "n_new_tokens": 1, "truncated": false}
+{"id": "mme_position_imgE_1", "subtask": "position", "mme_image": "position/imgE", "gt": "no", "output": "No", "n_new_tokens": 1, "truncated": false}
+{"id": "mme_color_imgF_0", "subtask": "color", "mme_image": "color/imgF", "gt": "yes", "output": "yes", "n_new_tokens": 1, "truncated": false}
+{"id": "mme_color_imgF_1", "subtask": "color", "mme_image": "color/imgF", "gt": "no", "output": "no", "n_new_tokens": 1, "truncated": false}

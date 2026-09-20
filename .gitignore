@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+env/
+results/
+results_fs/
+runs/
+runs_fs/
+*.aux
+*.log

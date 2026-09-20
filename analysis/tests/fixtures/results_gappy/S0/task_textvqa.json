@@ -1,0 +1,10 @@
+{
+  "metric": "vqa_acc",
+  "score": 0.8,
+  "n": 500,
+  "parse_fail_rate": 0.0,
+  "ckpt": "S0",
+  "task": "textvqa",
+  "mean_new_tokens": 15.0,
+  "truncation_rate": 0.0
+}

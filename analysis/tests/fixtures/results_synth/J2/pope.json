@@ -1,0 +1,46 @@
+[
+  {
+    "ckpt": "J2",
+    "category": "adversarial",
+    "n": 30,
+    "accuracy": 0.61,
+    "precision": 0.605,
+    "recall": 0.595,
+    "f1": 0.6,
+    "yes_rate": 0.62,
+    "parse_fail_rate": 0.03
+  },
+  {
+    "ckpt": "J2",
+    "category": "all",
+    "n": 90,
+    "accuracy": 0.59,
+    "precision": 0.585,
+    "recall": 0.575,
+    "f1": 0.58,
+    "yes_rate": 0.62,
+    "parse_fail_rate": 0.03
+  },
+  {
+    "ckpt": "J2",
+    "category": "popular",
+    "n": 30,
+    "accuracy": 0.59,
+    "precision": 0.585,
+    "recall": 0.575,
+    "f1": 0.58,
+    "yes_rate": 0.62,
+    "parse_fail_rate": 0.03
+  },
+  {
+    "ckpt": "J2",
+    "category": "random",
+    "n": 30,
+    "accuracy": 0.57,
+    "precision": 0.565,
+    "recall": 0.555,
+    "f1": 0.56,
+    "yes_rate": 0.62,
+    "parse_fail_rate": 0.03
+  }
+]

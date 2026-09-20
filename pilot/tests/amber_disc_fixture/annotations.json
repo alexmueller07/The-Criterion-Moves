@@ -1,0 +1,9 @@
+[
+  {"id": 2001, "type": "discriminative-hallucination", "truth": "yes"},
+  {"id": 2002, "type": "discriminative-hallucination", "truth": "no"},
+  {"id": 2003, "type": "discriminative-attribute-state", "truth": "no"},
+  {"id": 2004, "type": "discriminative-attribute-number", "truth": "yes"},
+  {"id": 2005, "type": "discriminative-attribute-action", "truth": "no"},
+  {"id": 2006, "type": "discriminative-relation", "truth": "no"},
+  {"id": 2007, "type": "relation", "truth": "yes"}
+]

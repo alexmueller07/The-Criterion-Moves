@@ -1,0 +1,396 @@
+{
+ "mode": "placement_audit",
+ "aggregate": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/readout/fs_aggregate.json",
+ "backbone": "llava15",
+ "target": {
+  "prereg_constant": 0.088,
+  "backbone": "llava15",
+  "status": "OK",
+  "c_star": 0.08785,
+  "provenance": "JOINT arm endpoint criterion, mean over 2 cell(s) of fs_aggregate.json",
+  "target_yes_rate": 0.48135,
+  "joint_cells": [
+   {
+    "cell": "joint|o1|s17",
+    "endpoint_k": 6,
+    "c": 0.0623,
+    "yes_rate": 0.4867,
+    "f1": 0.8682,
+    "n_parsed": 8997
+   },
+   {
+    "cell": "joint|o1|s23",
+    "endpoint_k": 6,
+    "c": 0.1134,
+    "yes_rate": 0.476,
+    "f1": 0.8652,
+    "n_parsed": 9000
+   }
+  ],
+  "n_joint_cells": 2,
+  "drift_from_prereg": -0.00014999999999999736
+ },
+ "base_c": 0.4314,
+ "base_abs_dev": 0.34355,
+ "arms": {
+  "anchor": {
+   "n_cells": 9,
+   "mean_abs_dev_endpoint": 0.6093833333333334,
+   "mean_endpoint_c": 0.6972333333333334,
+   "mean_sum_abs_dc_raw": 0.7223888888888889,
+   "range_sum_abs_dc_raw": [
+    0.5209,
+    1.0154
+   ],
+   "mean_sum_abs_dc_post_settling": 0.3640888888888889,
+   "range_sum_abs_dc_post_settling": [
+    0.18780000000000008,
+    0.5519000000000002
+   ],
+   "mean_endpoint_f1": 0.7962888888888889,
+   "boot_mean_abs_dev_endpoint": {
+    "status": "OK",
+    "n": 9,
+    "n_boot": 1000,
+    "ci95": [
+     0.5564833333333333,
+     0.660538888888889
+    ]
+   },
+   "boot_mean_sum_abs_dc_raw": {
+    "status": "OK",
+    "n": 9,
+    "n_boot": 1000,
+    "ci95": [
+     0.6335000000000002,
+     0.8275888888888888
+    ]
+   },
+   "boot_mean_sum_abs_dc_post_settling": {
+    "status": "OK",
+    "n": 9,
+    "n_boot": 1000,
+    "ci95": [
+     0.29262222222222234,
+     0.43567777777777783
+    ]
+   },
+   "cells": [
+    {
+     "cell": "anchor|o1|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.7626,
+     "abs_dev_endpoint": 0.67475,
+     "sum_abs_dc_full": 0.7834000000000001,
+     "sum_abs_dc_post_settling": 0.4618000000000001,
+     "endpoint_f1": 0.7844,
+     "endpoint_dprime": 2.3611
+    },
+    {
+     "cell": "anchor|o1|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.6701,
+     "abs_dev_endpoint": 0.58225,
+     "sum_abs_dc_full": 0.6958999999999999,
+     "sum_abs_dc_post_settling": 0.35019999999999984,
+     "endpoint_f1": 0.7961,
+     "endpoint_dprime": 2.2981
+    },
+    {
+     "cell": "anchor|o1|s31",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.7405,
+     "abs_dev_endpoint": 0.6526500000000001,
+     "sum_abs_dc_full": 0.7817,
+     "sum_abs_dc_post_settling": 0.40989999999999993,
+     "endpoint_f1": 0.7896,
+     "endpoint_dprime": 2.362
+    },
+    {
+     "cell": "anchor|o2|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.8284,
+     "abs_dev_endpoint": 0.74055,
+     "sum_abs_dc_full": 0.8168,
+     "sum_abs_dc_post_settling": 0.41759999999999997,
+     "endpoint_f1": 0.7897,
+     "endpoint_dprime": 2.5073
+    },
+    {
+     "cell": "anchor|o2|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.7277,
+     "abs_dev_endpoint": 0.63985,
+     "sum_abs_dc_full": 0.7574999999999998,
+     "sum_abs_dc_post_settling": 0.36609999999999987,
+     "endpoint_f1": 0.7982,
+     "endpoint_dprime": 2.4019
+    },
+    {
+     "cell": "anchor|o2|s31",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.7179,
+     "abs_dev_endpoint": 0.63005,
+     "sum_abs_dc_full": 0.5631000000000002,
+     "sum_abs_dc_post_settling": 0.2190000000000002,
+     "endpoint_f1": 0.7962,
+     "endpoint_dprime": 2.3725
+    },
+    {
+     "cell": "anchor|o3|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.5414,
+     "abs_dev_endpoint": 0.45355,
+     "sum_abs_dc_full": 1.0154,
+     "sum_abs_dc_post_settling": 0.5519000000000002,
+     "endpoint_f1": 0.8167,
+     "endpoint_dprime": 2.2643
+    },
+    {
+     "cell": "anchor|o3|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.638,
+     "abs_dev_endpoint": 0.55015,
+     "sum_abs_dc_full": 0.5668000000000001,
+     "sum_abs_dc_post_settling": 0.18780000000000008,
+     "endpoint_f1": 0.7962,
+     "endpoint_dprime": 2.2514
+    },
+    {
+     "cell": "anchor|o3|s31",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.6485,
+     "abs_dev_endpoint": 0.56065,
+     "sum_abs_dc_full": 0.5209,
+     "sum_abs_dc_post_settling": 0.3125,
+     "endpoint_f1": 0.7995,
+     "endpoint_dprime": 2.29
+    }
+   ]
+  },
+  "joint": {
+   "n_cells": 2,
+   "mean_abs_dev_endpoint": 0.02555,
+   "mean_endpoint_c": 0.08785,
+   "mean_sum_abs_dc_raw": 0.6073500000000001,
+   "range_sum_abs_dc_raw": [
+    0.6002000000000001,
+    0.6144999999999999
+   ],
+   "mean_sum_abs_dc_post_settling": 0.22785,
+   "range_sum_abs_dc_post_settling": [
+    0.2157,
+    0.24
+   ],
+   "mean_endpoint_f1": 0.8667,
+   "boot_mean_abs_dev_endpoint": {
+    "status": "NO_INTERVAL",
+    "n": 2,
+    "values": [
+     0.025549999999999996,
+     0.025550000000000003
+    ],
+    "note": "n < 4: per-cell values quoted instead of an interval"
+   },
+   "boot_mean_sum_abs_dc_raw": {
+    "status": "NO_INTERVAL",
+    "n": 2,
+    "values": [
+     0.6144999999999999,
+     0.6002000000000001
+    ],
+    "note": "n < 4: per-cell values quoted instead of an interval"
+   },
+   "boot_mean_sum_abs_dc_post_settling": {
+    "status": "NO_INTERVAL",
+    "n": 2,
+    "values": [
+     0.24,
+     0.2157
+    ],
+    "note": "n < 4: per-cell values quoted instead of an interval"
+   },
+   "cells": [
+    {
+     "cell": "joint|o1|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.0623,
+     "abs_dev_endpoint": 0.025549999999999996,
+     "sum_abs_dc_full": 0.6144999999999999,
+     "sum_abs_dc_post_settling": 0.24,
+     "endpoint_f1": 0.8682,
+     "endpoint_dprime": 2.2567
+    },
+    {
+     "cell": "joint|o1|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.1134,
+     "abs_dev_endpoint": 0.025550000000000003,
+     "sum_abs_dc_full": 0.6002000000000001,
+     "sum_abs_dc_post_settling": 0.2157,
+     "endpoint_f1": 0.8652,
+     "endpoint_dprime": 2.2525
+    }
+   ]
+  },
+  "seq": {
+   "n_cells": 9,
+   "mean_abs_dev_endpoint": 0.08112777777777778,
+   "mean_endpoint_c": 0.0903,
+   "mean_sum_abs_dc_raw": 0.9364333333333333,
+   "range_sum_abs_dc_raw": [
+    0.6019999999999999,
+    1.2021000000000002
+   ],
+   "mean_sum_abs_dc_post_settling": 0.7813777777777778,
+   "range_sum_abs_dc_post_settling": [
+    0.4295,
+    1.1568
+   ],
+   "mean_endpoint_f1": 0.8624777777777778,
+   "boot_mean_abs_dev_endpoint": {
+    "status": "OK",
+    "n": 9,
+    "n_boot": 1000,
+    "ci95": [
+     0.05233888888888889,
+     0.11418333333333333
+    ]
+   },
+   "boot_mean_sum_abs_dc_raw": {
+    "status": "OK",
+    "n": 9,
+    "n_boot": 1000,
+    "ci95": [
+     0.7957222222222221,
+     1.0700444444444444
+    ]
+   },
+   "boot_mean_sum_abs_dc_post_settling": {
+    "status": "OK",
+    "n": 9,
+    "n_boot": 1000,
+    "ci95": [
+     0.6198666666666667,
+     0.946577777777778
+    ]
+   },
+   "cells": [
+    {
+     "cell": "seq|o1|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.0679,
+     "abs_dev_endpoint": 0.019949999999999996,
+     "sum_abs_dc_full": 0.7643000000000001,
+     "sum_abs_dc_post_settling": 0.5451,
+     "endpoint_f1": 0.8604,
+     "endpoint_dprime": 2.1878
+    },
+    {
+     "cell": "seq|o1|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.103,
+     "abs_dev_endpoint": 0.015149999999999997,
+     "sum_abs_dc_full": 0.7376000000000001,
+     "sum_abs_dc_post_settling": 0.7140000000000001,
+     "endpoint_f1": 0.868,
+     "endpoint_dprime": 2.2732
+    },
+    {
+     "cell": "seq|o1|s31",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.2607,
+     "abs_dev_endpoint": 0.17285,
+     "sum_abs_dc_full": 1.2021000000000002,
+     "sum_abs_dc_post_settling": 1.0846,
+     "endpoint_f1": 0.8547,
+     "endpoint_dprime": 2.2592
+    },
+    {
+     "cell": "seq|o2|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": -0.0111,
+     "abs_dev_endpoint": 0.09895,
+     "sum_abs_dc_full": 1.0071,
+     "sum_abs_dc_post_settling": 0.8998,
+     "endpoint_f1": 0.8632,
+     "endpoint_dprime": 2.1869
+    },
+    {
+     "cell": "seq|o2|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.1617,
+     "abs_dev_endpoint": 0.07385000000000001,
+     "sum_abs_dc_full": 1.0192999999999999,
+     "sum_abs_dc_post_settling": 0.9794,
+     "endpoint_f1": 0.861,
+     "endpoint_dprime": 2.2423
+    },
+    {
+     "cell": "seq|o2|s31",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.2021,
+     "abs_dev_endpoint": 0.11425,
+     "sum_abs_dc_full": 1.1935,
+     "sum_abs_dc_post_settling": 1.1568,
+     "endpoint_f1": 0.8567,
+     "endpoint_dprime": 2.2315
+    },
+    {
+     "cell": "seq|o3|s17",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.0138,
+     "abs_dev_endpoint": 0.07405,
+     "sum_abs_dc_full": 0.6019999999999999,
+     "sum_abs_dc_post_settling": 0.4295,
+     "endpoint_f1": 0.8641,
+     "endpoint_dprime": 2.2022
+    },
+    {
+     "cell": "seq|o3|s23",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": -0.0143,
+     "abs_dev_endpoint": 0.10214999999999999,
+     "sum_abs_dc_full": 0.7861,
+     "sum_abs_dc_post_settling": 0.5079,
+     "endpoint_f1": 0.8651,
+     "endpoint_dprime": 2.2033
+    },
+    {
+     "cell": "seq|o3|s31",
+     "n_stages": 6,
+     "endpoint_k": 6,
+     "endpoint_c": 0.0289,
+     "abs_dev_endpoint": 0.05895,
+     "sum_abs_dc_full": 1.1159,
+     "sum_abs_dc_post_settling": 0.7153,
+     "endpoint_f1": 0.8691,
+     "endpoint_dprime": 2.2527
+    }
+   ]
+  }
+ },
+ "notes": [
+  "TARGET_N_SMALL c* is the mean of 2 JOINT cell(s) (joint|o1|s17=+0.0623, joint|o1|s23=+0.1134) -- quote the per-cell values, not an interval"
+ ],
+ "what_this_cannot_show": "the post-hoc scalar's TRANSFER residual on a rephrased template; that needs the per-item logit dumps and is the only reason this is not the whole verdict"
+}

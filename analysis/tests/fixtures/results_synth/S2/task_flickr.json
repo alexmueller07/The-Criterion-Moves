@@ -1,0 +1,10 @@
+{
+  "metric": "caption_uf1",
+  "score": 0.6,
+  "n": 500,
+  "parse_fail_rate": 0.004,
+  "ckpt": "S2",
+  "task": "flickr",
+  "mean_new_tokens": 22.0,
+  "truncation_rate": 0.006
+}

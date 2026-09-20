@@ -1,0 +1,608 @@
+{
+ "generator": {
+  "script": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/make_method_artifacts.py",
+  "sha256": "2da80384f2607e63361dbb0214fafaf9a8d8d2b100ccd4a293c2151a07d86831",
+  "argv": [
+   "--scorecard",
+   "pilot-llava=/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+   "--logits",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+   "--blind",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_seq_o1_s17.json",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_anchor_o1_s17.json",
+   "--aggregate",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+   "--manifest_neutral",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+   "--manifest_amplified",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json",
+   "--tables_dir",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables",
+   "--out_dir",
+   "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out",
+   "--with_pilot_reference"
+  ],
+  "python": "3.9.6",
+  "generated": "2026-09-09T05:09:15",
+  "method_scorecard_rules": {
+   "F1_DPRIME_TOL": 0.3,
+   "P2_PLASTICITY_TOL": 0.02
+  },
+  "chair_k_words": 60
+ },
+ "inputs": [
+  {
+   "role": "scorecard",
+   "label": "pilot-llava",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+   "sha256": "b351aed8f16bce9ed2d74d08a8524a9b75aa9753b373c184e9edaa413636fa4d"
+  },
+  {
+   "role": "scorecard",
+   "label": "pilot / Qwen2.5-VL-7B",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+   "sha256": "f50ed2d430f1dcc3bc334b90b4b9480714bc933b7341b81bcf3c8628c8d0bdb0"
+  },
+  {
+   "role": "aggregate",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+   "sha256": "7b79aecaf84339219f40a5b3eae2fe5b72acac21953412d7d8b12e0850a49645"
+  },
+  {
+   "role": "logits",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+   "sha256": "d4042337adce00d53ef277004246f715e3dfef5d7eff6fb78edf3a0508b1574e",
+   "runtag": "psL_seq_o1_s17"
+  },
+  {
+   "role": "logits",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+   "sha256": "c3cb95bea6bbbb707a95b2ed9306fda31d2dd7b4c0605cd45f18bfabbe70652d",
+   "runtag": "psL_seq_o1_s23"
+  },
+  {
+   "role": "manifest_original",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+   "sha256": "8378dd4d62ca387673ef696bc8700b6b1dc7d0719e1d10031dc1da2e7f0e1179"
+  },
+  {
+   "role": "manifest_neutral",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+   "sha256": "6a6112af4008c6abc9d1a37f29af50968f56f940c9e2e247e2330df4dada6c44"
+  },
+  {
+   "role": "manifest_amplified",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json",
+   "sha256": "d335709a809654045d79905802b2167baa23dc87732772e84365bdf37e54a2ac"
+  },
+  {
+   "role": "blind",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_seq_o1_s17.json",
+   "sha256": "732e5818d9aca56e495c57466d533ebe61641a50cae0de4061b887fa1792149d",
+   "runtag": "psL_seq_o1_s17"
+  },
+  {
+   "role": "blind",
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_anchor_o1_s17.json",
+   "sha256": "008257bc8cba9bebcb863d9fe9a64650c6d944eea724a1a92320e2d7e3443689",
+   "runtag": "psL_anchor_o1_s17"
+  }
+ ],
+ "blocks": [
+  {
+   "label": "pilot-llava",
+   "suite": "pilot",
+   "backbone": "llava15",
+   "ref": "psL_seq",
+   "base_dir": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/fixtures/results_method_artifacts_synth/tree_llava/llava15_base",
+   "base_present": true,
+   "scorecard": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+   "arms": [
+    {
+     "token": "seq",
+     "label": "SEQ",
+     "source": "scorecard",
+     "n_cells": 4,
+     "orders": [
+      "o1",
+      "o2"
+     ],
+     "overall": "ref"
+    },
+    {
+     "token": "joint",
+     "label": "JOINT",
+     "source": "aggregate",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "--"
+    },
+    {
+     "token": "er",
+     "label": "ER",
+     "source": "scorecard",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "FAIL"
+    },
+    {
+     "token": "ewc",
+     "label": "EWC",
+     "source": "scorecard",
+     "n_cells": 1,
+     "orders": [
+      "o1"
+     ],
+     "overall": "FAIL"
+    },
+    {
+     "token": "lwf",
+     "label": "LwF",
+     "source": "scorecard",
+     "n_cells": 0,
+     "orders": [],
+     "overall": "INCOMPLETE"
+    },
+    {
+     "token": "__posthoc_labeled",
+     "label": "post-hoc b* (labeled)ell",
+     "source": "logits",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "INCOMPLETE"
+    },
+    {
+     "token": "__posthoc_labelfree",
+     "label": "post-hoc barb (label-free)ell",
+     "source": "logits",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "INCOMPLETE"
+    },
+    {
+     "token": "cecf",
+     "label": "anchor-v1 (cecf)",
+     "source": "scorecard",
+     "n_cells": 1,
+     "orders": [
+      "o1"
+     ],
+     "overall": "PASS"
+    },
+    {
+     "token": "anchor",
+     "label": "anchor-v2",
+     "source": "scorecard",
+     "n_cells": 3,
+     "orders": [
+      "o1"
+     ],
+     "overall": "PASS"
+    },
+    {
+     "token": "critp",
+     "label": "critp(0.1)",
+     "source": "scorecard",
+     "n_cells": 3,
+     "orders": [
+      "o1"
+     ],
+     "overall": "PASS"
+    },
+    {
+     "token": "critp1",
+     "label": "critp(1.0)",
+     "source": "scorecard",
+     "n_cells": 1,
+     "orders": [
+      "o1"
+     ],
+     "overall": "PASS"
+    },
+    {
+     "token": "anchorcrit",
+     "label": "anchorcrit",
+     "source": "scorecard",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "PASS"
+    }
+   ],
+   "intervention_arms": [
+    {
+     "token": "seq_neu",
+     "n_cells": 3
+    },
+    {
+     "token": "seq_amp",
+     "n_cells": 1
+    }
+   ],
+   "posthoc_cells": [
+    "psL_seq_o1_s17",
+    "psL_seq_o1_s23"
+   ]
+  },
+  {
+   "label": "pilot / Qwen2.5-VL-7B",
+   "suite": "pilot",
+   "backbone": "qwen25vl",
+   "ref": "psQ_seq",
+   "base_dir": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/fixtures/results_method_artifacts_synth/tree_qwen/qwen25vl_base",
+   "base_present": true,
+   "scorecard": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+   "arms": [
+    {
+     "token": "seq",
+     "label": "SEQ",
+     "source": "scorecard",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "ref"
+    },
+    {
+     "token": "anchor",
+     "label": "anchor-v2",
+     "source": "scorecard",
+     "n_cells": 2,
+     "orders": [
+      "o1"
+     ],
+     "overall": "PASS"
+    },
+    {
+     "token": "er",
+     "label": "ER",
+     "source": "scorecard",
+     "n_cells": 1,
+     "orders": [
+      "o1"
+     ],
+     "overall": "FAIL"
+    }
+   ],
+   "intervention_arms": [],
+   "posthoc_cells": []
+  }
+ ],
+ "aggregate_crosscheck": [
+  {
+   "block": "pilot-llava",
+   "n_compared": 7,
+   "n_missing": 14,
+   "missing": [
+    "er o1/s17",
+    "er o1/s23",
+    "ewc o1/s17",
+    "cecf o1/s17",
+    "mth_critp o1/s17",
+    "mth_critp o1/s23",
+    "mth_critp o1/s31",
+    "mth_critp1 o1/s17",
+    "mth_anchorcrit o1/s17",
+    "mth_anchorcrit o1/s23",
+    "seq_neu o1/s17",
+    "seq_neu o1/s23",
+    "seq_neu o1/s31",
+    "seq_amp o1/s17"
+   ],
+   "compared": [
+    "seq o1/s17",
+    "seq o1/s23",
+    "seq o1/s31",
+    "seq o2/s17",
+    "anchor o1/s17",
+    "anchor o1/s23",
+    "anchor o1/s31"
+   ]
+  },
+  {
+   "block": "pilot / Qwen2.5-VL-7B",
+   "n_compared": 0,
+   "n_missing": 0,
+   "missing": [],
+   "compared": [],
+   "note": "aggregate has no qwen25vl/pilot suite block"
+  }
+ ],
+ "warnings": [],
+ "artifacts": [
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_main.tex",
+   "kind": "method_main",
+   "status": "partial",
+   "bytes": 7033,
+   "sha256": "1df3ae12eb9080d8f7ce88037324e03379f2f5e81ed1e379f6ff10ab749e182b",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_main_notes.tex",
+   "kind": "method_main",
+   "status": "partial",
+   "bytes": 2825,
+   "sha256": "40c5cdeff4c8283f2c2d55a092ddcb1142247859ba79cec113699aefb8d3e2e1",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_main.csv",
+   "kind": "method_main",
+   "status": "partial",
+   "bytes": 5983,
+   "sha256": "f3d43793094f323704edb649701dad94344689d64ddc03a994bbd68377e3050e",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_main_cells.csv",
+   "kind": "method_main",
+   "status": "partial",
+   "bytes": 6975,
+   "sha256": "ec7f73fcb2d2f802a87d5a0eb8dbf00d9261a658f470e6873893e1b2dee57e8c",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_main_posthoc_stages.csv",
+   "kind": "method_main_posthoc_stages",
+   "status": "complete",
+   "bytes": 3018,
+   "sha256": "d36c8cc0f2fa9a9c87c6bf8f91ca42a65e1f7c7b82f462a3af3d14e7db6d9b9e",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_intervention.tex",
+   "kind": "method_intervention",
+   "status": "complete",
+   "bytes": 3136,
+   "sha256": "70653fff46d72657261ea23509c9f8a66b38811a964168ee5373cab194a55f16",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_intervention_notes.tex",
+   "kind": "method_intervention",
+   "status": "complete",
+   "bytes": 995,
+   "sha256": "27efb4c927616a7b809d4e0fd7bf26a9b4427685f55eafdd2159cb3424a61bcd",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_intervention_paired.tex",
+   "kind": "method_intervention",
+   "status": "complete",
+   "bytes": 976,
+   "sha256": "3c5f0d3624d0b6ef04dd6c25ae3378d4ed8f02e64e170dd1a4e8b2348f523e80",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_intervention_paired_notes.tex",
+   "kind": "method_intervention",
+   "status": "complete",
+   "bytes": 377,
+   "sha256": "08c30982219ff02f67b4e30e8a19ff7aabc382a4cfb0b7d3460a0d50341e1b16",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_intervention.csv",
+   "kind": "method_intervention",
+   "status": "complete",
+   "bytes": 2618,
+   "sha256": "cd0bca484a22d7d1a855aadbb889c82b3a6a72671f8219613431d9294c0e88f8",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_intervention_paired.csv",
+   "kind": "method_intervention",
+   "status": "complete",
+   "bytes": 569,
+   "sha256": "2410fc9c4a70e690488a2cba44a0b6eaafd2ed75e92a248c6f1ca7cff5ed824b",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/agg_ok.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/logits/psL_seq_o1_s23.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/neutral_manifest.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/amplified_manifest.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_prior_share.tex",
+   "kind": "method_prior_share",
+   "status": "partial",
+   "bytes": 1391,
+   "sha256": "6e087a34fe53f76ef8b90f8823f7f15f8c7eb0e531e79af0925e14a3f51c2944",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_anchor_o1_s17.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_prior_share_notes.tex",
+   "kind": "method_prior_share",
+   "status": "partial",
+   "bytes": 808,
+   "sha256": "b4381d4d05b31da281c3faa21262adf94adbc2f379bc9e057fac4dc621f93f0c",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_anchor_o1_s17.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/tables/method_prior_share.csv",
+   "kind": "method_prior_share",
+   "status": "partial",
+   "bytes": 1088,
+   "sha256": "55a2408a313f63d7d5b0547f9519f10d3f2f299642ac790f3062d5cf559aef0b",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_seq_o1_s17.json",
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/blind/psL_anchor_o1_s17.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out/fig_method_scorecard.pdf",
+   "kind": "figure",
+   "status": "complete",
+   "bytes": 26041,
+   "sha256": "a6030aaa10af1646496bbed5f3a827a06571551ddf5a16407f78e78491b067f9",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out/fig_method_scorecard.png",
+   "kind": "figure",
+   "status": "complete",
+   "bytes": 124581,
+   "sha256": "0cf155235436f909d06680edba03ba580eed0cf200032b0f0a740445934b9444",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out/fig_method_scorecard_caption.txt",
+   "kind": "figure",
+   "status": "complete",
+   "bytes": 627,
+   "sha256": "fd24ce1184f9c575cb79b6f38c7a5cb0323f88e943a456e800f6db0389d5c8f2",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_llava/scorecard.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out/fig_method_scorecard_pilot_qwen2_5_vl_7b.pdf",
+   "kind": "figure",
+   "status": "complete",
+   "bytes": 21628,
+   "sha256": "1c137af9a0a6f23694faeb4909316e2f24e8b89e22c998b30d78b0867272e560",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out/fig_method_scorecard_pilot_qwen2_5_vl_7b.png",
+   "kind": "figure",
+   "status": "complete",
+   "bytes": 98394,
+   "sha256": "7f9c6bab256b38ba6cfd0447f7d4ed760ae741ef9ebb942d73ca6e9da1da65c7",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json"
+   ],
+   "notes": ""
+  },
+  {
+   "path": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/out/fig_method_scorecard_pilot_qwen2_5_vl_7b_caption.txt",
+   "kind": "figure",
+   "status": "complete",
+   "bytes": 636,
+   "sha256": "dd2b0eb9e9f69021d481345915d139698ade0995ebdf696774e779a81b373d44",
+   "inputs": [
+    "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/tests/out/method_artifacts_synth/scorecard_qwen/scorecard.json"
+   ],
+   "notes": ""
+  }
+ ],
+ "style": "per-cell values and [min-max] over complete (ordering, seed) cells; orderings are strata; no pooled cross-seed CI (design_notes/review_statistics.md sec 2); '--' = ABSENT, nothing imputed"
+}

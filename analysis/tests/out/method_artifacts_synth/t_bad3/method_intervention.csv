@@ -1,0 +1,9 @@
+block,variant,cell,order,seed,sum_abs_dc,post_settle,endpoint_c,endpoint_dprime,max_abs_dd,f1_tripped,endpoint_leak,plasticity,manifest,dc_1,dose_1,marker_1,dc_2,dose_2,marker_2,dc_3,dose_3,marker_3,dc_4,dose_4,marker_4
+pilot / LLaVA-1.5-7B,original,o1/s17,o1,17,2.6385,2.4185,1.0269,2.0537,0.225,0,0.2,0.65,/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json,-0.22,00.000,zero-dose ok,-0.6958,+0.058,sign follows prior,0.1806,00.000,zero-dose ok,1.5421,-0.436,sign follows prior
+pilot / LLaVA-1.5-7B,original,o1/s23,o1,23,2.2773,2.0573,1.0269,2.0537,1.2121,1,0.2,0.65,/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json,-0.22,00.000,zero-dose ok,-0.3861,+0.058,sign follows prior,-0.1291,00.000,zero-dose ok,1.5421,-0.436,sign follows prior
+pilot / LLaVA-1.5-7B,original,o1/s31,o1,31,2.6385,2.4185,1.0269,2.0537,0.225,0,0.2,0.65,/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json,-0.22,00.000,zero-dose ok,-0.6958,+0.058,sign follows prior,0.1806,00.000,zero-dose ok,1.5421,-0.436,sign follows prior
+pilot / LLaVA-1.5-7B,original,o2/s17,o2,17,2.6385,2.4185,1.0269,2.0537,0.225,0,0.0,0.65,/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/pilot_manifest.json,-0.22,-0.436,sign opposes prior,-0.6958,00.000,zero-dose |dc|>=0.30,0.1806,+0.058,sign opposes prior,1.5421,00.000,zero-dose |dc|>=0.30
+pilot / LLaVA-1.5-7B,neutral,o1/s17,o1,17,0.2894,0.1992,0.2376,2.088,0.0352,0,0.02,0.65,,-0.0902,,,0.0902,,,-0.0457,,,0.0633,,
+pilot / LLaVA-1.5-7B,neutral,o1/s23,o1,23,0.2894,0.1992,0.2376,2.088,0.0352,0,0.02,0.65,,-0.0902,,,0.0902,,,-0.0457,,,0.0633,,
+pilot / LLaVA-1.5-7B,neutral,o1/s31,o1,31,0.2894,0.1992,0.2376,2.088,0.0352,0,0.02,0.65,,-0.0902,,,0.0902,,,-0.0457,,,0.0633,,
+pilot / LLaVA-1.5-7B,amplified,o1/s17,o1,17,2.9014,2.6814,1.2898,2.073,0.225,0,0.3,0.65,,-0.22,,,-0.6958,,,0.1806,,,1.805,,

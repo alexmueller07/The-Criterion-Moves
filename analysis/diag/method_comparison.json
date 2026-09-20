@@ -1,0 +1,377 @@
+{
+ "rows": {
+  "S0": {
+   "H": 0.7711,
+   "FA": 0.0542,
+   "dprime": 2.348,
+   "c": 0.431,
+   "yes_rate": 0.4127,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1564,
+   "tok": 108.4,
+   "tasks": {
+    "scienceqa": 0.584,
+    "textvqa": 0.5162,
+    "flickr": 0.5257,
+    "vizwiz": 0.5574
+   }
+  },
+  "S1": {
+   "H": 0.7989,
+   "FA": 0.0649,
+   "dprime": 2.353,
+   "c": 0.339,
+   "yes_rate": 0.4319,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1372,
+   "tok": 115.0,
+   "tasks": {
+    "scienceqa": 0.818,
+    "textvqa": 0.5012,
+    "flickr": 0.5294,
+    "vizwiz": 0.5746
+   }
+  },
+  "S2": {
+   "H": 0.8713,
+   "FA": 0.1436,
+   "dprime": 2.197,
+   "c": -0.034,
+   "yes_rate": 0.5074,
+   "leak_tvqa": 0.01,
+   "chair_i": 0.1443,
+   "tok": 114.6,
+   "tasks": {
+    "scienceqa": 0.8213,
+    "textvqa": 0.571,
+    "flickr": 0.5342,
+    "vizwiz": 0.5622
+   }
+  },
+  "S3": {
+   "H": 0.8364,
+   "FA": 0.0911,
+   "dprime": 2.314,
+   "c": 0.177,
+   "yes_rate": 0.4638,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1504,
+   "tok": 115.5,
+   "tasks": {
+    "scienceqa": 0.828,
+    "textvqa": 0.5828,
+    "flickr": 0.5365,
+    "vizwiz": 0.5612
+   }
+  },
+  "S4": {
+   "H": 0.674,
+   "FA": 0.0262,
+   "dprime": 2.39,
+   "c": 0.744,
+   "yes_rate": 0.3501,
+   "leak_tvqa": 0.146,
+   "chair_i": 0.1273,
+   "tok": 104.8,
+   "tasks": {
+    "scienceqa": 0.8041,
+    "textvqa": 0.5386,
+    "flickr": 0.5517,
+    "vizwiz": 0.7112
+   }
+  },
+  "E1": {
+   "H": 0.8,
+   "FA": 0.0664,
+   "dprime": 2.344,
+   "c": 0.331,
+   "yes_rate": 0.4332,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1379,
+   "tok": 115.5,
+   "tasks": {
+    "scienceqa": 0.828,
+    "textvqa": 0.505,
+    "flickr": 0.5348,
+    "vizwiz": 0.5752
+   }
+  },
+  "E2": {
+   "H": 0.876,
+   "FA": 0.1398,
+   "dprime": 2.237,
+   "c": -0.037,
+   "yes_rate": 0.5079,
+   "leak_tvqa": 0.018,
+   "chair_i": 0.1427,
+   "tok": 114.0,
+   "tasks": {
+    "scienceqa": 0.808,
+    "textvqa": 0.5566,
+    "flickr": 0.5326,
+    "vizwiz": 0.5494
+   }
+  },
+  "E3": {
+   "H": 0.8538,
+   "FA": 0.1191,
+   "dprime": 2.232,
+   "c": 0.063,
+   "yes_rate": 0.4864,
+   "leak_tvqa": 0.008,
+   "chair_i": 0.1544,
+   "tok": 113.7,
+   "tasks": {
+    "scienceqa": 0.808,
+    "textvqa": 0.5574,
+    "flickr": 0.5387,
+    "vizwiz": 0.5454
+   }
+  },
+  "E4": {
+   "H": 0.6391,
+   "FA": 0.0196,
+   "dprime": 2.419,
+   "c": 0.853,
+   "yes_rate": 0.3293,
+   "leak_tvqa": 0.126,
+   "chair_i": 0.1482,
+   "tok": 108.9,
+   "tasks": {
+    "scienceqa": 0.806,
+    "textvqa": 0.5262,
+    "flickr": 0.5423,
+    "vizwiz": 0.7044
+   }
+  },
+  "F1": {
+   "H": 0.1389,
+   "FA": 0.0016,
+   "dprime": 1.871,
+   "c": 2.021,
+   "yes_rate": 0.0702,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.108,
+   "tok": 114.1,
+   "tasks": {
+    "scienceqa": 0.818,
+    "textvqa": 0.458,
+    "flickr": 0.5227,
+    "vizwiz": 0.5754
+   }
+  },
+  "F2": {
+   "H": 0.3162,
+   "FA": 0.0007,
+   "dprime": 2.73,
+   "c": 1.843,
+   "yes_rate": 0.1584,
+   "leak_tvqa": 0.014,
+   "chair_i": 0.1151,
+   "tok": 114.6,
+   "tasks": {
+    "scienceqa": 0.8317,
+    "textvqa": 0.5604,
+    "flickr": 0.5318,
+    "vizwiz": 0.5598
+   }
+  },
+  "F3": {
+   "H": 0.0778,
+   "FA": 0.0002,
+   "dprime": 2.092,
+   "c": 2.466,
+   "yes_rate": 0.039,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1419,
+   "tok": 113.5,
+   "tasks": {
+    "scienceqa": 0.834,
+    "textvqa": 0.5698,
+    "flickr": 0.5394,
+    "vizwiz": 0.5532
+   }
+  },
+  "F4": {
+   "H": 0.444,
+   "FA": 0.0033,
+   "dprime": 2.572,
+   "c": 1.427,
+   "yes_rate": 0.2237,
+   "leak_tvqa": 0.178,
+   "chair_i": 0.1258,
+   "tok": 106.6,
+   "tasks": {
+    "scienceqa": 0.7992,
+    "textvqa": 0.5304,
+    "flickr": 0.5509,
+    "vizwiz": 0.712
+   }
+  },
+  "G1": {
+   "H": 0.6438,
+   "FA": 0.0204,
+   "dprime": 2.413,
+   "c": 0.838,
+   "yes_rate": 0.3321,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1075,
+   "tok": 114.1,
+   "tasks": {
+    "scienceqa": 0.796,
+    "textvqa": 0.4946,
+    "flickr": 0.5333,
+    "vizwiz": 0.5796
+   }
+  },
+  "G2": {
+   "H": 0.6891,
+   "FA": 0.0269,
+   "dprime": 2.422,
+   "c": 0.718,
+   "yes_rate": 0.358,
+   "leak_tvqa": 0.018,
+   "chair_i": 0.1043,
+   "tok": 109.0,
+   "tasks": {
+    "scienceqa": 0.8036,
+    "textvqa": 0.5666,
+    "flickr": 0.5378,
+    "vizwiz": 0.5322
+   }
+  },
+  "G3": {
+   "H": 0.6453,
+   "FA": 0.0169,
+   "dprime": 2.495,
+   "c": 0.875,
+   "yes_rate": 0.3311,
+   "leak_tvqa": 0.0,
+   "chair_i": 0.1429,
+   "tok": 112.9,
+   "tasks": {
+    "scienceqa": 0.792,
+    "textvqa": 0.5658,
+    "flickr": 0.5375,
+    "vizwiz": 0.564
+   }
+  },
+  "G4": {
+   "H": 0.6556,
+   "FA": 0.0264,
+   "dprime": 2.336,
+   "c": 0.768,
+   "yes_rate": 0.341,
+   "leak_tvqa": 0.164,
+   "chair_i": 0.1091,
+   "tok": 100.9,
+   "tasks": {
+    "scienceqa": 0.7907,
+    "textvqa": 0.5404,
+    "flickr": 0.5494,
+    "vizwiz": 0.7232
+   }
+  },
+  "J1": {
+   "H": 0.6791,
+   "FA": 0.0249,
+   "dprime": 2.427,
+   "c": 0.748,
+   "yes_rate": 0.352,
+   "leak_tvqa": 0.034,
+   "chair_i": 0.1494,
+   "tok": 115.0,
+   "tasks": {
+    "scienceqa": 0.728,
+    "textvqa": 0.543,
+    "flickr": 0.5333,
+    "vizwiz": 0.6976
+   }
+  },
+  "J2": {
+   "H": 0.8818,
+   "FA": 0.17,
+   "dprime": 2.138,
+   "c": -0.115,
+   "yes_rate": 0.5259,
+   "leak_tvqa": 0.016,
+   "chair_i": 0.165,
+   "tok": 116.6,
+   "tasks": {
+    "scienceqa": 0.77,
+    "textvqa": 0.5628,
+    "flickr": 0.5406,
+    "vizwiz": 0.6914
+   }
+  },
+  "J3": {
+   "H": 0.8669,
+   "FA": 0.1409,
+   "dprime": 2.188,
+   "c": -0.018,
+   "yes_rate": 0.5039,
+   "leak_tvqa": 0.022,
+   "chair_i": 0.1501,
+   "tok": 116.6,
+   "tasks": {
+    "scienceqa": 0.784,
+    "textvqa": 0.563,
+    "flickr": 0.5331,
+    "vizwiz": 0.7068
+   }
+  },
+  "J4": {
+   "H": 0.8669,
+   "FA": 0.1416,
+   "dprime": 2.185,
+   "c": -0.019,
+   "yes_rate": 0.5042,
+   "leak_tvqa": 0.022,
+   "chair_i": 0.1561,
+   "tok": 116.8,
+   "tasks": {
+    "scienceqa": 0.79,
+    "textvqa": 0.563,
+    "flickr": 0.5357,
+    "vizwiz": 0.7116
+   }
+  }
+ },
+ "arms": {
+  "S": [
+   "S0",
+   "S1",
+   "S2",
+   "S3",
+   "S4"
+  ],
+  "E": [
+   "S0",
+   "E1",
+   "E2",
+   "E3",
+   "E4"
+  ],
+  "F": [
+   "S0",
+   "F1",
+   "F2",
+   "F3",
+   "F4"
+  ],
+  "G": [
+   "S0",
+   "G1",
+   "G2",
+   "G3",
+   "G4"
+  ],
+  "J": [
+   "S0",
+   "J1",
+   "J2",
+   "J3",
+   "J4"
+  ]
+ }
+}

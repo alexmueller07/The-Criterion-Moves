@@ -1,0 +1,4294 @@
+{
+  "generated_by": "analysis/does_drift_cost.py",
+  "aggregate": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/readout/fs_aggregate.json",
+  "aggregate_generated": "2026-09-09T07:32:40",
+  "backbone": "llava15",
+  "boot_B": 10000,
+  "seed": 17,
+  "base_c": 0.4314,
+  "base_f1": 0.8449,
+  "target_c_star": 0.0878,
+  "target_provenance": "mean of the JOINT arm's empirical endpoint criteria (n=2 cells: joint|o1|s17 +0.0623, joint|o1|s23 +0.1134). Never a modelled c=0.",
+  "n_cells": 20,
+  "controls": {
+    "passed": true,
+    "checks": [
+      {
+        "check": "raw path == E1_null sum_abs_step (9 seq cells)",
+        "ok": true,
+        "detail": "n=9, max abs diff 0.000000 (tol 0.0005)"
+      },
+      {
+        "check": "endpoint c == E1_null endpoint_c (9 seq cells)",
+        "ok": true,
+        "detail": "n=9, max abs diff 0.000000 (tol 0.0005)"
+      },
+      {
+        "check": "F1 reconstructed from H/FA matches recorded f1",
+        "ok": true,
+        "detail": "n=120 stage-points, max abs diff 0.000093"
+      },
+      {
+        "check": "c* (mean of JOINT endpoints) == prereg +0.088",
+        "ok": true,
+        "detail": "recomputed c* = +0.0878, prereg +0.088, tol 0.0015"
+      },
+      {
+        "check": "base criterion is the recorded +0.4314",
+        "ok": true,
+        "detail": "base c = +0.4314"
+      }
+    ]
+  },
+  "Q1_path_vs_endpoint": {
+    "question": "Does path length predict endpoint quality?",
+    "sets": {
+      "seq": {
+        "n_cells": 9,
+        "cells": [
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31"
+        ],
+        "correlations": {
+          "raw_path_vs_endpoint_f1": {
+            "label": "seq: raw_path vs endpoint POPE F1",
+            "n_cells": 9,
+            "cells": [
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.4879,
+            "spearman_rho": -0.4833,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.9393,
+              "hi": 0.3679,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.1817,
+              "B": 10000,
+              "mc_se": 0.0039
+            },
+            "x": [
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "raw_path_vs_endpoint_err": {
+            "label": "seq: raw_path vs |endpoint c - c*|",
+            "n_cells": 9,
+            "cells": [
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.614,
+            "spearman_rho": 0.6,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": 0.0663,
+              "hi": 0.9277,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0819,
+              "B": 10000,
+              "mc_se": 0.0027
+            },
+            "x": [
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          },
+          "post_settle_vs_endpoint_f1": {
+            "label": "seq: post_settle vs endpoint POPE F1",
+            "n_cells": 9,
+            "cells": [
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.6294,
+            "spearman_rho": -0.5833,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.9311,
+              "hi": 0.0787,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0708,
+              "B": 10000,
+              "mc_se": 0.0026
+            },
+            "x": [
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "post_settle_vs_endpoint_err": {
+            "label": "seq: post_settle vs |endpoint c - c*|",
+            "n_cells": 9,
+            "cells": [
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.5685,
+            "spearman_rho": 0.45,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.0814,
+              "hi": 0.8983,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.1103,
+              "B": 10000,
+              "mc_se": 0.0031
+            },
+            "x": [
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          }
+        },
+        "per_cell": [
+          {
+            "cell": "seq|o1|s17",
+            "raw_path": 0.7643,
+            "post_settle": 0.5451,
+            "endpoint_c": 0.0679,
+            "endpoint_err": 0.0199,
+            "endpoint_f1": 0.8604
+          },
+          {
+            "cell": "seq|o1|s23",
+            "raw_path": 0.7376,
+            "post_settle": 0.714,
+            "endpoint_c": 0.103,
+            "endpoint_err": 0.0151,
+            "endpoint_f1": 0.868
+          },
+          {
+            "cell": "seq|o1|s31",
+            "raw_path": 1.2021,
+            "post_settle": 1.0846,
+            "endpoint_c": 0.2607,
+            "endpoint_err": 0.1729,
+            "endpoint_f1": 0.8547
+          },
+          {
+            "cell": "seq|o2|s17",
+            "raw_path": 1.0071,
+            "post_settle": 0.8998,
+            "endpoint_c": -0.0111,
+            "endpoint_err": 0.0989,
+            "endpoint_f1": 0.8632
+          },
+          {
+            "cell": "seq|o2|s23",
+            "raw_path": 1.0193,
+            "post_settle": 0.9794,
+            "endpoint_c": 0.1617,
+            "endpoint_err": 0.0739,
+            "endpoint_f1": 0.861
+          },
+          {
+            "cell": "seq|o2|s31",
+            "raw_path": 1.1935,
+            "post_settle": 1.1568,
+            "endpoint_c": 0.2021,
+            "endpoint_err": 0.1143,
+            "endpoint_f1": 0.8567
+          },
+          {
+            "cell": "seq|o3|s17",
+            "raw_path": 0.602,
+            "post_settle": 0.4295,
+            "endpoint_c": 0.0138,
+            "endpoint_err": 0.0741,
+            "endpoint_f1": 0.8641
+          },
+          {
+            "cell": "seq|o3|s23",
+            "raw_path": 0.7861,
+            "post_settle": 0.5079,
+            "endpoint_c": -0.0143,
+            "endpoint_err": 0.1021,
+            "endpoint_f1": 0.8651
+          },
+          {
+            "cell": "seq|o3|s31",
+            "raw_path": 1.1159,
+            "post_settle": 0.7153,
+            "endpoint_c": 0.0289,
+            "endpoint_err": 0.059,
+            "endpoint_f1": 0.8691
+          }
+        ]
+      },
+      "anchor": {
+        "n_cells": 9,
+        "cells": [
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31"
+        ],
+        "correlations": {
+          "raw_path_vs_endpoint_f1": {
+            "label": "anchor: raw_path vs endpoint POPE F1",
+            "n_cells": 9,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31"
+            ],
+            "pearson_r": 0.3259,
+            "spearman_rho": -0.2427,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.9179,
+              "hi": 0.8353,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.3824,
+              "B": 10000,
+              "mc_se": 0.0049
+            },
+            "x": [
+              0.7834,
+              0.6959,
+              0.7817,
+              0.8168,
+              0.7575,
+              0.5631,
+              1.0154,
+              0.5668,
+              0.5209
+            ],
+            "y": [
+              0.7844,
+              0.7961,
+              0.7896,
+              0.7897,
+              0.7982,
+              0.7962,
+              0.8167,
+              0.7962,
+              0.7995
+            ]
+          },
+          "raw_path_vs_endpoint_err": {
+            "label": "anchor: raw_path vs |endpoint c - c*|",
+            "n_cells": 9,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31"
+            ],
+            "pearson_r": -0.0885,
+            "spearman_rho": 0.3167,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.7428,
+              "hi": 0.9349,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.8259,
+              "B": 10000,
+              "mc_se": 0.0038
+            },
+            "x": [
+              0.7834,
+              0.6959,
+              0.7817,
+              0.8168,
+              0.7575,
+              0.5631,
+              1.0154,
+              0.5668,
+              0.5209
+            ],
+            "y": [
+              0.6747,
+              0.5823,
+              0.6527,
+              0.7406,
+              0.6399,
+              0.63,
+              0.4536,
+              0.5502,
+              0.5606
+            ]
+          },
+          "post_settle_vs_endpoint_f1": {
+            "label": "anchor: post_settle vs endpoint POPE F1",
+            "n_cells": 9,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31"
+            ],
+            "pearson_r": 0.2263,
+            "spearman_rho": -0.1925,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.9495,
+              "hi": 0.817,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.5659,
+              "B": 10000,
+              "mc_se": 0.005
+            },
+            "x": [
+              0.4618,
+              0.3502,
+              0.4099,
+              0.4176,
+              0.3661,
+              0.219,
+              0.5519,
+              0.1878,
+              0.3125
+            ],
+            "y": [
+              0.7844,
+              0.7961,
+              0.7896,
+              0.7897,
+              0.7982,
+              0.7962,
+              0.8167,
+              0.7962,
+              0.7995
+            ]
+          },
+          "post_settle_vs_endpoint_err": {
+            "label": "anchor: post_settle vs |endpoint c - c*|",
+            "n_cells": 9,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31"
+            ],
+            "pearson_r": -0.0456,
+            "spearman_rho": 0.3333,
+            "r_critical_p05": 0.6664,
+            "rho_detectable_at_80pct_power": 0.8157,
+            "ci95_pearson": {
+              "lo": -0.7115,
+              "hi": 0.8866,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.9065,
+              "B": 10000,
+              "mc_se": 0.0029
+            },
+            "x": [
+              0.4618,
+              0.3502,
+              0.4099,
+              0.4176,
+              0.3661,
+              0.219,
+              0.5519,
+              0.1878,
+              0.3125
+            ],
+            "y": [
+              0.6747,
+              0.5823,
+              0.6527,
+              0.7406,
+              0.6399,
+              0.63,
+              0.4536,
+              0.5502,
+              0.5606
+            ]
+          }
+        },
+        "per_cell": [
+          {
+            "cell": "anchor|o1|s17",
+            "raw_path": 0.7834,
+            "post_settle": 0.4618,
+            "endpoint_c": 0.7626,
+            "endpoint_err": 0.6747,
+            "endpoint_f1": 0.7844
+          },
+          {
+            "cell": "anchor|o1|s23",
+            "raw_path": 0.6959,
+            "post_settle": 0.3502,
+            "endpoint_c": 0.6701,
+            "endpoint_err": 0.5823,
+            "endpoint_f1": 0.7961
+          },
+          {
+            "cell": "anchor|o1|s31",
+            "raw_path": 0.7817,
+            "post_settle": 0.4099,
+            "endpoint_c": 0.7405,
+            "endpoint_err": 0.6527,
+            "endpoint_f1": 0.7896
+          },
+          {
+            "cell": "anchor|o2|s17",
+            "raw_path": 0.8168,
+            "post_settle": 0.4176,
+            "endpoint_c": 0.8284,
+            "endpoint_err": 0.7406,
+            "endpoint_f1": 0.7897
+          },
+          {
+            "cell": "anchor|o2|s23",
+            "raw_path": 0.7575,
+            "post_settle": 0.3661,
+            "endpoint_c": 0.7277,
+            "endpoint_err": 0.6399,
+            "endpoint_f1": 0.7982
+          },
+          {
+            "cell": "anchor|o2|s31",
+            "raw_path": 0.5631,
+            "post_settle": 0.219,
+            "endpoint_c": 0.7179,
+            "endpoint_err": 0.63,
+            "endpoint_f1": 0.7962
+          },
+          {
+            "cell": "anchor|o3|s17",
+            "raw_path": 1.0154,
+            "post_settle": 0.5519,
+            "endpoint_c": 0.5414,
+            "endpoint_err": 0.4536,
+            "endpoint_f1": 0.8167
+          },
+          {
+            "cell": "anchor|o3|s23",
+            "raw_path": 0.5668,
+            "post_settle": 0.1878,
+            "endpoint_c": 0.638,
+            "endpoint_err": 0.5502,
+            "endpoint_f1": 0.7962
+          },
+          {
+            "cell": "anchor|o3|s31",
+            "raw_path": 0.5209,
+            "post_settle": 0.3125,
+            "endpoint_c": 0.6485,
+            "endpoint_err": 0.5606,
+            "endpoint_f1": 0.7995
+          }
+        ]
+      },
+      "joint": {
+        "n_cells": 2,
+        "cells": [
+          "joint|o1|s17",
+          "joint|o1|s23"
+        ],
+        "correlations": {},
+        "per_cell": [
+          {
+            "cell": "joint|o1|s17",
+            "raw_path": 0.6145,
+            "post_settle": 0.24,
+            "endpoint_c": 0.0623,
+            "endpoint_err": 0.0255,
+            "endpoint_f1": 0.8682
+          },
+          {
+            "cell": "joint|o1|s23",
+            "raw_path": 0.6002,
+            "post_settle": 0.2157,
+            "endpoint_c": 0.1134,
+            "endpoint_err": 0.0256,
+            "endpoint_f1": 0.8652
+          }
+        ],
+        "note": "JOINT has n=2; these are the two cells, not a sample.  n<4: per-cell values only, no interval."
+      },
+      "all_arms": {
+        "n_cells": 20,
+        "cells": [
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31",
+          "joint|o1|s17",
+          "joint|o1|s23",
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31"
+        ],
+        "correlations": {
+          "raw_path_vs_endpoint_f1": {
+            "label": "all_arms: raw_path vs endpoint POPE F1",
+            "n_cells": 20,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.3412,
+            "spearman_rho": 0.1061,
+            "r_critical_p05": 0.4438,
+            "rho_detectable_at_80pct_power": 0.5912,
+            "ci95_pearson": {
+              "lo": -0.016,
+              "hi": 0.6483,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.1405,
+              "B": 10000,
+              "mc_se": 0.0035
+            },
+            "x": [
+              0.7834,
+              0.6959,
+              0.7817,
+              0.8168,
+              0.7575,
+              0.5631,
+              1.0154,
+              0.5668,
+              0.5209,
+              0.6145,
+              0.6002,
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.7844,
+              0.7961,
+              0.7896,
+              0.7897,
+              0.7982,
+              0.7962,
+              0.8167,
+              0.7962,
+              0.7995,
+              0.8682,
+              0.8652,
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "raw_path_vs_endpoint_err": {
+            "label": "all_arms: raw_path vs |endpoint c - c*|",
+            "n_cells": 20,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.2937,
+            "spearman_rho": -0.0421,
+            "r_critical_p05": 0.4438,
+            "rho_detectable_at_80pct_power": 0.5912,
+            "ci95_pearson": {
+              "lo": -0.6073,
+              "hi": 0.055,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.2045,
+              "B": 10000,
+              "mc_se": 0.004
+            },
+            "x": [
+              0.7834,
+              0.6959,
+              0.7817,
+              0.8168,
+              0.7575,
+              0.5631,
+              1.0154,
+              0.5668,
+              0.5209,
+              0.6145,
+              0.6002,
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.6747,
+              0.5823,
+              0.6527,
+              0.7406,
+              0.6399,
+              0.63,
+              0.4536,
+              0.5502,
+              0.5606,
+              0.0255,
+              0.0256,
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          },
+          "post_settle_vs_endpoint_f1": {
+            "label": "all_arms: post_settle vs endpoint POPE F1",
+            "n_cells": 20,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.4953,
+            "spearman_rho": 0.2858,
+            "r_critical_p05": 0.4438,
+            "rho_detectable_at_80pct_power": 0.5912,
+            "ci95_pearson": {
+              "lo": 0.2123,
+              "hi": 0.7705,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0255,
+              "B": 10000,
+              "mc_se": 0.0016
+            },
+            "x": [
+              0.4618,
+              0.3502,
+              0.4099,
+              0.4176,
+              0.3661,
+              0.219,
+              0.5519,
+              0.1878,
+              0.3125,
+              0.24,
+              0.2157,
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.7844,
+              0.7961,
+              0.7896,
+              0.7897,
+              0.7982,
+              0.7962,
+              0.8167,
+              0.7962,
+              0.7995,
+              0.8682,
+              0.8652,
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "post_settle_vs_endpoint_err": {
+            "label": "all_arms: post_settle vs |endpoint c - c*|",
+            "n_cells": 20,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.4672,
+            "spearman_rho": -0.2887,
+            "r_critical_p05": 0.4438,
+            "rho_detectable_at_80pct_power": 0.5912,
+            "ci95_pearson": {
+              "lo": -0.7482,
+              "hi": -0.1763,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0368,
+              "B": 10000,
+              "mc_se": 0.0019
+            },
+            "x": [
+              0.4618,
+              0.3502,
+              0.4099,
+              0.4176,
+              0.3661,
+              0.219,
+              0.5519,
+              0.1878,
+              0.3125,
+              0.24,
+              0.2157,
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.6747,
+              0.5823,
+              0.6527,
+              0.7406,
+              0.6399,
+              0.63,
+              0.4536,
+              0.5502,
+              0.5606,
+              0.0255,
+              0.0256,
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          }
+        },
+        "per_cell": [
+          {
+            "cell": "anchor|o1|s17",
+            "raw_path": 0.7834,
+            "post_settle": 0.4618,
+            "endpoint_c": 0.7626,
+            "endpoint_err": 0.6747,
+            "endpoint_f1": 0.7844
+          },
+          {
+            "cell": "anchor|o1|s23",
+            "raw_path": 0.6959,
+            "post_settle": 0.3502,
+            "endpoint_c": 0.6701,
+            "endpoint_err": 0.5823,
+            "endpoint_f1": 0.7961
+          },
+          {
+            "cell": "anchor|o1|s31",
+            "raw_path": 0.7817,
+            "post_settle": 0.4099,
+            "endpoint_c": 0.7405,
+            "endpoint_err": 0.6527,
+            "endpoint_f1": 0.7896
+          },
+          {
+            "cell": "anchor|o2|s17",
+            "raw_path": 0.8168,
+            "post_settle": 0.4176,
+            "endpoint_c": 0.8284,
+            "endpoint_err": 0.7406,
+            "endpoint_f1": 0.7897
+          },
+          {
+            "cell": "anchor|o2|s23",
+            "raw_path": 0.7575,
+            "post_settle": 0.3661,
+            "endpoint_c": 0.7277,
+            "endpoint_err": 0.6399,
+            "endpoint_f1": 0.7982
+          },
+          {
+            "cell": "anchor|o2|s31",
+            "raw_path": 0.5631,
+            "post_settle": 0.219,
+            "endpoint_c": 0.7179,
+            "endpoint_err": 0.63,
+            "endpoint_f1": 0.7962
+          },
+          {
+            "cell": "anchor|o3|s17",
+            "raw_path": 1.0154,
+            "post_settle": 0.5519,
+            "endpoint_c": 0.5414,
+            "endpoint_err": 0.4536,
+            "endpoint_f1": 0.8167
+          },
+          {
+            "cell": "anchor|o3|s23",
+            "raw_path": 0.5668,
+            "post_settle": 0.1878,
+            "endpoint_c": 0.638,
+            "endpoint_err": 0.5502,
+            "endpoint_f1": 0.7962
+          },
+          {
+            "cell": "anchor|o3|s31",
+            "raw_path": 0.5209,
+            "post_settle": 0.3125,
+            "endpoint_c": 0.6485,
+            "endpoint_err": 0.5606,
+            "endpoint_f1": 0.7995
+          },
+          {
+            "cell": "joint|o1|s17",
+            "raw_path": 0.6145,
+            "post_settle": 0.24,
+            "endpoint_c": 0.0623,
+            "endpoint_err": 0.0255,
+            "endpoint_f1": 0.8682
+          },
+          {
+            "cell": "joint|o1|s23",
+            "raw_path": 0.6002,
+            "post_settle": 0.2157,
+            "endpoint_c": 0.1134,
+            "endpoint_err": 0.0256,
+            "endpoint_f1": 0.8652
+          },
+          {
+            "cell": "seq|o1|s17",
+            "raw_path": 0.7643,
+            "post_settle": 0.5451,
+            "endpoint_c": 0.0679,
+            "endpoint_err": 0.0199,
+            "endpoint_f1": 0.8604
+          },
+          {
+            "cell": "seq|o1|s23",
+            "raw_path": 0.7376,
+            "post_settle": 0.714,
+            "endpoint_c": 0.103,
+            "endpoint_err": 0.0151,
+            "endpoint_f1": 0.868
+          },
+          {
+            "cell": "seq|o1|s31",
+            "raw_path": 1.2021,
+            "post_settle": 1.0846,
+            "endpoint_c": 0.2607,
+            "endpoint_err": 0.1729,
+            "endpoint_f1": 0.8547
+          },
+          {
+            "cell": "seq|o2|s17",
+            "raw_path": 1.0071,
+            "post_settle": 0.8998,
+            "endpoint_c": -0.0111,
+            "endpoint_err": 0.0989,
+            "endpoint_f1": 0.8632
+          },
+          {
+            "cell": "seq|o2|s23",
+            "raw_path": 1.0193,
+            "post_settle": 0.9794,
+            "endpoint_c": 0.1617,
+            "endpoint_err": 0.0739,
+            "endpoint_f1": 0.861
+          },
+          {
+            "cell": "seq|o2|s31",
+            "raw_path": 1.1935,
+            "post_settle": 1.1568,
+            "endpoint_c": 0.2021,
+            "endpoint_err": 0.1143,
+            "endpoint_f1": 0.8567
+          },
+          {
+            "cell": "seq|o3|s17",
+            "raw_path": 0.602,
+            "post_settle": 0.4295,
+            "endpoint_c": 0.0138,
+            "endpoint_err": 0.0741,
+            "endpoint_f1": 0.8641
+          },
+          {
+            "cell": "seq|o3|s23",
+            "raw_path": 0.7861,
+            "post_settle": 0.5079,
+            "endpoint_c": -0.0143,
+            "endpoint_err": 0.1021,
+            "endpoint_f1": 0.8651
+          },
+          {
+            "cell": "seq|o3|s31",
+            "raw_path": 1.1159,
+            "post_settle": 0.7153,
+            "endpoint_c": 0.0289,
+            "endpoint_err": 0.059,
+            "endpoint_f1": 0.8691
+          }
+        ],
+        "note": "n=20 cells but n=3 ARMS: a cross-arm correlation here is a between-group separation wearing a cell-level n. Read with the arm-partialled and drop-anchor rows."
+      },
+      "all_arms_no_anchor": {
+        "n_cells": 11,
+        "cells": [
+          "joint|o1|s17",
+          "joint|o1|s23",
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31"
+        ],
+        "correlations": {
+          "raw_path_vs_endpoint_f1": {
+            "label": "all_arms_no_anchor: raw_path vs endpoint POPE F1",
+            "n_cells": 11,
+            "cells": [
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.5746,
+            "spearman_rho": -0.5091,
+            "r_critical_p05": 0.6021,
+            "rho_detectable_at_80pct_power": 0.7576,
+            "ci95_pearson": {
+              "lo": -0.9307,
+              "hi": 0.1604,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0665,
+              "B": 10000,
+              "mc_se": 0.0025
+            },
+            "x": [
+              0.6145,
+              0.6002,
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.8682,
+              0.8652,
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "raw_path_vs_endpoint_err": {
+            "label": "all_arms_no_anchor: raw_path vs |endpoint c - c*|",
+            "n_cells": 11,
+            "cells": [
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.709,
+            "spearman_rho": 0.6273,
+            "r_critical_p05": 0.6021,
+            "rho_detectable_at_80pct_power": 0.7576,
+            "ci95_pearson": {
+              "lo": 0.3106,
+              "hi": 0.9158,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0148,
+              "B": 10000,
+              "mc_se": 0.0012
+            },
+            "x": [
+              0.6145,
+              0.6002,
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.0255,
+              0.0256,
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          },
+          "post_settle_vs_endpoint_f1": {
+            "label": "all_arms_no_anchor: post_settle vs endpoint POPE F1",
+            "n_cells": 11,
+            "cells": [
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.6685,
+            "spearman_rho": -0.6182,
+            "r_critical_p05": 0.6021,
+            "rho_detectable_at_80pct_power": 0.7576,
+            "ci95_pearson": {
+              "lo": -0.9073,
+              "hi": -0.1166,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0241,
+              "B": 10000,
+              "mc_se": 0.0015
+            },
+            "x": [
+              0.24,
+              0.2157,
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.8682,
+              0.8652,
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "post_settle_vs_endpoint_err": {
+            "label": "all_arms_no_anchor: post_settle vs |endpoint c - c*|",
+            "n_cells": 11,
+            "cells": [
+              "joint|o1|s17",
+              "joint|o1|s23",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.6821,
+            "spearman_rho": 0.5455,
+            "r_critical_p05": 0.6021,
+            "rho_detectable_at_80pct_power": 0.7576,
+            "ci95_pearson": {
+              "lo": 0.2468,
+              "hi": 0.8852,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0215,
+              "B": 10000,
+              "mc_se": 0.0015
+            },
+            "x": [
+              0.24,
+              0.2157,
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.0255,
+              0.0256,
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          }
+        },
+        "per_cell": [
+          {
+            "cell": "joint|o1|s17",
+            "raw_path": 0.6145,
+            "post_settle": 0.24,
+            "endpoint_c": 0.0623,
+            "endpoint_err": 0.0255,
+            "endpoint_f1": 0.8682
+          },
+          {
+            "cell": "joint|o1|s23",
+            "raw_path": 0.6002,
+            "post_settle": 0.2157,
+            "endpoint_c": 0.1134,
+            "endpoint_err": 0.0256,
+            "endpoint_f1": 0.8652
+          },
+          {
+            "cell": "seq|o1|s17",
+            "raw_path": 0.7643,
+            "post_settle": 0.5451,
+            "endpoint_c": 0.0679,
+            "endpoint_err": 0.0199,
+            "endpoint_f1": 0.8604
+          },
+          {
+            "cell": "seq|o1|s23",
+            "raw_path": 0.7376,
+            "post_settle": 0.714,
+            "endpoint_c": 0.103,
+            "endpoint_err": 0.0151,
+            "endpoint_f1": 0.868
+          },
+          {
+            "cell": "seq|o1|s31",
+            "raw_path": 1.2021,
+            "post_settle": 1.0846,
+            "endpoint_c": 0.2607,
+            "endpoint_err": 0.1729,
+            "endpoint_f1": 0.8547
+          },
+          {
+            "cell": "seq|o2|s17",
+            "raw_path": 1.0071,
+            "post_settle": 0.8998,
+            "endpoint_c": -0.0111,
+            "endpoint_err": 0.0989,
+            "endpoint_f1": 0.8632
+          },
+          {
+            "cell": "seq|o2|s23",
+            "raw_path": 1.0193,
+            "post_settle": 0.9794,
+            "endpoint_c": 0.1617,
+            "endpoint_err": 0.0739,
+            "endpoint_f1": 0.861
+          },
+          {
+            "cell": "seq|o2|s31",
+            "raw_path": 1.1935,
+            "post_settle": 1.1568,
+            "endpoint_c": 0.2021,
+            "endpoint_err": 0.1143,
+            "endpoint_f1": 0.8567
+          },
+          {
+            "cell": "seq|o3|s17",
+            "raw_path": 0.602,
+            "post_settle": 0.4295,
+            "endpoint_c": 0.0138,
+            "endpoint_err": 0.0741,
+            "endpoint_f1": 0.8641
+          },
+          {
+            "cell": "seq|o3|s23",
+            "raw_path": 0.7861,
+            "post_settle": 0.5079,
+            "endpoint_c": -0.0143,
+            "endpoint_err": 0.1021,
+            "endpoint_f1": 0.8651
+          },
+          {
+            "cell": "seq|o3|s31",
+            "raw_path": 1.1159,
+            "post_settle": 0.7153,
+            "endpoint_c": 0.0289,
+            "endpoint_err": 0.059,
+            "endpoint_f1": 0.8691
+          }
+        ],
+        "note": "Anchor family dropped -- TRADEOFF_PLACEMENT.md showed it drives the pooled sign."
+      },
+      "all_arms_no_joint": {
+        "n_cells": 18,
+        "cells": [
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31",
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31"
+        ],
+        "correlations": {
+          "raw_path_vs_endpoint_f1": {
+            "label": "all_arms_no_joint: raw_path vs endpoint POPE F1",
+            "n_cells": 18,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.4986,
+            "spearman_rho": 0.2808,
+            "r_critical_p05": 0.4683,
+            "rho_detectable_at_80pct_power": 0.619,
+            "ci95_pearson": {
+              "lo": 0.1495,
+              "hi": 0.7738,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0327,
+              "B": 10000,
+              "mc_se": 0.0018
+            },
+            "x": [
+              0.7834,
+              0.6959,
+              0.7817,
+              0.8168,
+              0.7575,
+              0.5631,
+              1.0154,
+              0.5668,
+              0.5209,
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.7844,
+              0.7961,
+              0.7896,
+              0.7897,
+              0.7982,
+              0.7962,
+              0.8167,
+              0.7962,
+              0.7995,
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "raw_path_vs_endpoint_err": {
+            "label": "all_arms_no_joint: raw_path vs |endpoint c - c*|",
+            "n_cells": 18,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.4557,
+            "spearman_rho": -0.2239,
+            "r_critical_p05": 0.4683,
+            "rho_detectable_at_80pct_power": 0.619,
+            "ci95_pearson": {
+              "lo": -0.7425,
+              "hi": -0.1142,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0551,
+              "B": 10000,
+              "mc_se": 0.0023
+            },
+            "x": [
+              0.7834,
+              0.6959,
+              0.7817,
+              0.8168,
+              0.7575,
+              0.5631,
+              1.0154,
+              0.5668,
+              0.5209,
+              0.7643,
+              0.7376,
+              1.2021,
+              1.0071,
+              1.0193,
+              1.1935,
+              0.602,
+              0.7861,
+              1.1159
+            ],
+            "y": [
+              0.6747,
+              0.5823,
+              0.6527,
+              0.7406,
+              0.6399,
+              0.63,
+              0.4536,
+              0.5502,
+              0.5606,
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          },
+          "post_settle_vs_endpoint_f1": {
+            "label": "all_arms_no_joint: post_settle vs endpoint POPE F1",
+            "n_cells": 18,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": 0.697,
+            "spearman_rho": 0.5947,
+            "r_critical_p05": 0.4683,
+            "rho_detectable_at_80pct_power": 0.619,
+            "ci95_pearson": {
+              "lo": 0.5146,
+              "hi": 0.8651,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0009,
+              "B": 10000,
+              "mc_se": 0.0003
+            },
+            "x": [
+              0.4618,
+              0.3502,
+              0.4099,
+              0.4176,
+              0.3661,
+              0.219,
+              0.5519,
+              0.1878,
+              0.3125,
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.7844,
+              0.7961,
+              0.7896,
+              0.7897,
+              0.7982,
+              0.7962,
+              0.8167,
+              0.7962,
+              0.7995,
+              0.8604,
+              0.868,
+              0.8547,
+              0.8632,
+              0.861,
+              0.8567,
+              0.8641,
+              0.8651,
+              0.8691
+            ]
+          },
+          "post_settle_vs_endpoint_err": {
+            "label": "all_arms_no_joint: post_settle vs |endpoint c - c*|",
+            "n_cells": 18,
+            "cells": [
+              "anchor|o1|s17",
+              "anchor|o1|s23",
+              "anchor|o1|s31",
+              "anchor|o2|s17",
+              "anchor|o2|s23",
+              "anchor|o2|s31",
+              "anchor|o3|s17",
+              "anchor|o3|s23",
+              "anchor|o3|s31",
+              "seq|o1|s17",
+              "seq|o1|s23",
+              "seq|o1|s31",
+              "seq|o2|s17",
+              "seq|o2|s23",
+              "seq|o2|s31",
+              "seq|o3|s17",
+              "seq|o3|s23",
+              "seq|o3|s31"
+            ],
+            "pearson_r": -0.6778,
+            "spearman_rho": -0.5975,
+            "r_critical_p05": 0.4683,
+            "rho_detectable_at_80pct_power": 0.619,
+            "ci95_pearson": {
+              "lo": -0.8466,
+              "hi": -0.501,
+              "B": 10000,
+              "n_ok": 10000,
+              "n_degenerate": 0
+            },
+            "perm_p": {
+              "p": 0.0014,
+              "B": 10000,
+              "mc_se": 0.0004
+            },
+            "x": [
+              0.4618,
+              0.3502,
+              0.4099,
+              0.4176,
+              0.3661,
+              0.219,
+              0.5519,
+              0.1878,
+              0.3125,
+              0.5451,
+              0.714,
+              1.0846,
+              0.8998,
+              0.9794,
+              1.1568,
+              0.4295,
+              0.5079,
+              0.7153
+            ],
+            "y": [
+              0.6747,
+              0.5823,
+              0.6527,
+              0.7406,
+              0.6399,
+              0.63,
+              0.4536,
+              0.5502,
+              0.5606,
+              0.0199,
+              0.0151,
+              0.1729,
+              0.0989,
+              0.0739,
+              0.1143,
+              0.0741,
+              0.1021,
+              0.059
+            ]
+          }
+        },
+        "per_cell": [
+          {
+            "cell": "anchor|o1|s17",
+            "raw_path": 0.7834,
+            "post_settle": 0.4618,
+            "endpoint_c": 0.7626,
+            "endpoint_err": 0.6747,
+            "endpoint_f1": 0.7844
+          },
+          {
+            "cell": "anchor|o1|s23",
+            "raw_path": 0.6959,
+            "post_settle": 0.3502,
+            "endpoint_c": 0.6701,
+            "endpoint_err": 0.5823,
+            "endpoint_f1": 0.7961
+          },
+          {
+            "cell": "anchor|o1|s31",
+            "raw_path": 0.7817,
+            "post_settle": 0.4099,
+            "endpoint_c": 0.7405,
+            "endpoint_err": 0.6527,
+            "endpoint_f1": 0.7896
+          },
+          {
+            "cell": "anchor|o2|s17",
+            "raw_path": 0.8168,
+            "post_settle": 0.4176,
+            "endpoint_c": 0.8284,
+            "endpoint_err": 0.7406,
+            "endpoint_f1": 0.7897
+          },
+          {
+            "cell": "anchor|o2|s23",
+            "raw_path": 0.7575,
+            "post_settle": 0.3661,
+            "endpoint_c": 0.7277,
+            "endpoint_err": 0.6399,
+            "endpoint_f1": 0.7982
+          },
+          {
+            "cell": "anchor|o2|s31",
+            "raw_path": 0.5631,
+            "post_settle": 0.219,
+            "endpoint_c": 0.7179,
+            "endpoint_err": 0.63,
+            "endpoint_f1": 0.7962
+          },
+          {
+            "cell": "anchor|o3|s17",
+            "raw_path": 1.0154,
+            "post_settle": 0.5519,
+            "endpoint_c": 0.5414,
+            "endpoint_err": 0.4536,
+            "endpoint_f1": 0.8167
+          },
+          {
+            "cell": "anchor|o3|s23",
+            "raw_path": 0.5668,
+            "post_settle": 0.1878,
+            "endpoint_c": 0.638,
+            "endpoint_err": 0.5502,
+            "endpoint_f1": 0.7962
+          },
+          {
+            "cell": "anchor|o3|s31",
+            "raw_path": 0.5209,
+            "post_settle": 0.3125,
+            "endpoint_c": 0.6485,
+            "endpoint_err": 0.5606,
+            "endpoint_f1": 0.7995
+          },
+          {
+            "cell": "seq|o1|s17",
+            "raw_path": 0.7643,
+            "post_settle": 0.5451,
+            "endpoint_c": 0.0679,
+            "endpoint_err": 0.0199,
+            "endpoint_f1": 0.8604
+          },
+          {
+            "cell": "seq|o1|s23",
+            "raw_path": 0.7376,
+            "post_settle": 0.714,
+            "endpoint_c": 0.103,
+            "endpoint_err": 0.0151,
+            "endpoint_f1": 0.868
+          },
+          {
+            "cell": "seq|o1|s31",
+            "raw_path": 1.2021,
+            "post_settle": 1.0846,
+            "endpoint_c": 0.2607,
+            "endpoint_err": 0.1729,
+            "endpoint_f1": 0.8547
+          },
+          {
+            "cell": "seq|o2|s17",
+            "raw_path": 1.0071,
+            "post_settle": 0.8998,
+            "endpoint_c": -0.0111,
+            "endpoint_err": 0.0989,
+            "endpoint_f1": 0.8632
+          },
+          {
+            "cell": "seq|o2|s23",
+            "raw_path": 1.0193,
+            "post_settle": 0.9794,
+            "endpoint_c": 0.1617,
+            "endpoint_err": 0.0739,
+            "endpoint_f1": 0.861
+          },
+          {
+            "cell": "seq|o2|s31",
+            "raw_path": 1.1935,
+            "post_settle": 1.1568,
+            "endpoint_c": 0.2021,
+            "endpoint_err": 0.1143,
+            "endpoint_f1": 0.8567
+          },
+          {
+            "cell": "seq|o3|s17",
+            "raw_path": 0.602,
+            "post_settle": 0.4295,
+            "endpoint_c": 0.0138,
+            "endpoint_err": 0.0741,
+            "endpoint_f1": 0.8641
+          },
+          {
+            "cell": "seq|o3|s23",
+            "raw_path": 0.7861,
+            "post_settle": 0.5079,
+            "endpoint_c": -0.0143,
+            "endpoint_err": 0.1021,
+            "endpoint_f1": 0.8651
+          },
+          {
+            "cell": "seq|o3|s31",
+            "raw_path": 1.1159,
+            "post_settle": 0.7153,
+            "endpoint_c": 0.0289,
+            "endpoint_err": 0.059,
+            "endpoint_f1": 0.8691
+          }
+        ],
+        "note": "JOINT dropped: c* is the mean of the two JOINT endpoints, so their placement error is partly by construction."
+      }
+    },
+    "within_arm_centred": {
+      "raw_path_vs_endpoint_f1": {
+        "label": "within-arm centred: raw_path vs endpoint F1",
+        "n_cells": 20,
+        "cells": [
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31",
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31",
+          "joint|o1|s17",
+          "joint|o1|s23"
+        ],
+        "pearson_r": -0.0181,
+        "spearman_rho": -0.255,
+        "r_critical_p05": 0.4438,
+        "rho_detectable_at_80pct_power": 0.5912,
+        "ci95_pearson": {
+          "lo": -0.7449,
+          "hi": 0.4874,
+          "B": 10000,
+          "n_ok": 10000,
+          "n_degenerate": 0
+        },
+        "perm_p": {
+          "p": 0.9396,
+          "B": 10000,
+          "mc_se": 0.0024
+        },
+        "x": [
+          -0.1721,
+          -0.1988,
+          0.2657,
+          0.0707,
+          0.0829,
+          0.2571,
+          -0.3344,
+          -0.1503,
+          0.1795,
+          0.061,
+          -0.0265,
+          0.0593,
+          0.0944,
+          0.0351,
+          -0.1593,
+          0.293,
+          -0.1556,
+          -0.2015,
+          0.0071,
+          -0.0071
+        ],
+        "y": [
+          -0.0021,
+          0.0055,
+          -0.0078,
+          0.0007,
+          -0.0015,
+          -0.0058,
+          0.0016,
+          0.0026,
+          0.0066,
+          -0.0119,
+          -0.0002,
+          -0.0067,
+          -0.0066,
+          0.0019,
+          -0.0001,
+          0.0204,
+          -0.0001,
+          0.0032,
+          0.0015,
+          -0.0015
+        ]
+      },
+      "raw_path_vs_endpoint_err": {
+        "label": "within-arm centred: raw_path vs |endpoint c - c*|",
+        "n_cells": 20,
+        "cells": [
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31",
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31",
+          "joint|o1|s17",
+          "joint|o1|s23"
+        ],
+        "pearson_r": 0.2081,
+        "spearman_rho": 0.3985,
+        "r_critical_p05": 0.4438,
+        "rho_detectable_at_80pct_power": 0.5912,
+        "ci95_pearson": {
+          "lo": -0.3187,
+          "hi": 0.7691,
+          "B": 10000,
+          "n_ok": 10000,
+          "n_degenerate": 0
+        },
+        "perm_p": {
+          "p": 0.3796,
+          "B": 10000,
+          "mc_se": 0.0049
+        },
+        "x": [
+          -0.1721,
+          -0.1988,
+          0.2657,
+          0.0707,
+          0.0829,
+          0.2571,
+          -0.3344,
+          -0.1503,
+          0.1795,
+          0.061,
+          -0.0265,
+          0.0593,
+          0.0944,
+          0.0351,
+          -0.1593,
+          0.293,
+          -0.1556,
+          -0.2015,
+          0.0071,
+          -0.0071
+        ],
+        "y": [
+          -0.0612,
+          -0.066,
+          0.0917,
+          0.0178,
+          -0.0073,
+          0.0331,
+          -0.0071,
+          0.021,
+          -0.0222,
+          0.0654,
+          -0.0271,
+          0.0433,
+          0.1312,
+          0.0305,
+          0.0207,
+          -0.1558,
+          -0.0592,
+          -0.0487,
+          -0.0,
+          0.0
+        ]
+      },
+      "post_settle_vs_endpoint_f1": {
+        "label": "within-arm centred: post_settle vs endpoint F1",
+        "n_cells": 20,
+        "cells": [
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31",
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31",
+          "joint|o1|s17",
+          "joint|o1|s23"
+        ],
+        "pearson_r": -0.1876,
+        "spearman_rho": -0.4114,
+        "r_critical_p05": 0.4438,
+        "rho_detectable_at_80pct_power": 0.5912,
+        "ci95_pearson": {
+          "lo": -0.67,
+          "hi": 0.2974,
+          "B": 10000,
+          "n_ok": 10000,
+          "n_degenerate": 0
+        },
+        "perm_p": {
+          "p": 0.4259,
+          "B": 10000,
+          "mc_se": 0.0049
+        },
+        "x": [
+          -0.2363,
+          -0.0674,
+          0.3032,
+          0.1184,
+          0.198,
+          0.3754,
+          -0.3519,
+          -0.2735,
+          -0.0661,
+          0.0977,
+          -0.0139,
+          0.0458,
+          0.0535,
+          0.002,
+          -0.1451,
+          0.1878,
+          -0.1763,
+          -0.0516,
+          0.0121,
+          -0.0121
+        ],
+        "y": [
+          -0.0021,
+          0.0055,
+          -0.0078,
+          0.0007,
+          -0.0015,
+          -0.0058,
+          0.0016,
+          0.0026,
+          0.0066,
+          -0.0119,
+          -0.0002,
+          -0.0067,
+          -0.0066,
+          0.0019,
+          -0.0001,
+          0.0204,
+          -0.0001,
+          0.0032,
+          0.0015,
+          -0.0015
+        ]
+      },
+      "post_settle_vs_endpoint_err": {
+        "label": "within-arm centred: post_settle vs |endpoint c - c*|",
+        "n_cells": 20,
+        "cells": [
+          "seq|o1|s17",
+          "seq|o1|s23",
+          "seq|o1|s31",
+          "seq|o2|s17",
+          "seq|o2|s23",
+          "seq|o2|s31",
+          "seq|o3|s17",
+          "seq|o3|s23",
+          "seq|o3|s31",
+          "anchor|o1|s17",
+          "anchor|o1|s23",
+          "anchor|o1|s31",
+          "anchor|o2|s17",
+          "anchor|o2|s23",
+          "anchor|o2|s31",
+          "anchor|o3|s17",
+          "anchor|o3|s23",
+          "anchor|o3|s31",
+          "joint|o1|s17",
+          "joint|o1|s23"
+        ],
+        "pearson_r": 0.2469,
+        "spearman_rho": 0.4165,
+        "r_critical_p05": 0.4438,
+        "rho_detectable_at_80pct_power": 0.5912,
+        "ci95_pearson": {
+          "lo": -0.2032,
+          "hi": 0.6891,
+          "B": 10000,
+          "n_ok": 10000,
+          "n_degenerate": 0
+        },
+        "perm_p": {
+          "p": 0.2981,
+          "B": 10000,
+          "mc_se": 0.0046
+        },
+        "x": [
+          -0.2363,
+          -0.0674,
+          0.3032,
+          0.1184,
+          0.198,
+          0.3754,
+          -0.3519,
+          -0.2735,
+          -0.0661,
+          0.0977,
+          -0.0139,
+          0.0458,
+          0.0535,
+          0.002,
+          -0.1451,
+          0.1878,
+          -0.1763,
+          -0.0516,
+          0.0121,
+          -0.0121
+        ],
+        "y": [
+          -0.0612,
+          -0.066,
+          0.0917,
+          0.0178,
+          -0.0073,
+          0.0331,
+          -0.0071,
+          0.021,
+          -0.0222,
+          0.0654,
+          -0.0271,
+          0.0433,
+          0.1312,
+          0.0305,
+          0.0207,
+          -0.1558,
+          -0.0592,
+          -0.0487,
+          -0.0,
+          0.0
+        ]
+      },
+      "note": "Each arm centred on its own mean before pooling, so this is the WITHIN-arm relationship with the between-arm difference removed. Degrees of freedom are inflated (3 means estimated); treat the bootstrap CI as the inferential statistic, not the p."
+    },
+    "endpoint_f1_is_endpoint_c": {
+      "label": "seq: endpoint c vs endpoint F1 (are these two readings of one quantity?)",
+      "n_cells": 9,
+      "cells": [
+        "seq|o1|s17",
+        "seq|o1|s23",
+        "seq|o1|s31",
+        "seq|o2|s17",
+        "seq|o2|s23",
+        "seq|o2|s31",
+        "seq|o3|s17",
+        "seq|o3|s23",
+        "seq|o3|s31"
+      ],
+      "pearson_r": -0.747,
+      "spearman_rho": -0.6333,
+      "r_critical_p05": 0.6664,
+      "rho_detectable_at_80pct_power": 0.8157,
+      "ci95_pearson": {
+        "lo": -0.9735,
+        "hi": -0.0127,
+        "B": 10000,
+        "n_ok": 10000,
+        "n_degenerate": 0
+      },
+      "perm_p": {
+        "p": 0.0219,
+        "B": 10000,
+        "mc_se": 0.0015
+      },
+      "x": [
+        0.0679,
+        0.103,
+        0.2607,
+        -0.0111,
+        0.1617,
+        0.2021,
+        0.0138,
+        -0.0143,
+        0.0289
+      ],
+      "y": [
+        0.8604,
+        0.868,
+        0.8547,
+        0.8632,
+        0.861,
+        0.8567,
+        0.8641,
+        0.8651,
+        0.8691
+      ]
+    }
+  },
+  "Q2_convergence": {
+    "question": "Is the endpoint convergence real or an artifact of averaging?",
+    "seq": {
+      "n_cells": 9,
+      "per_cell": [
+        {
+          "cell": "seq|o1|s17",
+          "endpoint_c": 0.0679,
+          "signed_err": -0.0199,
+          "abs_err": 0.0199
+        },
+        {
+          "cell": "seq|o1|s23",
+          "endpoint_c": 0.103,
+          "signed_err": 0.0151,
+          "abs_err": 0.0151
+        },
+        {
+          "cell": "seq|o1|s31",
+          "endpoint_c": 0.2607,
+          "signed_err": 0.1729,
+          "abs_err": 0.1729
+        },
+        {
+          "cell": "seq|o2|s17",
+          "endpoint_c": -0.0111,
+          "signed_err": -0.0989,
+          "abs_err": 0.0989
+        },
+        {
+          "cell": "seq|o2|s23",
+          "endpoint_c": 0.1617,
+          "signed_err": 0.0739,
+          "abs_err": 0.0739
+        },
+        {
+          "cell": "seq|o2|s31",
+          "endpoint_c": 0.2021,
+          "signed_err": 0.1143,
+          "abs_err": 0.1143
+        },
+        {
+          "cell": "seq|o3|s17",
+          "endpoint_c": 0.0138,
+          "signed_err": -0.0741,
+          "abs_err": 0.0741
+        },
+        {
+          "cell": "seq|o3|s23",
+          "endpoint_c": -0.0143,
+          "signed_err": -0.1021,
+          "abs_err": 0.1021
+        },
+        {
+          "cell": "seq|o3|s31",
+          "endpoint_c": 0.0289,
+          "signed_err": -0.059,
+          "abs_err": 0.059
+        }
+      ],
+      "mean_endpoint_c": 0.0903,
+      "sd_endpoint_c": 0.0988,
+      "min_endpoint_c": -0.0143,
+      "max_endpoint_c": 0.2607,
+      "range_endpoint_c": 0.275,
+      "mean_abs_err": 0.0811,
+      "abs_err_of_the_mean": 0.0025,
+      "n_above_target": 4,
+      "n_below_target": 5,
+      "ci95_mean_endpoint_c": {
+        "lo": 0.0331,
+        "hi": 0.1545,
+        "B": 10000
+      },
+      "ci95_mean_abs_err": {
+        "lo": 0.0518,
+        "hi": 0.1122,
+        "B": 10000
+      },
+      "cancellation_ratio": 32.44,
+      "cancellation_note": "mean_abs_err / abs_err_of_the_mean. A value near 1 means the cells really are all near c*; a large value means the mean is close only because per-cell errors cancel in sign.",
+      "scale_references": {
+        "base_distance_from_target": 0.3436,
+        "mean_raw_path_seq": 0.9364,
+        "spread_as_frac_of_base_distance": 0.236
+      }
+    },
+    "anchor": {
+      "n_cells": 9,
+      "per_cell": [
+        {
+          "cell": "anchor|o1|s17",
+          "endpoint_c": 0.7626,
+          "signed_err": 0.6747,
+          "abs_err": 0.6747
+        },
+        {
+          "cell": "anchor|o1|s23",
+          "endpoint_c": 0.6701,
+          "signed_err": 0.5823,
+          "abs_err": 0.5823
+        },
+        {
+          "cell": "anchor|o1|s31",
+          "endpoint_c": 0.7405,
+          "signed_err": 0.6527,
+          "abs_err": 0.6527
+        },
+        {
+          "cell": "anchor|o2|s17",
+          "endpoint_c": 0.8284,
+          "signed_err": 0.7406,
+          "abs_err": 0.7406
+        },
+        {
+          "cell": "anchor|o2|s23",
+          "endpoint_c": 0.7277,
+          "signed_err": 0.6399,
+          "abs_err": 0.6399
+        },
+        {
+          "cell": "anchor|o2|s31",
+          "endpoint_c": 0.7179,
+          "signed_err": 0.63,
+          "abs_err": 0.63
+        },
+        {
+          "cell": "anchor|o3|s17",
+          "endpoint_c": 0.5414,
+          "signed_err": 0.4536,
+          "abs_err": 0.4536
+        },
+        {
+          "cell": "anchor|o3|s23",
+          "endpoint_c": 0.638,
+          "signed_err": 0.5502,
+          "abs_err": 0.5502
+        },
+        {
+          "cell": "anchor|o3|s31",
+          "endpoint_c": 0.6485,
+          "signed_err": 0.5606,
+          "abs_err": 0.5606
+        }
+      ],
+      "mean_endpoint_c": 0.6972,
+      "sd_endpoint_c": 0.0834,
+      "min_endpoint_c": 0.5414,
+      "max_endpoint_c": 0.8284,
+      "range_endpoint_c": 0.287,
+      "mean_abs_err": 0.6094,
+      "abs_err_of_the_mean": 0.6094,
+      "n_above_target": 9,
+      "n_below_target": 0,
+      "ci95_mean_endpoint_c": {
+        "lo": 0.6447,
+        "hi": 0.7469,
+        "B": 10000
+      },
+      "ci95_mean_abs_err": {
+        "lo": 0.5568,
+        "hi": 0.6591,
+        "B": 10000
+      }
+    },
+    "joint": {
+      "n_cells": 2,
+      "per_cell": [
+        {
+          "cell": "joint|o1|s17",
+          "endpoint_c": 0.0623,
+          "signed_err": -0.0255,
+          "abs_err": 0.0255
+        },
+        {
+          "cell": "joint|o1|s23",
+          "endpoint_c": 0.1134,
+          "signed_err": 0.0256,
+          "abs_err": 0.0256
+        }
+      ],
+      "mean_endpoint_c": 0.0878,
+      "sd_endpoint_c": 0.0361,
+      "min_endpoint_c": 0.0623,
+      "max_endpoint_c": 0.1134,
+      "range_endpoint_c": 0.0511,
+      "mean_abs_err": 0.0255,
+      "abs_err_of_the_mean": 0.0,
+      "n_above_target": 1,
+      "n_below_target": 1,
+      "note": "n<4: per-cell values only, no interval."
+    },
+    "stage_index_control": {
+      "note": "For each stage index k, the cross-cell mean of c and the cross-cell mean of |c - c*|. If k=6 is not distinguished, the endpoint is not a special place -- the arm simply straddles c* throughout.",
+      "arms": {
+        "seq": [
+          {
+            "stage": 1,
+            "n_cells": 9,
+            "mean_c": 0.2763,
+            "sd_c": 0.1265,
+            "abs_err_of_mean": 0.1885,
+            "mean_abs_err": 0.2012,
+            "n_above_target": 8
+          },
+          {
+            "stage": 2,
+            "n_cells": 9,
+            "mean_c": 0.2182,
+            "sd_c": 0.0804,
+            "abs_err_of_mean": 0.1304,
+            "mean_abs_err": 0.1441,
+            "n_above_target": 8
+          },
+          {
+            "stage": 3,
+            "n_cells": 9,
+            "mean_c": 0.1508,
+            "sd_c": 0.2052,
+            "abs_err_of_mean": 0.063,
+            "mean_abs_err": 0.1884,
+            "n_above_target": 6
+          },
+          {
+            "stage": 4,
+            "n_cells": 9,
+            "mean_c": 0.1739,
+            "sd_c": 0.066,
+            "abs_err_of_mean": 0.086,
+            "mean_abs_err": 0.0991,
+            "n_above_target": 8
+          },
+          {
+            "stage": 5,
+            "n_cells": 9,
+            "mean_c": 0.1733,
+            "sd_c": 0.1619,
+            "abs_err_of_mean": 0.0854,
+            "mean_abs_err": 0.1646,
+            "n_above_target": 6
+          },
+          {
+            "stage": 6,
+            "n_cells": 9,
+            "mean_c": 0.0903,
+            "sd_c": 0.0988,
+            "abs_err_of_mean": 0.0025,
+            "mean_abs_err": 0.0811,
+            "n_above_target": 4
+          }
+        ],
+        "anchor": [
+          {
+            "stage": 1,
+            "n_cells": 9,
+            "mean_c": 0.7897,
+            "sd_c": 0.0695,
+            "abs_err_of_mean": 0.7019,
+            "mean_abs_err": 0.7018,
+            "n_above_target": 9
+          },
+          {
+            "stage": 2,
+            "n_cells": 9,
+            "mean_c": 0.7402,
+            "sd_c": 0.0466,
+            "abs_err_of_mean": 0.6523,
+            "mean_abs_err": 0.6523,
+            "n_above_target": 9
+          },
+          {
+            "stage": 3,
+            "n_cells": 9,
+            "mean_c": 0.7348,
+            "sd_c": 0.0814,
+            "abs_err_of_mean": 0.647,
+            "mean_abs_err": 0.647,
+            "n_above_target": 9
+          },
+          {
+            "stage": 4,
+            "n_cells": 9,
+            "mean_c": 0.7082,
+            "sd_c": 0.0409,
+            "abs_err_of_mean": 0.6204,
+            "mean_abs_err": 0.6204,
+            "n_above_target": 9
+          },
+          {
+            "stage": 5,
+            "n_cells": 9,
+            "mean_c": 0.7161,
+            "sd_c": 0.0698,
+            "abs_err_of_mean": 0.6283,
+            "mean_abs_err": 0.6283,
+            "n_above_target": 9
+          },
+          {
+            "stage": 6,
+            "n_cells": 9,
+            "mean_c": 0.6972,
+            "sd_c": 0.0834,
+            "abs_err_of_mean": 0.6094,
+            "mean_abs_err": 0.6094,
+            "n_above_target": 9
+          }
+        ],
+        "joint": [
+          {
+            "stage": 1,
+            "n_cells": 2,
+            "mean_c": 0.0519,
+            "sd_c": 0.0071,
+            "abs_err_of_mean": 0.0359,
+            "mean_abs_err": 0.0359,
+            "n_above_target": 0
+          },
+          {
+            "stage": 2,
+            "n_cells": 2,
+            "mean_c": 0.1576,
+            "sd_c": 0.0139,
+            "abs_err_of_mean": 0.0697,
+            "mean_abs_err": 0.0697,
+            "n_above_target": 2
+          },
+          {
+            "stage": 3,
+            "n_cells": 2,
+            "mean_c": 0.1058,
+            "sd_c": 0.0656,
+            "abs_err_of_mean": 0.018,
+            "mean_abs_err": 0.0464,
+            "n_above_target": 1
+          },
+          {
+            "stage": 4,
+            "n_cells": 2,
+            "mean_c": 0.1017,
+            "sd_c": 0.1006,
+            "abs_err_of_mean": 0.0138,
+            "mean_abs_err": 0.0712,
+            "n_above_target": 1
+          },
+          {
+            "stage": 5,
+            "n_cells": 2,
+            "mean_c": 0.09,
+            "sd_c": 0.0554,
+            "abs_err_of_mean": 0.0021,
+            "mean_abs_err": 0.0391,
+            "n_above_target": 1
+          },
+          {
+            "stage": 6,
+            "n_cells": 2,
+            "mean_c": 0.0878,
+            "sd_c": 0.0361,
+            "abs_err_of_mean": 0.0,
+            "mean_abs_err": 0.0255,
+            "n_above_target": 1
+          }
+        ]
+      }
+    }
+  },
+  "Q3_return_or_arrive": {
+    "question": "Does the criterion return, or does it happen to end near the bound?",
+    "definitions": {
+      "net_to_gross": "|c_end - c_base| / Sigma|dc|. 1.0 = a straight monotone march; low = the path doubled back on itself.",
+      "crossings": "sign changes of (c_k - c_end) over k=1..N-1: how many times the trajectory crossed the level it ends at.",
+      "endpoint_rank": "rank of c_end among the cell's N visited criteria (1 = most liberal). Interior rank => it came back; rank 1 or N => it ended at an extreme of its own path.",
+      "monotone_approach": "|c_k - c_end| strictly decreasing over k.",
+      "best_earlier_err": "min over k<N of |c_k - c*|: did the cell pass closer to the target earlier and then move away?"
+    },
+    "arms": {
+      "seq": {
+        "per_cell": [
+          {
+            "cell": "seq|o1|s17",
+            "c_series": [
+              0.2122,
+              0.1945,
+              0.3183,
+              0.0288,
+              -0.0087,
+              0.0679
+            ],
+            "raw_path": 0.7643,
+            "net_displacement": 0.3635,
+            "net_to_gross": 0.476,
+            "crossings_of_endpoint_level": 1,
+            "endpoint_rank": 3,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.0199,
+            "best_earlier_err": 0.059,
+            "best_earlier_stage": 4,
+            "mean_earlier_err": 0.1234,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.2504
+          },
+          {
+            "cell": "seq|o1|s23",
+            "c_series": [
+              0.4078,
+              0.2377,
+              0.3526,
+              0.1672,
+              0.0133,
+              0.103
+            ],
+            "raw_path": 0.7376,
+            "net_displacement": 0.3284,
+            "net_to_gross": 0.445,
+            "crossings_of_endpoint_level": 1,
+            "endpoint_rank": 2,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.0151,
+            "best_earlier_err": 0.0746,
+            "best_earlier_stage": 5,
+            "mean_earlier_err": 0.1777,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.3048
+          },
+          {
+            "cell": "seq|o1|s31",
+            "c_series": [
+              0.3139,
+              0.2455,
+              0.4034,
+              0.2375,
+              -0.0971,
+              0.2607
+            ],
+            "raw_path": 1.2021,
+            "net_displacement": 0.1707,
+            "net_to_gross": 0.142,
+            "crossings_of_endpoint_level": 3,
+            "endpoint_rank": 4,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.1729,
+            "best_earlier_err": 0.1497,
+            "best_earlier_stage": 4,
+            "mean_earlier_err": 0.2068,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.3578
+          },
+          {
+            "cell": "seq|o2|s17",
+            "c_series": [
+              0.3241,
+              0.2182,
+              -0.0856,
+              0.1587,
+              0.1967,
+              -0.0111
+            ],
+            "raw_path": 1.0071,
+            "net_displacement": 0.4425,
+            "net_to_gross": 0.439,
+            "crossings_of_endpoint_level": 2,
+            "endpoint_rank": 2,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.0989,
+            "best_earlier_err": 0.0709,
+            "best_earlier_stage": 4,
+            "mean_earlier_err": 0.1439,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.3352
+          },
+          {
+            "cell": "seq|o2|s23",
+            "c_series": [
+              0.3915,
+              0.2888,
+              -0.0967,
+              0.1621,
+              0.2781,
+              0.1617
+            ],
+            "raw_path": 1.0193,
+            "net_displacement": 0.2697,
+            "net_to_gross": 0.265,
+            "crossings_of_endpoint_level": 2,
+            "endpoint_rank": 2,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.0739,
+            "best_earlier_err": 0.0742,
+            "best_earlier_stage": 4,
+            "mean_earlier_err": 0.1907,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.2584
+          },
+          {
+            "cell": "seq|o2|s31",
+            "c_series": [
+              0.3947,
+              0.026,
+              -0.1186,
+              0.222,
+              0.3635,
+              0.2021
+            ],
+            "raw_path": 1.1935,
+            "net_displacement": 0.2293,
+            "net_to_gross": 0.192,
+            "crossings_of_endpoint_level": 2,
+            "endpoint_rank": 3,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.1143,
+            "best_earlier_err": 0.0619,
+            "best_earlier_stage": 2,
+            "mean_earlier_err": 0.197,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.3207
+          },
+          {
+            "cell": "seq|o3|s17",
+            "c_series": [
+              0.2589,
+              0.1952,
+              0.1491,
+              0.1552,
+              0.2413,
+              0.0138
+            ],
+            "raw_path": 0.602,
+            "net_displacement": 0.4176,
+            "net_to_gross": 0.694,
+            "crossings_of_endpoint_level": 0,
+            "endpoint_rank": 1,
+            "n_stages": 6,
+            "endpoint_is_extremum": true,
+            "monotone_approach": false,
+            "endpoint_err": 0.0741,
+            "best_earlier_err": 0.0613,
+            "best_earlier_stage": 3,
+            "mean_earlier_err": 0.1121,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.2451
+          },
+          {
+            "cell": "seq|o3|s23",
+            "c_series": [
+              0.1532,
+              0.287,
+              0.2708,
+              0.2557,
+              0.2921,
+              -0.0143
+            ],
+            "raw_path": 0.7861,
+            "net_displacement": 0.4457,
+            "net_to_gross": 0.567,
+            "crossings_of_endpoint_level": 0,
+            "endpoint_rank": 1,
+            "n_stages": 6,
+            "endpoint_is_extremum": true,
+            "monotone_approach": false,
+            "endpoint_err": 0.1021,
+            "best_earlier_err": 0.0654,
+            "best_earlier_stage": 1,
+            "mean_earlier_err": 0.1639,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.3064
+          },
+          {
+            "cell": "seq|o3|s31",
+            "c_series": [
+              0.0308,
+              0.2711,
+              0.164,
+              0.1775,
+              0.2804,
+              0.0289
+            ],
+            "raw_path": 1.1159,
+            "net_displacement": 0.4025,
+            "net_to_gross": 0.361,
+            "crossings_of_endpoint_level": 0,
+            "endpoint_rank": 1,
+            "n_stages": 6,
+            "endpoint_is_extremum": true,
+            "monotone_approach": false,
+            "endpoint_err": 0.059,
+            "best_earlier_err": 0.057,
+            "best_earlier_stage": 1,
+            "mean_earlier_err": 0.1197,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.2515
+          }
+        ],
+        "summary": {
+          "n_cells": 9,
+          "mean_net_to_gross": 0.398,
+          "n_monotone_approach": 0,
+          "n_endpoint_interior": 6,
+          "n_with_crossings": 6,
+          "mean_crossings": 1.22,
+          "n_endpoint_beats_all_earlier": 3,
+          "mean_endpoint_err": 0.0811,
+          "mean_best_earlier_err": 0.0749
+        }
+      },
+      "anchor": {
+        "per_cell": [
+          {
+            "cell": "anchor|o1|s17",
+            "c_series": [
+              0.753,
+              0.6972,
+              0.806,
+              0.6962,
+              0.8231,
+              0.7626
+            ],
+            "raw_path": 0.7834,
+            "net_displacement": 0.3312,
+            "net_to_gross": 0.423,
+            "crossings_of_endpoint_level": 3,
+            "endpoint_rank": 4,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.6747,
+            "best_earlier_err": 0.6084,
+            "best_earlier_stage": 4,
+            "mean_earlier_err": 0.6673,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.0664
+          },
+          {
+            "cell": "anchor|o1|s23",
+            "c_series": [
+              0.7771,
+              0.7264,
+              0.827,
+              0.7672,
+              0.7882,
+              0.6701
+            ],
+            "raw_path": 0.6959,
+            "net_displacement": 0.2387,
+            "net_to_gross": 0.343,
+            "crossings_of_endpoint_level": 0,
+            "endpoint_rank": 1,
+            "n_stages": 6,
+            "endpoint_is_extremum": true,
+            "monotone_approach": false,
+            "endpoint_err": 0.5823,
+            "best_earlier_err": 0.6386,
+            "best_earlier_stage": 2,
+            "mean_earlier_err": 0.6893,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.1569
+          },
+          {
+            "cell": "anchor|o1|s31",
+            "c_series": [
+              0.8032,
+              0.7561,
+              0.8144,
+              0.6749,
+              0.7902,
+              0.7405
+            ],
+            "raw_path": 0.7817,
+            "net_displacement": 0.3091,
+            "net_to_gross": 0.395,
+            "crossings_of_endpoint_level": 2,
+            "endpoint_rank": 2,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.6527,
+            "best_earlier_err": 0.5871,
+            "best_earlier_stage": 4,
+            "mean_earlier_err": 0.6799,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.0739
+          },
+          {
+            "cell": "anchor|o2|s17",
+            "c_series": [
+              0.8306,
+              0.804,
+              0.7059,
+              0.7573,
+              0.6721,
+              0.8284
+            ],
+            "raw_path": 0.8168,
+            "net_displacement": 0.397,
+            "net_to_gross": 0.486,
+            "crossings_of_endpoint_level": 1,
+            "endpoint_rank": 5,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.7406,
+            "best_earlier_err": 0.5843,
+            "best_earlier_stage": 5,
+            "mean_earlier_err": 0.6661,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.1563
+          },
+          {
+            "cell": "anchor|o2|s23",
+            "c_series": [
+              0.8228,
+              0.7079,
+              0.6469,
+              0.6775,
+              0.6228,
+              0.7277
+            ],
+            "raw_path": 0.7575,
+            "net_displacement": 0.2963,
+            "net_to_gross": 0.391,
+            "crossings_of_endpoint_level": 1,
+            "endpoint_rank": 5,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.6399,
+            "best_earlier_err": 0.535,
+            "best_earlier_stage": 5,
+            "mean_earlier_err": 0.6077,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.1049
+          },
+          {
+            "cell": "anchor|o2|s31",
+            "c_series": [
+              0.7755,
+              0.7511,
+              0.6677,
+              0.7436,
+              0.7131,
+              0.7179
+            ],
+            "raw_path": 0.5631,
+            "net_displacement": 0.2865,
+            "net_to_gross": 0.509,
+            "crossings_of_endpoint_level": 3,
+            "endpoint_rank": 3,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.63,
+            "best_earlier_err": 0.5798,
+            "best_earlier_stage": 3,
+            "mean_earlier_err": 0.6423,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.0576
+          },
+          {
+            "cell": "anchor|o3|s17",
+            "c_series": [
+              0.8949,
+              0.6829,
+              0.6081,
+              0.693,
+              0.7073,
+              0.5414
+            ],
+            "raw_path": 1.0154,
+            "net_displacement": 0.11,
+            "net_to_gross": 0.108,
+            "crossings_of_endpoint_level": 0,
+            "endpoint_rank": 1,
+            "n_stages": 6,
+            "endpoint_is_extremum": true,
+            "monotone_approach": false,
+            "endpoint_err": 0.4536,
+            "best_earlier_err": 0.5202,
+            "best_earlier_stage": 3,
+            "mean_earlier_err": 0.6294,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.3535
+          },
+          {
+            "cell": "anchor|o3|s23",
+            "c_series": [
+              0.8104,
+              0.8181,
+              0.7393,
+              0.7174,
+              0.6821,
+              0.638
+            ],
+            "raw_path": 0.5668,
+            "net_displacement": 0.2066,
+            "net_to_gross": 0.365,
+            "crossings_of_endpoint_level": 0,
+            "endpoint_rank": 1,
+            "n_stages": 6,
+            "endpoint_is_extremum": true,
+            "monotone_approach": false,
+            "endpoint_err": 0.5502,
+            "best_earlier_err": 0.5943,
+            "best_earlier_stage": 5,
+            "mean_earlier_err": 0.6656,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.1801
+          },
+          {
+            "cell": "anchor|o3|s31",
+            "c_series": [
+              0.6398,
+              0.7181,
+              0.798,
+              0.6469,
+              0.6461,
+              0.6485
+            ],
+            "raw_path": 0.5209,
+            "net_displacement": 0.2171,
+            "net_to_gross": 0.417,
+            "crossings_of_endpoint_level": 2,
+            "endpoint_rank": 4,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.5606,
+            "best_earlier_err": 0.552,
+            "best_earlier_stage": 1,
+            "mean_earlier_err": 0.6019,
+            "endpoint_beats_all_earlier": false,
+            "max_excursion_from_endpoint": 0.1495
+          }
+        ],
+        "summary": {
+          "n_cells": 9,
+          "mean_net_to_gross": 0.382,
+          "n_monotone_approach": 0,
+          "n_endpoint_interior": 6,
+          "n_with_crossings": 6,
+          "mean_crossings": 1.33,
+          "n_endpoint_beats_all_earlier": 3,
+          "mean_endpoint_err": 0.6094,
+          "mean_best_earlier_err": 0.5777
+        }
+      },
+      "joint": {
+        "per_cell": [
+          {
+            "cell": "joint|o1|s17",
+            "c_series": [
+              0.0569,
+              0.1478,
+              0.0594,
+              0.0305,
+              0.0508,
+              0.0623
+            ],
+            "raw_path": 0.6145,
+            "net_displacement": 0.3691,
+            "net_to_gross": 0.601,
+            "crossings_of_endpoint_level": 2,
+            "endpoint_rank": 5,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.0255,
+            "best_earlier_err": 0.0284,
+            "best_earlier_stage": 3,
+            "mean_earlier_err": 0.0427,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.0855
+          },
+          {
+            "cell": "joint|o1|s23",
+            "c_series": [
+              0.0469,
+              0.1674,
+              0.1522,
+              0.1728,
+              0.1291,
+              0.1134
+            ],
+            "raw_path": 0.6002,
+            "net_displacement": 0.318,
+            "net_to_gross": 0.53,
+            "crossings_of_endpoint_level": 1,
+            "endpoint_rank": 2,
+            "n_stages": 6,
+            "endpoint_is_extremum": false,
+            "monotone_approach": false,
+            "endpoint_err": 0.0256,
+            "best_earlier_err": 0.041,
+            "best_earlier_stage": 1,
+            "mean_earlier_err": 0.0622,
+            "endpoint_beats_all_earlier": true,
+            "max_excursion_from_endpoint": 0.0665
+          }
+        ],
+        "summary": {
+          "n_cells": 2,
+          "mean_net_to_gross": 0.566,
+          "n_monotone_approach": 0,
+          "n_endpoint_interior": 2,
+          "n_with_crossings": 2,
+          "mean_crossings": 1.5,
+          "n_endpoint_beats_all_earlier": 2,
+          "mean_endpoint_err": 0.0255,
+          "mean_best_earlier_err": 0.0347
+        },
+        "note": "n<4: per-cell values only, no interval."
+      }
+    }
+  },
+  "Q4_what_is_drift_worth": {
+    "question": "How much POPE F1 is the mid-sequence drift actually worth?",
+    "definitions": {
+      "worst_drift_stage": "argmax over ALL stages k of |c_k - c*| (pre-specified primary).",
+      "worst_drift_stage_mid": "argmax over k < N of |c_k - c*| -- the mid-sequence restriction, which is the quantity the question asks about when the endpoint is itself well placed.",
+      "f1_gap": "endpoint F1 minus F1 at that stage. Positive = the drifted stage was WORSE than the endpoint, i.e. the drift cost accuracy."
+    },
+    "arms": {
+      "seq": {
+        "per_cell": [
+          {
+            "cell": "seq|o1|s17",
+            "endpoint_c": 0.0679,
+            "endpoint_err": 0.0199,
+            "endpoint_f1": 0.8604,
+            "worst_drift_stage": 3,
+            "worst_drift_c": 0.3183,
+            "worst_drift_err": 0.2305,
+            "worst_drift_f1": 0.8591,
+            "f1_gap_worst": 0.0013,
+            "worst_drift_stage_mid": 3,
+            "worst_drift_c_mid": 0.3183,
+            "worst_drift_err_mid": 0.2305,
+            "worst_drift_f1_mid": 0.8591,
+            "f1_gap_mid": 0.0013,
+            "excess_err_mid": 0.2105,
+            "min_f1_stage": 5,
+            "min_f1": 0.8575,
+            "f1_gap_minf1": 0.0029,
+            "f1_range_over_path": 0.0074,
+            "item_sd_f1_at_worst_mid": 0.004,
+            "item_sd_f1_at_endpoint": 0.0037
+          },
+          {
+            "cell": "seq|o1|s23",
+            "endpoint_c": 0.103,
+            "endpoint_err": 0.0151,
+            "endpoint_f1": 0.868,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.4078,
+            "worst_drift_err": 0.32,
+            "worst_drift_f1": 0.8421,
+            "f1_gap_worst": 0.0259,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.4078,
+            "worst_drift_err_mid": 0.32,
+            "worst_drift_f1_mid": 0.8421,
+            "f1_gap_mid": 0.0259,
+            "excess_err_mid": 0.3048,
+            "min_f1_stage": 1,
+            "min_f1": 0.8421,
+            "f1_gap_minf1": 0.0259,
+            "f1_range_over_path": 0.0259,
+            "item_sd_f1_at_worst_mid": 0.0043,
+            "item_sd_f1_at_endpoint": 0.0037
+          },
+          {
+            "cell": "seq|o1|s31",
+            "endpoint_c": 0.2607,
+            "endpoint_err": 0.1729,
+            "endpoint_f1": 0.8547,
+            "worst_drift_stage": 3,
+            "worst_drift_c": 0.4034,
+            "worst_drift_err": 0.3155,
+            "worst_drift_f1": 0.8446,
+            "f1_gap_worst": 0.0101,
+            "worst_drift_stage_mid": 3,
+            "worst_drift_c_mid": 0.4034,
+            "worst_drift_err_mid": 0.3155,
+            "worst_drift_f1_mid": 0.8446,
+            "f1_gap_mid": 0.0101,
+            "excess_err_mid": 0.1427,
+            "min_f1_stage": 3,
+            "min_f1": 0.8446,
+            "f1_gap_minf1": 0.0101,
+            "f1_range_over_path": 0.0183,
+            "item_sd_f1_at_worst_mid": 0.0043,
+            "item_sd_f1_at_endpoint": 0.004
+          },
+          {
+            "cell": "seq|o2|s17",
+            "endpoint_c": -0.0111,
+            "endpoint_err": 0.0989,
+            "endpoint_f1": 0.8632,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.3241,
+            "worst_drift_err": 0.2363,
+            "worst_drift_f1": 0.8481,
+            "f1_gap_worst": 0.0151,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.3241,
+            "worst_drift_err_mid": 0.2363,
+            "worst_drift_f1_mid": 0.8481,
+            "f1_gap_mid": 0.0151,
+            "excess_err_mid": 0.1373,
+            "min_f1_stage": 1,
+            "min_f1": 0.8481,
+            "f1_gap_minf1": 0.0151,
+            "f1_range_over_path": 0.0192,
+            "item_sd_f1_at_worst_mid": 0.0042,
+            "item_sd_f1_at_endpoint": 0.0037
+          },
+          {
+            "cell": "seq|o2|s23",
+            "endpoint_c": 0.1617,
+            "endpoint_err": 0.0739,
+            "endpoint_f1": 0.861,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.3915,
+            "worst_drift_err": 0.3037,
+            "worst_drift_f1": 0.8464,
+            "f1_gap_worst": 0.0146,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.3915,
+            "worst_drift_err_mid": 0.3037,
+            "worst_drift_f1_mid": 0.8464,
+            "f1_gap_mid": 0.0146,
+            "excess_err_mid": 0.2298,
+            "min_f1_stage": 1,
+            "min_f1": 0.8464,
+            "f1_gap_minf1": 0.0146,
+            "f1_range_over_path": 0.0166,
+            "item_sd_f1_at_worst_mid": 0.0043,
+            "item_sd_f1_at_endpoint": 0.0039
+          },
+          {
+            "cell": "seq|o2|s31",
+            "endpoint_c": 0.2021,
+            "endpoint_err": 0.1143,
+            "endpoint_f1": 0.8567,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.3947,
+            "worst_drift_err": 0.3069,
+            "worst_drift_f1": 0.8439,
+            "f1_gap_worst": 0.0128,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.3947,
+            "worst_drift_err_mid": 0.3069,
+            "worst_drift_f1_mid": 0.8439,
+            "f1_gap_mid": 0.0128,
+            "excess_err_mid": 0.1926,
+            "min_f1_stage": 1,
+            "min_f1": 0.8439,
+            "f1_gap_minf1": 0.0128,
+            "f1_range_over_path": 0.0242,
+            "item_sd_f1_at_worst_mid": 0.0043,
+            "item_sd_f1_at_endpoint": 0.0039
+          },
+          {
+            "cell": "seq|o3|s17",
+            "endpoint_c": 0.0138,
+            "endpoint_err": 0.0741,
+            "endpoint_f1": 0.8641,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.2589,
+            "worst_drift_err": 0.1711,
+            "worst_drift_f1": 0.8545,
+            "f1_gap_worst": 0.0096,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.2589,
+            "worst_drift_err_mid": 0.1711,
+            "worst_drift_f1_mid": 0.8545,
+            "f1_gap_mid": 0.0096,
+            "excess_err_mid": 0.097,
+            "min_f1_stage": 3,
+            "min_f1": 0.8523,
+            "f1_gap_minf1": 0.0118,
+            "f1_range_over_path": 0.0118,
+            "item_sd_f1_at_worst_mid": 0.0041,
+            "item_sd_f1_at_endpoint": 0.0037
+          },
+          {
+            "cell": "seq|o3|s23",
+            "endpoint_c": -0.0143,
+            "endpoint_err": 0.1021,
+            "endpoint_f1": 0.8651,
+            "worst_drift_stage": 5,
+            "worst_drift_c": 0.2921,
+            "worst_drift_err": 0.2043,
+            "worst_drift_f1": 0.8577,
+            "f1_gap_worst": 0.0074,
+            "worst_drift_stage_mid": 5,
+            "worst_drift_c_mid": 0.2921,
+            "worst_drift_err_mid": 0.2043,
+            "worst_drift_f1_mid": 0.8577,
+            "f1_gap_mid": 0.0074,
+            "excess_err_mid": 0.1021,
+            "min_f1_stage": 2,
+            "min_f1": 0.8514,
+            "f1_gap_minf1": 0.0137,
+            "f1_range_over_path": 0.0137,
+            "item_sd_f1_at_worst_mid": 0.0041,
+            "item_sd_f1_at_endpoint": 0.0036
+          },
+          {
+            "cell": "seq|o3|s31",
+            "endpoint_c": 0.0289,
+            "endpoint_err": 0.059,
+            "endpoint_f1": 0.8691,
+            "worst_drift_stage": 5,
+            "worst_drift_c": 0.2804,
+            "worst_drift_err": 0.1925,
+            "worst_drift_f1": 0.8597,
+            "f1_gap_worst": 0.0094,
+            "worst_drift_stage_mid": 5,
+            "worst_drift_c_mid": 0.2804,
+            "worst_drift_err_mid": 0.1925,
+            "worst_drift_f1_mid": 0.8597,
+            "f1_gap_mid": 0.0094,
+            "excess_err_mid": 0.1336,
+            "min_f1_stage": 2,
+            "min_f1": 0.8536,
+            "f1_gap_minf1": 0.0155,
+            "f1_range_over_path": 0.0155,
+            "item_sd_f1_at_worst_mid": 0.004,
+            "item_sd_f1_at_endpoint": 0.0036
+          }
+        ],
+        "summary": {
+          "n_cells": 9,
+          "mean_f1_gap_mid": 0.0118,
+          "sd_f1_gap_mid": 0.0067,
+          "min_f1_gap_mid": 0.0013,
+          "max_f1_gap_mid": 0.0259,
+          "n_cells_gap_positive": 9,
+          "mean_f1_gap_worst": 0.0118,
+          "mean_f1_gap_minf1": 0.0136,
+          "mean_item_sd_f1": 0.0042,
+          "ci95_mean_f1_gap_mid": {
+            "lo": 0.0079,
+            "hi": 0.0162,
+            "B": 10000
+          }
+        },
+        "excursion_buys_loss": {
+          "label": "seq: excess |c-c*| at worst mid stage vs F1 shortfall there",
+          "n_cells": 9,
+          "cells": [
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31"
+          ],
+          "pearson_r": 0.5885,
+          "spearman_rho": 0.4833,
+          "r_critical_p05": 0.6664,
+          "rho_detectable_at_80pct_power": 0.8157,
+          "ci95_pearson": {
+            "lo": -0.5399,
+            "hi": 0.9727,
+            "B": 10000,
+            "n_ok": 10000,
+            "n_degenerate": 0
+          },
+          "perm_p": {
+            "p": 0.0927,
+            "B": 10000,
+            "mc_se": 0.0029
+          },
+          "x": [
+            0.2105,
+            0.3048,
+            0.1427,
+            0.1373,
+            0.2298,
+            0.1926,
+            0.097,
+            0.1021,
+            0.1336
+          ],
+          "y": [
+            0.0013,
+            0.0259,
+            0.0101,
+            0.0151,
+            0.0146,
+            0.0128,
+            0.0096,
+            0.0074,
+            0.0094
+          ]
+        }
+      },
+      "anchor": {
+        "per_cell": [
+          {
+            "cell": "anchor|o1|s17",
+            "endpoint_c": 0.7626,
+            "endpoint_err": 0.6747,
+            "endpoint_f1": 0.7844,
+            "worst_drift_stage": 5,
+            "worst_drift_c": 0.8231,
+            "worst_drift_err": 0.7353,
+            "worst_drift_f1": 0.7791,
+            "f1_gap_worst": 0.0053,
+            "worst_drift_stage_mid": 5,
+            "worst_drift_c_mid": 0.8231,
+            "worst_drift_err_mid": 0.7353,
+            "worst_drift_f1_mid": 0.7791,
+            "f1_gap_mid": 0.0053,
+            "excess_err_mid": 0.0605,
+            "min_f1_stage": 1,
+            "min_f1": 0.779,
+            "f1_gap_minf1": 0.0054,
+            "f1_range_over_path": 0.0251,
+            "item_sd_f1_at_worst_mid": 0.0053,
+            "item_sd_f1_at_endpoint": 0.0052
+          },
+          {
+            "cell": "anchor|o1|s23",
+            "endpoint_c": 0.6701,
+            "endpoint_err": 0.5823,
+            "endpoint_f1": 0.7961,
+            "worst_drift_stage": 3,
+            "worst_drift_c": 0.827,
+            "worst_drift_err": 0.7391,
+            "worst_drift_f1": 0.7797,
+            "f1_gap_worst": 0.0164,
+            "worst_drift_stage_mid": 3,
+            "worst_drift_c_mid": 0.827,
+            "worst_drift_err_mid": 0.7391,
+            "worst_drift_f1_mid": 0.7797,
+            "f1_gap_mid": 0.0164,
+            "excess_err_mid": 0.1569,
+            "min_f1_stage": 3,
+            "min_f1": 0.7797,
+            "f1_gap_minf1": 0.0164,
+            "f1_range_over_path": 0.0164,
+            "item_sd_f1_at_worst_mid": 0.0053,
+            "item_sd_f1_at_endpoint": 0.005
+          },
+          {
+            "cell": "anchor|o1|s31",
+            "endpoint_c": 0.7405,
+            "endpoint_err": 0.6527,
+            "endpoint_f1": 0.7896,
+            "worst_drift_stage": 3,
+            "worst_drift_c": 0.8144,
+            "worst_drift_err": 0.7266,
+            "worst_drift_f1": 0.78,
+            "f1_gap_worst": 0.0096,
+            "worst_drift_stage_mid": 3,
+            "worst_drift_c_mid": 0.8144,
+            "worst_drift_err_mid": 0.7266,
+            "worst_drift_f1_mid": 0.78,
+            "f1_gap_mid": 0.0096,
+            "excess_err_mid": 0.0739,
+            "min_f1_stage": 1,
+            "min_f1": 0.7646,
+            "f1_gap_minf1": 0.025,
+            "f1_range_over_path": 0.0418,
+            "item_sd_f1_at_worst_mid": 0.0053,
+            "item_sd_f1_at_endpoint": 0.0051
+          },
+          {
+            "cell": "anchor|o2|s17",
+            "endpoint_c": 0.8284,
+            "endpoint_err": 0.7406,
+            "endpoint_f1": 0.7897,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.8306,
+            "worst_drift_err": 0.7428,
+            "worst_drift_f1": 0.7712,
+            "f1_gap_worst": 0.0185,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.8306,
+            "worst_drift_err_mid": 0.7428,
+            "worst_drift_f1_mid": 0.7712,
+            "f1_gap_mid": 0.0185,
+            "excess_err_mid": 0.0022,
+            "min_f1_stage": 1,
+            "min_f1": 0.7712,
+            "f1_gap_minf1": 0.0185,
+            "f1_range_over_path": 0.0392,
+            "item_sd_f1_at_worst_mid": 0.0054,
+            "item_sd_f1_at_endpoint": 0.0051
+          },
+          {
+            "cell": "anchor|o2|s23",
+            "endpoint_c": 0.7277,
+            "endpoint_err": 0.6399,
+            "endpoint_f1": 0.7982,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.8228,
+            "worst_drift_err": 0.7349,
+            "worst_drift_f1": 0.7667,
+            "f1_gap_worst": 0.0315,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.8228,
+            "worst_drift_err_mid": 0.7349,
+            "worst_drift_f1_mid": 0.7667,
+            "f1_gap_mid": 0.0315,
+            "excess_err_mid": 0.0951,
+            "min_f1_stage": 1,
+            "min_f1": 0.7667,
+            "f1_gap_minf1": 0.0315,
+            "f1_range_over_path": 0.0459,
+            "item_sd_f1_at_worst_mid": 0.0054,
+            "item_sd_f1_at_endpoint": 0.005
+          },
+          {
+            "cell": "anchor|o2|s31",
+            "endpoint_c": 0.7179,
+            "endpoint_err": 0.63,
+            "endpoint_f1": 0.7962,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.7755,
+            "worst_drift_err": 0.6876,
+            "worst_drift_f1": 0.7731,
+            "f1_gap_worst": 0.0231,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.7755,
+            "worst_drift_err_mid": 0.6876,
+            "worst_drift_f1_mid": 0.7731,
+            "f1_gap_mid": 0.0231,
+            "excess_err_mid": 0.0576,
+            "min_f1_stage": 1,
+            "min_f1": 0.7731,
+            "f1_gap_minf1": 0.0231,
+            "f1_range_over_path": 0.0284,
+            "item_sd_f1_at_worst_mid": 0.0053,
+            "item_sd_f1_at_endpoint": 0.005
+          },
+          {
+            "cell": "anchor|o3|s17",
+            "endpoint_c": 0.5414,
+            "endpoint_err": 0.4536,
+            "endpoint_f1": 0.8167,
+            "worst_drift_stage": 1,
+            "worst_drift_c": 0.8949,
+            "worst_drift_err": 0.8071,
+            "worst_drift_f1": 0.7395,
+            "f1_gap_worst": 0.0772,
+            "worst_drift_stage_mid": 1,
+            "worst_drift_c_mid": 0.8949,
+            "worst_drift_err_mid": 0.8071,
+            "worst_drift_f1_mid": 0.7395,
+            "f1_gap_mid": 0.0772,
+            "excess_err_mid": 0.3535,
+            "min_f1_stage": 1,
+            "min_f1": 0.7395,
+            "f1_gap_minf1": 0.0772,
+            "f1_range_over_path": 0.0772,
+            "item_sd_f1_at_worst_mid": 0.0058,
+            "item_sd_f1_at_endpoint": 0.0046
+          },
+          {
+            "cell": "anchor|o3|s23",
+            "endpoint_c": 0.638,
+            "endpoint_err": 0.5502,
+            "endpoint_f1": 0.7962,
+            "worst_drift_stage": 2,
+            "worst_drift_c": 0.8181,
+            "worst_drift_err": 0.7303,
+            "worst_drift_f1": 0.7681,
+            "f1_gap_worst": 0.0281,
+            "worst_drift_stage_mid": 2,
+            "worst_drift_c_mid": 0.8181,
+            "worst_drift_err_mid": 0.7303,
+            "worst_drift_f1_mid": 0.7681,
+            "f1_gap_mid": 0.0281,
+            "excess_err_mid": 0.1801,
+            "min_f1_stage": 3,
+            "min_f1": 0.7678,
+            "f1_gap_minf1": 0.0284,
+            "f1_range_over_path": 0.0284,
+            "item_sd_f1_at_worst_mid": 0.0054,
+            "item_sd_f1_at_endpoint": 0.005
+          },
+          {
+            "cell": "anchor|o3|s31",
+            "endpoint_c": 0.6485,
+            "endpoint_err": 0.5606,
+            "endpoint_f1": 0.7995,
+            "worst_drift_stage": 3,
+            "worst_drift_c": 0.798,
+            "worst_drift_err": 0.7102,
+            "worst_drift_f1": 0.7697,
+            "f1_gap_worst": 0.0298,
+            "worst_drift_stage_mid": 3,
+            "worst_drift_c_mid": 0.798,
+            "worst_drift_err_mid": 0.7102,
+            "worst_drift_f1_mid": 0.7697,
+            "f1_gap_mid": 0.0298,
+            "excess_err_mid": 0.1495,
+            "min_f1_stage": 3,
+            "min_f1": 0.7697,
+            "f1_gap_minf1": 0.0298,
+            "f1_range_over_path": 0.0298,
+            "item_sd_f1_at_worst_mid": 0.0054,
+            "item_sd_f1_at_endpoint": 0.005
+          }
+        ],
+        "summary": {
+          "n_cells": 9,
+          "mean_f1_gap_mid": 0.0266,
+          "sd_f1_gap_mid": 0.021,
+          "min_f1_gap_mid": 0.0053,
+          "max_f1_gap_mid": 0.0772,
+          "n_cells_gap_positive": 9,
+          "mean_f1_gap_worst": 0.0266,
+          "mean_f1_gap_minf1": 0.0284,
+          "mean_item_sd_f1": 0.0054,
+          "ci95_mean_f1_gap_mid": {
+            "lo": 0.0159,
+            "hi": 0.0411,
+            "B": 10000
+          }
+        },
+        "excursion_buys_loss": {
+          "label": "anchor: excess |c-c*| at worst mid stage vs F1 shortfall there",
+          "n_cells": 9,
+          "cells": [
+            "anchor|o1|s17",
+            "anchor|o1|s23",
+            "anchor|o1|s31",
+            "anchor|o2|s17",
+            "anchor|o2|s23",
+            "anchor|o2|s31",
+            "anchor|o3|s17",
+            "anchor|o3|s23",
+            "anchor|o3|s31"
+          ],
+          "pearson_r": 0.8553,
+          "spearman_rho": 0.5333,
+          "r_critical_p05": 0.6664,
+          "rho_detectable_at_80pct_power": 0.8157,
+          "ci95_pearson": {
+            "lo": 0.093,
+            "hi": 0.9715,
+            "B": 10000,
+            "n_ok": 10000,
+            "n_degenerate": 0
+          },
+          "perm_p": {
+            "p": 0.016,
+            "B": 10000,
+            "mc_se": 0.0013
+          },
+          "x": [
+            0.0605,
+            0.1569,
+            0.0739,
+            0.0022,
+            0.0951,
+            0.0576,
+            0.3535,
+            0.1801,
+            0.1495
+          ],
+          "y": [
+            0.0053,
+            0.0164,
+            0.0096,
+            0.0185,
+            0.0315,
+            0.0231,
+            0.0772,
+            0.0281,
+            0.0298
+          ]
+        }
+      },
+      "joint": {
+        "per_cell": [
+          {
+            "cell": "joint|o1|s17",
+            "endpoint_c": 0.0623,
+            "endpoint_err": 0.0255,
+            "endpoint_f1": 0.8682,
+            "worst_drift_stage": 2,
+            "worst_drift_c": 0.1478,
+            "worst_drift_err": 0.0599,
+            "worst_drift_f1": 0.8693,
+            "f1_gap_worst": -0.0011,
+            "worst_drift_stage_mid": 2,
+            "worst_drift_c_mid": 0.1478,
+            "worst_drift_err_mid": 0.0599,
+            "worst_drift_f1_mid": 0.8693,
+            "f1_gap_mid": -0.0011,
+            "excess_err_mid": 0.0344,
+            "min_f1_stage": 5,
+            "min_f1": 0.867,
+            "f1_gap_minf1": 0.0012,
+            "f1_range_over_path": 0.0033,
+            "item_sd_f1_at_worst_mid": 0.0037,
+            "item_sd_f1_at_endpoint": 0.0036
+          },
+          {
+            "cell": "joint|o1|s23",
+            "endpoint_c": 0.1134,
+            "endpoint_err": 0.0256,
+            "endpoint_f1": 0.8652,
+            "worst_drift_stage": 4,
+            "worst_drift_c": 0.1728,
+            "worst_drift_err": 0.085,
+            "worst_drift_f1": 0.8635,
+            "f1_gap_worst": 0.0017,
+            "worst_drift_stage_mid": 4,
+            "worst_drift_c_mid": 0.1728,
+            "worst_drift_err_mid": 0.085,
+            "worst_drift_f1_mid": 0.8635,
+            "f1_gap_mid": 0.0017,
+            "excess_err_mid": 0.0594,
+            "min_f1_stage": 4,
+            "min_f1": 0.8635,
+            "f1_gap_minf1": 0.0017,
+            "f1_range_over_path": 0.0046,
+            "item_sd_f1_at_worst_mid": 0.0038,
+            "item_sd_f1_at_endpoint": 0.0037
+          }
+        ],
+        "summary": {
+          "n_cells": 2,
+          "mean_f1_gap_mid": 0.0003,
+          "sd_f1_gap_mid": 0.002,
+          "min_f1_gap_mid": -0.0011,
+          "max_f1_gap_mid": 0.0017,
+          "n_cells_gap_positive": 1,
+          "mean_f1_gap_worst": 0.0003,
+          "mean_f1_gap_minf1": 0.0014,
+          "mean_item_sd_f1": 0.0037,
+          "note": "n<4: per-cell values only, no interval."
+        }
+      }
+    },
+    "within_cell_err_vs_f1": {
+      "seq": {
+        "per_cell": [
+          {
+            "cell": "seq|o1|s17",
+            "r_err_vs_f1_within_cell": -0.3446,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o1|s23",
+            "r_err_vs_f1_within_cell": -0.8618,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o1|s31",
+            "r_err_vs_f1_within_cell": -0.8555,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o2|s17",
+            "r_err_vs_f1_within_cell": -0.9392,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o2|s23",
+            "r_err_vs_f1_within_cell": -0.8097,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o2|s31",
+            "r_err_vs_f1_within_cell": -0.8939,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o3|s17",
+            "r_err_vs_f1_within_cell": -0.0322,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o3|s23",
+            "r_err_vs_f1_within_cell": -0.6953,
+            "n_stages": 6
+          },
+          {
+            "cell": "seq|o3|s31",
+            "r_err_vs_f1_within_cell": -0.7839,
+            "n_stages": 6
+          }
+        ],
+        "mean_within_cell_r": -0.6907,
+        "n_cells_negative": 9,
+        "n_cells": 9,
+        "note": "Within each cell, correlation across its stages between |c - c*| and POPE F1. Negative = being further from the target goes with lower F1. n=6 stages per cell, so each per-cell r is itself noisy; the count across cells is the statistic to read.",
+        "ci95_mean_within_cell_r": {
+          "lo": -0.8497,
+          "hi": -0.4862,
+          "B": 10000
+        }
+      },
+      "anchor": {
+        "per_cell": [
+          {
+            "cell": "anchor|o1|s17",
+            "r_err_vs_f1_within_cell": -0.8495,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o1|s23",
+            "r_err_vs_f1_within_cell": -0.73,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o1|s31",
+            "r_err_vs_f1_within_cell": -0.8723,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o2|s17",
+            "r_err_vs_f1_within_cell": -0.8804,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o2|s23",
+            "r_err_vs_f1_within_cell": -0.9262,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o2|s31",
+            "r_err_vs_f1_within_cell": -0.6213,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o3|s17",
+            "r_err_vs_f1_within_cell": -0.9364,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o3|s23",
+            "r_err_vs_f1_within_cell": -0.8437,
+            "n_stages": 6
+          },
+          {
+            "cell": "anchor|o3|s31",
+            "r_err_vs_f1_within_cell": -0.9573,
+            "n_stages": 6
+          }
+        ],
+        "mean_within_cell_r": -0.8463,
+        "n_cells_negative": 9,
+        "n_cells": 9,
+        "note": "Within each cell, correlation across its stages between |c - c*| and POPE F1. Negative = being further from the target goes with lower F1. n=6 stages per cell, so each per-cell r is itself noisy; the count across cells is the statistic to read.",
+        "ci95_mean_within_cell_r": {
+          "lo": -0.9045,
+          "hi": -0.7758,
+          "B": 10000
+        }
+      },
+      "joint": {
+        "per_cell": [
+          {
+            "cell": "joint|o1|s17",
+            "r_err_vs_f1_within_cell": 0.3156,
+            "n_stages": 6
+          },
+          {
+            "cell": "joint|o1|s23",
+            "r_err_vs_f1_within_cell": -0.4582,
+            "n_stages": 6
+          }
+        ],
+        "mean_within_cell_r": -0.0713,
+        "n_cells_negative": 1,
+        "n_cells": 2,
+        "note": "Within each cell, correlation across its stages between |c - c*| and POPE F1. Negative = being further from the target goes with lower F1. n=6 stages per cell, so each per-cell r is itself noisy; the count across cells is the statistic to read."
+      }
+    },
+    "seed_noise_floor": {
+      "seq": {
+        "per_order": [
+          {
+            "order": "o1",
+            "n_seeds": 3,
+            "endpoint_f1": [
+              0.8604,
+              0.868,
+              0.8547
+            ],
+            "sd_endpoint_f1": 0.0067,
+            "range_endpoint_f1": 0.0133,
+            "sd_endpoint_c": 0.1027
+          },
+          {
+            "order": "o2",
+            "n_seeds": 3,
+            "endpoint_f1": [
+              0.8632,
+              0.861,
+              0.8567
+            ],
+            "sd_endpoint_f1": 0.0033,
+            "range_endpoint_f1": 0.0065,
+            "sd_endpoint_c": 0.1132
+          },
+          {
+            "order": "o3",
+            "n_seeds": 3,
+            "endpoint_f1": [
+              0.8641,
+              0.8651,
+              0.8691
+            ],
+            "sd_endpoint_f1": 0.0026,
+            "range_endpoint_f1": 0.005,
+            "sd_endpoint_c": 0.0219
+          }
+        ],
+        "pooled_sd_endpoint_f1": 0.0046,
+        "note": "Seed-to-seed SD of endpoint F1 within a fixed task order, n=3 seeds per order. This is a RUN-TO-RUN floor at the endpoint only. It is NOT the item-sampling SD above and it is NOT a trajectory noise floor -- nothing on disk re-runs an identical configuration end to end."
+      },
+      "anchor": {
+        "per_order": [
+          {
+            "order": "o1",
+            "n_seeds": 3,
+            "endpoint_f1": [
+              0.7844,
+              0.7961,
+              0.7896
+            ],
+            "sd_endpoint_f1": 0.0059,
+            "range_endpoint_f1": 0.0117,
+            "sd_endpoint_c": 0.0483
+          },
+          {
+            "order": "o2",
+            "n_seeds": 3,
+            "endpoint_f1": [
+              0.7897,
+              0.7982,
+              0.7962
+            ],
+            "sd_endpoint_f1": 0.0044,
+            "range_endpoint_f1": 0.0085,
+            "sd_endpoint_c": 0.0612
+          },
+          {
+            "order": "o3",
+            "n_seeds": 3,
+            "endpoint_f1": [
+              0.8167,
+              0.7962,
+              0.7995
+            ],
+            "sd_endpoint_f1": 0.011,
+            "range_endpoint_f1": 0.0205,
+            "sd_endpoint_c": 0.059
+          }
+        ],
+        "pooled_sd_endpoint_f1": 0.0076,
+        "note": "Seed-to-seed SD of endpoint F1 within a fixed task order, n=3 seeds per order. This is a RUN-TO-RUN floor at the endpoint only. It is NOT the item-sampling SD above and it is NOT a trajectory noise floor -- nothing on disk re-runs an identical configuration end to end."
+      },
+      "joint": {
+        "per_order": [
+          {
+            "order": "o1",
+            "n_seeds": 2,
+            "endpoint_f1": [
+              0.8682,
+              0.8652
+            ],
+            "sd_endpoint_f1": 0.0021,
+            "range_endpoint_f1": 0.003,
+            "sd_endpoint_c": 0.0361
+          }
+        ],
+        "pooled_sd_endpoint_f1": 0.0021,
+        "note": "Seed-to-seed SD of endpoint F1 within a fixed task order, n=3 seeds per order. This is a RUN-TO-RUN floor at the endpoint only. It is NOT the item-sampling SD above and it is NOT a trajectory noise floor -- nothing on disk re-runs an identical configuration end to end."
+      }
+    },
+    "endpoint_residual_vs_joint": {
+      "seq_endpoint_f1_per_cell": [
+        0.8604,
+        0.868,
+        0.8547,
+        0.8632,
+        0.861,
+        0.8567,
+        0.8641,
+        0.8651,
+        0.8691
+      ],
+      "joint_endpoint_f1_per_cell": [
+        0.8682,
+        0.8652
+      ],
+      "mean_seq_endpoint_f1": 0.8625,
+      "mean_joint_endpoint_f1": 0.8667,
+      "gap_seq_minus_joint": -0.0042,
+      "n_seq_below_lowest_joint_cell": 7,
+      "n_seq_above_highest_joint_cell": 1,
+      "n_seq_cells": 9,
+      "seq_endpoint_dprime_per_cell": [
+        2.1878,
+        2.2732,
+        2.2592,
+        2.1869,
+        2.2423,
+        2.2315,
+        2.2022,
+        2.2033,
+        2.2527
+      ],
+      "joint_endpoint_dprime_per_cell": [
+        2.2567,
+        2.2525
+      ],
+      "mean_seq_endpoint_dprime": 2.2266,
+      "sd_seq_endpoint_dprime": 0.0324,
+      "mean_joint_endpoint_dprime": 2.2546,
+      "dprime_gap": -0.028,
+      "criterion_gap": 0.0025,
+      "note": "JOINT has n=2: its two per-cell values are quoted and no interval is. The counts are the statistic. Because the endpoint CRITERION gap is ~0, any residual endpoint F1 gap must be carried by separability, i.e. by ordinary forgetting rather than by criterion drift.",
+      "ci95_mean_seq_endpoint_f1": {
+        "lo": 0.8594,
+        "hi": 0.8653,
+        "B": 10000
+      }
+    }
+  }
+}

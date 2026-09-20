@@ -1,0 +1,901 @@
+{
+  "base_c": 0.4314,
+  "ref": 0.08785,
+  "ref_source": "joint arm empirical endpoint (n=2 cells)",
+  "agg": "/Users/alexandermueller/Research/cl-hallucination-vlm/analysis/readout/fs_aggregate.json",
+  "results": "/Users/alexandermueller/Research/cl-hallucination-vlm/fullstudy/results_fs",
+  "n_cells": 21,
+  "cells": [
+    {
+      "arm": "anchor",
+      "cell": "anchor|o1|s17",
+      "n_stages": 6,
+      "raw_path": 0.7834,
+      "post_settle": 0.4618,
+      "endpoint_c": 0.7626,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.6747
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o1|s23",
+      "n_stages": 6,
+      "raw_path": 0.6959,
+      "post_settle": 0.3502,
+      "endpoint_c": 0.6701,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.5823
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o1|s31",
+      "n_stages": 6,
+      "raw_path": 0.7817,
+      "post_settle": 0.4099,
+      "endpoint_c": 0.7405,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.6527
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o2|s17",
+      "n_stages": 6,
+      "raw_path": 0.8168,
+      "post_settle": 0.4176,
+      "endpoint_c": 0.8284,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.7406
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o2|s23",
+      "n_stages": 6,
+      "raw_path": 0.7575,
+      "post_settle": 0.3661,
+      "endpoint_c": 0.7277,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.6399
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o2|s31",
+      "n_stages": 6,
+      "raw_path": 0.5631,
+      "post_settle": 0.219,
+      "endpoint_c": 0.7179,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.63
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o3|s17",
+      "n_stages": 6,
+      "raw_path": 1.0154,
+      "post_settle": 0.5519,
+      "endpoint_c": 0.5414,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.4536
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o3|s23",
+      "n_stages": 6,
+      "raw_path": 0.5668,
+      "post_settle": 0.1878,
+      "endpoint_c": 0.638,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.5502
+    },
+    {
+      "arm": "anchor",
+      "cell": "anchor|o3|s31",
+      "n_stages": 6,
+      "raw_path": 0.5209,
+      "post_settle": 0.3125,
+      "endpoint_c": 0.6485,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.5606
+    },
+    {
+      "arm": "joint",
+      "cell": "joint|o1|s17",
+      "n_stages": 6,
+      "raw_path": 0.6145,
+      "post_settle": 0.24,
+      "endpoint_c": 0.0623,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0255
+    },
+    {
+      "arm": "joint",
+      "cell": "joint|o1|s23",
+      "n_stages": 6,
+      "raw_path": 0.6002,
+      "post_settle": 0.2157,
+      "endpoint_c": 0.1134,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0256
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o1|s17",
+      "n_stages": 6,
+      "raw_path": 0.7643,
+      "post_settle": 0.5451,
+      "endpoint_c": 0.0679,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0199
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o1|s23",
+      "n_stages": 6,
+      "raw_path": 0.7376,
+      "post_settle": 0.714,
+      "endpoint_c": 0.103,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0151
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o1|s31",
+      "n_stages": 6,
+      "raw_path": 1.2021,
+      "post_settle": 1.0846,
+      "endpoint_c": 0.2607,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.1729
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o2|s17",
+      "n_stages": 6,
+      "raw_path": 1.0071,
+      "post_settle": 0.8998,
+      "endpoint_c": -0.0111,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0989
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o2|s23",
+      "n_stages": 6,
+      "raw_path": 1.0193,
+      "post_settle": 0.9794,
+      "endpoint_c": 0.1617,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0739
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o2|s31",
+      "n_stages": 6,
+      "raw_path": 1.1935,
+      "post_settle": 1.1568,
+      "endpoint_c": 0.2021,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.1143
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o3|s17",
+      "n_stages": 6,
+      "raw_path": 0.602,
+      "post_settle": 0.4295,
+      "endpoint_c": 0.0138,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.0741
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o3|s23",
+      "n_stages": 6,
+      "raw_path": 0.7861,
+      "post_settle": 0.5079,
+      "endpoint_c": -0.0143,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.1021
+    },
+    {
+      "arm": "seq",
+      "cell": "seq|o3|s31",
+      "n_stages": 6,
+      "raw_path": 1.1159,
+      "post_settle": 0.7153,
+      "endpoint_c": 0.0289,
+      "source": "aggregate",
+      "single_cell": false,
+      "err": 0.059
+    },
+    {
+      "arm": "locproj",
+      "cell": "fsL_locproj_o1_s17",
+      "n_stages": 6,
+      "n_stages_verified": false,
+      "raw_path": 0.9895,
+      "post_settle": null,
+      "endpoint_c": 0.0041,
+      "source": "TEXT-RECORDED",
+      "single_cell": true,
+      "provenance": "fullstudy/FULLSTUDY_PREREG.md, 2026-09-12 CORRECTION entry (6/6 table), re-scored against c* = +0.0878 in the 2026-09-13 SECOND CORRECTION entry and analysis/LOCALIZATION_DISSOCIATION.md section 2; produced by analysis/mechanism_readout.py --mode loc on the cluster",
+      "note": "SINGLE CELL, and NOT a finding -- the localization dissociation was WITHDRAWN on 2026-09-13 (this arm is worse than the baseline on BOTH axes and sits inside the baseline's own nine-cell envelope). Per-stage criteria were never recorded, so it can still only be placed on the RAW axis. The 6/6 stage count is asserted in prose and is NOT recorded by any artifact in this repo: the arm has no cell under results_fs and fs_aggregate.json (2026-09-09) predates it. To verify the stage count AND reach the pre-registered post-settling axis, pull fsL_locproj_o1_s17_k*/pope_gen.jsonl into results_fs and rerun -- mechanism_readout.py now refuses any cell without EVAL_DONE or with pope n_total != 9000, and dumps the per-stage criterion vector it used to discard.",
+      "supersedes_retracted": {
+        "raw_path": 0.2237,
+        "endpoint_c": 0.2739,
+        "endpoint_dprime": 2.2955,
+        "why": "read while the arm was still in eval; path over fewer than six transitions, which is mechanically smaller",
+        "withdrawn": "2026-09-12 CORRECTION entry"
+      },
+      "err": 0.0837
+    }
+  ],
+  "text_recorded": [
+    "fsL_locproj_o1_s17"
+  ],
+  "results_scan": {
+    "scanned": 0,
+    "runtags": [],
+    "excluded": {}
+  },
+  "anchor_family": [
+    "anchor",
+    "anchorOOD",
+    "anchorcrit",
+    "anchorgca",
+    "anchorlo",
+    "anchorood",
+    "critp"
+  ],
+  "axes": {
+    "raw_path": {
+      "axis": "raw_path",
+      "name": "RAW Sigma|dc| (base -> k1 -> ... -> kN)",
+      "dropped_cells": [],
+      "arm_points": [
+        {
+          "arm": "anchor",
+          "n_cells": 9,
+          "single_cell": false,
+          "drift": 0.7224,
+          "err": 0.6094,
+          "endpoint_c": 0.6972
+        },
+        {
+          "arm": "joint",
+          "n_cells": 2,
+          "single_cell": false,
+          "drift": 0.6074,
+          "err": 0.0255,
+          "endpoint_c": 0.0878
+        },
+        {
+          "arm": "locproj",
+          "n_cells": 1,
+          "single_cell": true,
+          "drift": 0.9895,
+          "err": 0.0837,
+          "endpoint_c": 0.0041
+        },
+        {
+          "arm": "seq",
+          "n_cells": 9,
+          "single_cell": false,
+          "drift": 0.9364,
+          "err": 0.0811,
+          "endpoint_c": 0.0903
+        }
+      ],
+      "arm_level": {
+        "n_arms": 4,
+        "pearson": -0.2463,
+        "note": "no interval: n = 4 arms, and arm-to-arm variability is not estimable from them"
+      },
+      "pairwise": {
+        "pairs": [
+          {
+            "less_drift": "joint",
+            "more_drift": "anchor",
+            "d_drift": 0.115,
+            "d_err": -0.5839,
+            "tradeoff_consistent": false
+          },
+          {
+            "less_drift": "anchor",
+            "more_drift": "locproj",
+            "d_drift": 0.2671,
+            "d_err": 0.5257,
+            "tradeoff_consistent": true
+          },
+          {
+            "less_drift": "anchor",
+            "more_drift": "seq",
+            "d_drift": 0.214,
+            "d_err": 0.5283,
+            "tradeoff_consistent": true
+          },
+          {
+            "less_drift": "joint",
+            "more_drift": "locproj",
+            "d_drift": 0.3821,
+            "d_err": -0.0582,
+            "tradeoff_consistent": false
+          },
+          {
+            "less_drift": "joint",
+            "more_drift": "seq",
+            "d_drift": 0.329,
+            "d_err": -0.0556,
+            "tradeoff_consistent": false
+          },
+          {
+            "less_drift": "seq",
+            "more_drift": "locproj",
+            "d_drift": 0.0531,
+            "d_err": -0.0026,
+            "tradeoff_consistent": false
+          }
+        ],
+        "consistent": 2,
+        "total": 6
+      },
+      "cell_level": [
+        {
+          "label": "all cells",
+          "axis": "raw_path",
+          "n": 21,
+          "cells": [
+            "anchor|o1|s17",
+            "anchor|o1|s23",
+            "anchor|o1|s31",
+            "anchor|o2|s17",
+            "anchor|o2|s23",
+            "anchor|o2|s31",
+            "anchor|o3|s17",
+            "anchor|o3|s23",
+            "anchor|o3|s31",
+            "joint|o1|s17",
+            "joint|o1|s23",
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31",
+            "fsL_locproj_o1_s17"
+          ],
+          "pearson": -0.3173,
+          "spearman": -0.0597,
+          "boot": {
+            "ci": [
+              -0.6347,
+              0.0249
+            ],
+            "B": 10000,
+            "n": 21,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": false
+          }
+        },
+        {
+          "label": "F2: anchor family DROPPED",
+          "axis": "raw_path",
+          "n": 12,
+          "cells": [
+            "joint|o1|s17",
+            "joint|o1|s23",
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31",
+            "fsL_locproj_o1_s17"
+          ],
+          "pearson": 0.7109,
+          "spearman": 0.6364,
+          "boot": {
+            "ci": [
+              0.3376,
+              0.9136
+            ],
+            "B": 10000,
+            "n": 12,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": true
+          }
+        },
+        {
+          "label": "F4/circularity: joint DROPPED",
+          "axis": "raw_path",
+          "n": 19,
+          "cells": [
+            "anchor|o1|s17",
+            "anchor|o1|s23",
+            "anchor|o1|s31",
+            "anchor|o2|s17",
+            "anchor|o2|s23",
+            "anchor|o2|s31",
+            "anchor|o3|s17",
+            "anchor|o3|s23",
+            "anchor|o3|s31",
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31",
+            "fsL_locproj_o1_s17"
+          ],
+          "pearson": -0.4755,
+          "spearman": -0.2456,
+          "boot": {
+            "ci": [
+              -0.7516,
+              -0.1533
+            ],
+            "B": 10000,
+            "n": 19,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": true
+          }
+        },
+        {
+          "label": "anchor family AND joint dropped",
+          "axis": "raw_path",
+          "n": 10,
+          "cells": [
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31",
+            "fsL_locproj_o1_s17"
+          ],
+          "pearson": 0.6136,
+          "spearman": 0.5758,
+          "boot": {
+            "ci": [
+              0.0677,
+              0.9284
+            ],
+            "B": 10000,
+            "n": 10,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": true
+          }
+        }
+      ],
+      "within_arm_centred": {
+        "label": "within-arm centred",
+        "axis": "raw_path",
+        "n": 20,
+        "arms_used": [
+          "anchor(9)",
+          "joint(2)",
+          "seq(9)"
+        ],
+        "pearson": 0.2084,
+        "spearman": 0.3985,
+        "boot": {
+          "ci": [
+            -0.3353,
+            0.766
+          ],
+          "B": 10000,
+          "n": 20,
+          "n_effective": 10000,
+          "degenerate": 0,
+          "seed": 17,
+          "excludes_zero": false
+        }
+      },
+      "dominating_pairs": [
+        {
+          "less_drift": "joint",
+          "more_drift": "anchor",
+          "d_drift": 0.115,
+          "d_err": -0.5839,
+          "tradeoff_consistent": false
+        },
+        {
+          "less_drift": "joint",
+          "more_drift": "locproj",
+          "d_drift": 0.3821,
+          "d_err": -0.0582,
+          "tradeoff_consistent": false
+        },
+        {
+          "less_drift": "joint",
+          "more_drift": "seq",
+          "d_drift": 0.329,
+          "d_err": -0.0556,
+          "tradeoff_consistent": false
+        },
+        {
+          "less_drift": "seq",
+          "more_drift": "locproj",
+          "d_drift": 0.0531,
+          "d_err": -0.0026,
+          "tradeoff_consistent": false
+        }
+      ],
+      "counterexample": [
+        "joint",
+        "seq"
+      ],
+      "leave_one_arm_out": [
+        {
+          "dropped": "anchor",
+          "n_cells": 12,
+          "pearson": 0.7109
+        },
+        {
+          "dropped": "joint",
+          "n_cells": 19,
+          "pearson": -0.4755
+        },
+        {
+          "dropped": "locproj",
+          "n_cells": 20,
+          "pearson": -0.2937
+        },
+        {
+          "dropped": "seq",
+          "n_cells": 12,
+          "pearson": -0.0211
+        }
+      ]
+    },
+    "post_settle": {
+      "axis": "post_settle",
+      "name": "POST-SETTLING Sigma|dc| (pre-registered endpoint)",
+      "dropped_cells": [
+        "fsL_locproj_o1_s17"
+      ],
+      "arm_points": [
+        {
+          "arm": "anchor",
+          "n_cells": 9,
+          "single_cell": false,
+          "drift": 0.3641,
+          "err": 0.6094,
+          "endpoint_c": 0.6972
+        },
+        {
+          "arm": "joint",
+          "n_cells": 2,
+          "single_cell": false,
+          "drift": 0.2278,
+          "err": 0.0255,
+          "endpoint_c": 0.0878
+        },
+        {
+          "arm": "seq",
+          "n_cells": 9,
+          "single_cell": false,
+          "drift": 0.7814,
+          "err": 0.0811,
+          "endpoint_c": 0.0903
+        }
+      ],
+      "arm_level": {
+        "n_arms": 3,
+        "pearson": -0.1974,
+        "note": "no interval: n = 3 arms, and arm-to-arm variability is not estimable from them"
+      },
+      "pairwise": {
+        "pairs": [
+          {
+            "less_drift": "joint",
+            "more_drift": "anchor",
+            "d_drift": 0.1363,
+            "d_err": -0.5839,
+            "tradeoff_consistent": false
+          },
+          {
+            "less_drift": "anchor",
+            "more_drift": "seq",
+            "d_drift": 0.4173,
+            "d_err": 0.5283,
+            "tradeoff_consistent": true
+          },
+          {
+            "less_drift": "joint",
+            "more_drift": "seq",
+            "d_drift": 0.5536,
+            "d_err": -0.0556,
+            "tradeoff_consistent": false
+          }
+        ],
+        "consistent": 1,
+        "total": 3
+      },
+      "cell_level": [
+        {
+          "label": "all cells",
+          "axis": "post_settle",
+          "n": 20,
+          "cells": [
+            "anchor|o1|s17",
+            "anchor|o1|s23",
+            "anchor|o1|s31",
+            "anchor|o2|s17",
+            "anchor|o2|s23",
+            "anchor|o2|s31",
+            "anchor|o3|s17",
+            "anchor|o3|s23",
+            "anchor|o3|s31",
+            "joint|o1|s17",
+            "joint|o1|s23",
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31"
+          ],
+          "pearson": -0.4671,
+          "spearman": -0.2887,
+          "boot": {
+            "ci": [
+              -0.7598,
+              -0.1691
+            ],
+            "B": 10000,
+            "n": 20,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": true
+          }
+        },
+        {
+          "label": "F2: anchor family DROPPED",
+          "axis": "post_settle",
+          "n": 11,
+          "cells": [
+            "joint|o1|s17",
+            "joint|o1|s23",
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31"
+          ],
+          "pearson": 0.6821,
+          "spearman": 0.5455,
+          "boot": {
+            "ci": [
+              0.2449,
+              0.8857
+            ],
+            "B": 10000,
+            "n": 11,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": true
+          }
+        },
+        {
+          "label": "F4/circularity: joint DROPPED",
+          "axis": "post_settle",
+          "n": 18,
+          "cells": [
+            "anchor|o1|s17",
+            "anchor|o1|s23",
+            "anchor|o1|s31",
+            "anchor|o2|s17",
+            "anchor|o2|s23",
+            "anchor|o2|s31",
+            "anchor|o3|s17",
+            "anchor|o3|s23",
+            "anchor|o3|s31",
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31"
+          ],
+          "pearson": -0.6778,
+          "spearman": -0.5975,
+          "boot": {
+            "ci": [
+              -0.8485,
+              -0.4964
+            ],
+            "B": 10000,
+            "n": 18,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": true
+          }
+        },
+        {
+          "label": "anchor family AND joint dropped",
+          "axis": "post_settle",
+          "n": 9,
+          "cells": [
+            "seq|o1|s17",
+            "seq|o1|s23",
+            "seq|o1|s31",
+            "seq|o2|s17",
+            "seq|o2|s23",
+            "seq|o2|s31",
+            "seq|o3|s17",
+            "seq|o3|s23",
+            "seq|o3|s31"
+          ],
+          "pearson": 0.5687,
+          "spearman": 0.45,
+          "boot": {
+            "ci": [
+              -0.0855,
+              0.8952
+            ],
+            "B": 10000,
+            "n": 9,
+            "n_effective": 10000,
+            "degenerate": 0,
+            "seed": 17,
+            "excludes_zero": false
+          }
+        }
+      ],
+      "within_arm_centred": {
+        "label": "within-arm centred",
+        "axis": "post_settle",
+        "n": 20,
+        "arms_used": [
+          "anchor(9)",
+          "joint(2)",
+          "seq(9)"
+        ],
+        "pearson": 0.2471,
+        "spearman": 0.4165,
+        "boot": {
+          "ci": [
+            -0.1977,
+            0.6821
+          ],
+          "B": 10000,
+          "n": 20,
+          "n_effective": 10000,
+          "degenerate": 0,
+          "seed": 17,
+          "excludes_zero": false
+        }
+      },
+      "dominating_pairs": [
+        {
+          "less_drift": "joint",
+          "more_drift": "anchor",
+          "d_drift": 0.1363,
+          "d_err": -0.5839,
+          "tradeoff_consistent": false
+        },
+        {
+          "less_drift": "joint",
+          "more_drift": "seq",
+          "d_drift": 0.5536,
+          "d_err": -0.0556,
+          "tradeoff_consistent": false
+        }
+      ],
+      "counterexample": [
+        "joint"
+      ],
+      "leave_one_arm_out": [
+        {
+          "dropped": "anchor",
+          "n_cells": 11,
+          "pearson": 0.6821
+        },
+        {
+          "dropped": "joint",
+          "n_cells": 18,
+          "pearson": -0.6778
+        },
+        {
+          "dropped": "seq",
+          "n_cells": 11,
+          "pearson": 0.4395
+        }
+      ]
+    }
+  },
+  "verdict_lines": [
+    "RAW Sigma|dc| (base -> k1 -> ... -> kN):",
+    "  pooled over 21 cells         r = -0.3173",
+    "  anchor family dropped (12)   r = +0.7109",
+    "  arm identity partialled out  r = +0.2084",
+    "  arm level (n = 4 arms)       r = -0.2463",
+    "  arm pairs going the trade-off way: 2 of 6",
+    "  => the relationship REVERSES SIGN when the anchor family is",
+    "     dropped. On this axis the trade-off is the anchor family.",
+    "  => with arm identity removed there is NO within-arm trade-off;",
+    "     the pooled correlation is a between-arm group separation.",
+    "  => counterexample: joint has BOTH less drift and better placement",
+    "     than anchor (drift -0.1150, err -0.5839), so the two objectives",
+    "     are jointly improvable here.",
+    "  => counterexample: joint has BOTH less drift and better placement",
+    "     than locproj (drift -0.3821, err -0.0582), so the two objectives",
+    "     are jointly improvable here.",
+    "  => counterexample: joint has BOTH less drift and better placement",
+    "     than seq (drift -0.3290, err -0.0556), so the two objectives",
+    "     are jointly improvable here.",
+    "  => counterexample: seq has BOTH less drift and better placement",
+    "     than locproj (drift -0.0531, err -0.0026), so the two objectives",
+    "     are jointly improvable here.",
+    "",
+    "POST-SETTLING Sigma|dc| (pre-registered endpoint):",
+    "  pooled over 20 cells         r = -0.4671",
+    "  anchor family dropped (11)   r = +0.6821",
+    "  arm identity partialled out  r = +0.2471",
+    "  arm level (n = 3 arms)       r = -0.1974",
+    "  arm pairs going the trade-off way: 1 of 3",
+    "  => the relationship REVERSES SIGN when the anchor family is",
+    "     dropped. On this axis the trade-off is the anchor family.",
+    "  => with arm identity removed there is NO within-arm trade-off;",
+    "     the pooled correlation is a between-arm group separation.",
+    "  => counterexample: joint has BOTH less drift and better placement",
+    "     than anchor (drift -0.1363, err -0.5839), so the two objectives",
+    "     are jointly improvable here.",
+    "  => counterexample: joint has BOTH less drift and better placement",
+    "     than seq (drift -0.5536, err -0.0556), so the two objectives",
+    "     are jointly improvable here.",
+    ""
+  ]
+}

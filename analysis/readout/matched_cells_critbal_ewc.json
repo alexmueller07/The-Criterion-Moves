@@ -1,0 +1,373 @@
+{
+ "_provenance": {
+  "written": "2026-09-16",
+  "scorer": "fs_common.score_pope on the cluster copy at ~/cl-halluc/code/analysis/fs_common.py",
+  "source": "pope_gen.jsonl text outputs, 9000 rows per stage, EVAL_DONE required",
+  "reference_c_star": 0.0878,
+  "base_c": 0.4314,
+  "post_settling_def": "sum_{k>=2}|dc_k| with dc_1 = c(k1)-c(base); i.e. the five inter-stage steps",
+  "positive_control": "reproduces the published values exactly: seq o1/s17 post-settling 0.5451, anchor o1/s17 0.4618, seq o1/s31 1.0846, JOINT mean 0.2279 vs published 0.228",
+  "note": "an earlier ad-hoc scorer in this session disagreed because it coerced parse failures to 'no' instead of excluding them; its numbers were discarded",
+  "dprime_convention": "max_abs_dprime_from_base is the pre-registered quantity: the F1 falsifier is d' moving more than 0.30 from the untuned base (d'=2.3477) at any checkpoint, and Table 2's published row reproduces on this definition and NOT on the stage-to-stage one. The step-to-step field is retained but must never be compared against the 0.30 margin -- doing so understated the calibrated-target arm's excursion as 0.093 when it is 0.3305.",
+  "ewc_n": "two matched cells: o1/s31 (job 19027, 2026-09-09) and o1/s17 (jobs 20673/20674, 2026-09-16)",
+  "lwf_n": "one matched cell: o1/s17 (jobs 20675/20676, 2026-09-16), EVAL_DONE 6/6"
+ },
+ "fsL_seq_o1_s17": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.2122,
+   0.1945,
+   0.3183,
+   0.0288,
+   -0.0087,
+   0.0679
+  ],
+  "per_stage_dprime": [
+   2.2791,
+   2.2816,
+   2.3485,
+   2.2142,
+   2.1436,
+   2.1878
+  ],
+  "post_settling": 0.5451,
+  "path_incl_base": 0.7643,
+  "mean_abs_c": 0.1384,
+  "mean_abs_c_minus_cstar": 0.1062,
+  "endpoint_c": 0.0679,
+  "endpoint_f1": 0.8604,
+  "endpoint_dist_cstar": 0.0199,
+  "mean_dprime": 2.2425,
+  "max_abs_ddprime_step_to_step": 0.1343,
+  "max_abs_dprime_from_base": 0.2041,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_anchor_o1_s17": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.753,
+   0.6972,
+   0.806,
+   0.6962,
+   0.8231,
+   0.7626
+  ],
+  "per_stage_dprime": [
+   2.3092,
+   2.3224,
+   2.3994,
+   2.3955,
+   2.4248,
+   2.3611
+  ],
+  "post_settling": 0.4618,
+  "path_incl_base": 0.7834,
+  "mean_abs_c": 0.7563,
+  "mean_abs_c_minus_cstar": 0.6686,
+  "endpoint_c": 0.7626,
+  "endpoint_f1": 0.7844,
+  "endpoint_dist_cstar": 0.6748,
+  "mean_dprime": 2.3687,
+  "max_abs_ddprime_step_to_step": 0.077,
+  "max_abs_dprime_from_base": 0.0771,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_critbal_o1_s17": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.412,
+   0.3443,
+   0.369,
+   0.3333,
+   0.3672,
+   0.2456
+  ],
+  "per_stage_dprime": [
+   2.1341,
+   2.1097,
+   2.1649,
+   2.108,
+   2.0172,
+   2.1103
+  ],
+  "post_settling": 0.2836,
+  "path_incl_base": 0.303,
+  "mean_abs_c": 0.3452,
+  "mean_abs_c_minus_cstar": 0.2574,
+  "endpoint_c": 0.2456,
+  "endpoint_f1": 0.838,
+  "endpoint_dist_cstar": 0.1578,
+  "mean_dprime": 2.1074,
+  "max_abs_ddprime_step_to_step": 0.0931,
+  "max_abs_dprime_from_base": 0.3305,
+  "trips_pre_registered_margin_0p30": true
+ },
+ "fsL_joint_o1_s17": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.0569,
+   0.1478,
+   0.0594,
+   0.0305,
+   0.0508,
+   0.0623
+  ],
+  "per_stage_dprime": [
+   2.2744,
+   2.3085,
+   2.2557,
+   2.2559,
+   2.2416,
+   2.2567
+  ],
+  "post_settling": 0.24,
+  "path_incl_base": 0.6145,
+  "mean_abs_c": 0.0679,
+  "mean_abs_c_minus_cstar": 0.0398,
+  "endpoint_c": 0.0623,
+  "endpoint_f1": 0.8682,
+  "endpoint_dist_cstar": 0.0255,
+  "mean_dprime": 2.2655,
+  "max_abs_ddprime_step_to_step": 0.0528,
+  "max_abs_dprime_from_base": 0.1061,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_joint_o1_s23": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.0469,
+   0.1674,
+   0.1522,
+   0.1728,
+   0.1291,
+   0.1134
+  ],
+  "per_stage_dprime": [
+   2.2496,
+   2.2876,
+   2.2715,
+   2.2716,
+   2.26,
+   2.2525
+  ],
+  "post_settling": 0.2157,
+  "path_incl_base": 0.6002,
+  "mean_abs_c": 0.1303,
+  "mean_abs_c_minus_cstar": 0.0561,
+  "endpoint_c": 0.1134,
+  "endpoint_f1": 0.8652,
+  "endpoint_dist_cstar": 0.0256,
+  "mean_dprime": 2.2655,
+  "max_abs_ddprime_step_to_step": 0.038,
+  "max_abs_dprime_from_base": 0.0981,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_ewc_o1_s31": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.3352,
+   0.2722,
+   0.3927,
+   0.2227,
+   -0.0711,
+   0.1982
+  ],
+  "per_stage_dprime": [
+   2.2679,
+   2.242,
+   2.291,
+   2.2144,
+   2.1683,
+   2.234
+  ],
+  "per_stage_f1": [
+   0.8477,
+   0.8515,
+   0.8433,
+   0.8529,
+   0.8615,
+   0.8573
+  ],
+  "post_settling": 0.9166,
+  "path_incl_base": 1.0128,
+  "mean_abs_c": 0.2487,
+  "mean_abs_c_minus_cstar": 0.1902,
+  "endpoint_c": 0.1982,
+  "endpoint_f1": 0.8573,
+  "endpoint_dist_cstar": 0.1104,
+  "mean_dprime": 2.2363,
+  "max_abs_ddprime_step_to_step": 0.0766,
+  "max_abs_dprime_from_base": 0.1794,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_seq_o1_s31": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.3139,
+   0.2455,
+   0.4034,
+   0.2375,
+   -0.0971,
+   0.2607
+  ],
+  "per_stage_dprime": [
+   2.2718,
+   2.2749,
+   2.314,
+   2.2737,
+   2.1755,
+   2.2592
+  ],
+  "per_stage_f1": [
+   0.8506,
+   0.8579,
+   0.8446,
+   0.8585,
+   0.8629,
+   0.8547
+  ],
+  "post_settling": 1.0846,
+  "path_incl_base": 1.2021,
+  "mean_abs_c": 0.2597,
+  "mean_abs_c_minus_cstar": 0.2012,
+  "endpoint_c": 0.2607,
+  "endpoint_f1": 0.8547,
+  "endpoint_dist_cstar": 0.1729,
+  "mean_dprime": 2.2615,
+  "max_abs_ddprime_step_to_step": 0.0982,
+  "max_abs_dprime_from_base": 0.1722,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_anchor_o1_s31": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.8032,
+   0.7561,
+   0.8144,
+   0.6749,
+   0.7902,
+   0.7405
+  ],
+  "per_stage_dprime": [
+   2.2948,
+   2.3238,
+   2.4164,
+   2.3795,
+   2.3978,
+   2.362
+  ],
+  "per_stage_f1": [
+   0.7646,
+   0.7804,
+   0.78,
+   0.8064,
+   0.7831,
+   0.7896
+  ],
+  "post_settling": 0.4099,
+  "path_incl_base": 0.7817,
+  "mean_abs_c": 0.7632,
+  "mean_abs_c_minus_cstar": 0.6754,
+  "endpoint_c": 0.7405,
+  "endpoint_f1": 0.7896,
+  "endpoint_dist_cstar": 0.6527,
+  "mean_dprime": 2.3624,
+  "max_abs_ddprime_step_to_step": 0.0926,
+  "max_abs_dprime_from_base": 0.0687,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_ewc_o1_s17": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.2165,
+   0.262,
+   0.3606,
+   0.1939,
+   0.071,
+   0.1336
+  ],
+  "per_stage_dprime": [
+   2.279,
+   2.3194,
+   2.3698,
+   2.2321,
+   2.1903,
+   2.2362
+  ],
+  "per_stage_f1": [
+   0.8609,
+   0.8615,
+   0.8567,
+   0.8574,
+   0.8604,
+   0.8622
+  ],
+  "per_stage_parse_fail": [
+   0,
+   0,
+   0,
+   0,
+   6,
+   0
+  ],
+  "post_settling": 0.4963,
+  "path_incl_base": 0.7112,
+  "mean_abs_c": 0.2063,
+  "mean_abs_c_minus_cstar": 0.1241,
+  "endpoint_c": 0.1336,
+  "endpoint_f1": 0.8622,
+  "endpoint_dist_cstar": 0.0458,
+  "max_abs_ddprime": 0.1377,
+  "mean_dprime": 2.2711,
+  "max_abs_ddprime_step_to_step": 0.1377,
+  "max_abs_dprime_from_base": 0.1574,
+  "trips_pre_registered_margin_0p30": false
+ },
+ "fsL_lwf_o1_s17": {
+  "eval_done": "6/6",
+  "per_stage_c": [
+   0.2161,
+   0.2429,
+   0.3449,
+   0.2046,
+   0.1212,
+   0.0918
+  ],
+  "per_stage_dprime": [
+   2.2714,
+   2.2947,
+   2.3508,
+   2.2451,
+   2.1869,
+   2.2113
+  ],
+  "per_stage_f1": [
+   0.8601,
+   0.8604,
+   0.8564,
+   0.858,
+   0.8568,
+   0.8618
+  ],
+  "per_stage_parse_fail": [
+   0,
+   0,
+   0,
+   0,
+   47,
+   0
+  ],
+  "post_settling": 0.3819,
+  "path_incl_base": 0.5972,
+  "mean_abs_c": 0.2036,
+  "mean_abs_c_minus_cstar": 0.1158,
+  "endpoint_c": 0.0918,
+  "endpoint_f1": 0.8618,
+  "endpoint_dist_cstar": 0.004,
+  "max_abs_ddprime": 0.1057,
+  "mean_dprime": 2.26,
+  "max_abs_ddprime_step_to_step": 0.1057,
+  "max_abs_dprime_from_base": 0.1608,
+  "trips_pre_registered_margin_0p30": false
+ }
+}

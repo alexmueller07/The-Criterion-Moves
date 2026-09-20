@@ -1,0 +1,7 @@
+{"id": "fxd1", "amber_id": 2001, "output": "Yes", "n_new_tokens": 1, "truncated": false}
+{"id": "fxd2", "amber_id": 2002, "output": "No, there is no dog.", "n_new_tokens": 6, "truncated": false}
+{"id": "fxd3", "amber_id": 2003, "output": "No", "n_new_tokens": 1, "truncated": false}
+{"id": "fxd4", "amber_id": 2004, "output": "Yes.", "n_new_tokens": 2, "truncated": false}
+{"id": "fxd5", "amber_id": 2005, "output": "Maybe", "n_new_tokens": 1, "truncated": false}
+{"id": "fxd6", "amber_id": 2006, "output": "no", "n_new_tokens": 1, "truncated": false}
+{"id": "fxd7", "amber_id": 2007, "output": "Yes", "n_new_tokens": 1, "truncated": false}

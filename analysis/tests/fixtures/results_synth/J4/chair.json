@@ -1,0 +1,9 @@
+{
+  "ckpt": "J4",
+  "n_captions": 60,
+  "chair_s": 0.909,
+  "chair_i": 0.999,
+  "mentions_per_caption": 5.8,
+  "mean_new_tokens": 180.0,
+  "truncation_rate": 0.08
+}

@@ -1,0 +1,12 @@
+# Analysis and figures (CPU only). These are all that
+# analysis/independent_headline_checks.py and the figure scripts need.
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+Pillow>=9.5
+
+# Reproducing the training and evaluation runs additionally needs a GPU and:
+#   torch                 (pin to a build matching your CUDA / GPU architecture)
+#   transformers
+#   peft
+#   datasets

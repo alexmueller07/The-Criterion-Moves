@@ -1,0 +1,30 @@
+{
+  "arm": "anchor",
+  "n_cells": 9,
+  "strata": {
+    "random": {
+      "n": 9,
+      "mean_abs_c": 0.9604,
+      "mean_path_c": 0.8105,
+      "mean_dprime": 2.8033,
+      "mean_endpoint_c": 0.9125,
+      "mean_dprime_range": 0.2229
+    },
+    "popular": {
+      "n": 9,
+      "mean_abs_c": 0.7842,
+      "mean_path_c": 0.8015,
+      "mean_dprime": 2.4513,
+      "mean_endpoint_c": 0.7516,
+      "mean_dprime_range": 0.1879
+    },
+    "adversarial": {
+      "n": 9,
+      "mean_abs_c": 0.5843,
+      "mean_path_c": 0.7065,
+      "mean_dprime": 2.0503,
+      "mean_endpoint_c": 0.5507,
+      "mean_dprime_range": 0.1588
+    }
+  }
+}

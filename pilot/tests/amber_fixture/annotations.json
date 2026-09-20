@@ -1,0 +1,5 @@
+[
+  {"id": 1, "type": "generative", "truth": ["dog", "sky"], "hallu": ["cat"]},
+  {"id": 2, "type": "generative", "truth": ["tree"], "hallu": ["bird", "bus"]},
+  {"id": 3, "type": "generative", "truth": ["car", "tree"], "hallu": ["bus"]}
+]

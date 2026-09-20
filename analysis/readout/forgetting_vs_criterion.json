@@ -1,0 +1,52 @@
+{
+ "_note": "POST-HOC. Not pre-registered. eta^2 is descriptive; the permutation p carries it.",
+ "open_ended_excluded_from_forgetting": [
+  "Flickr30k",
+  "VizWiz"
+ ],
+ "n_forgetting_obs": 90,
+ "n_criterion_transitions": 45,
+ "forgetting": {
+  "task": {
+   "eta2": 0.1515,
+   "p": 0.0026,
+   "levels": 4
+  },
+  "elapsed": {
+   "eta2": 0.345,
+   "p": 5e-05,
+   "levels": 5
+  },
+  "depth": {
+   "eta2": 0.113,
+   "p": 0.036,
+   "levels": 5
+  }
+ },
+ "criterion_step": {
+  "task": {
+   "eta2": 0.7311,
+   "p": 5e-05,
+   "levels": 6
+  },
+  "depth": {
+   "eta2": 0.0488,
+   "p": 0.72221,
+   "levels": 5
+  }
+ },
+ "within_task_forgetting_rises_with_elapse": {
+  "ArxivQA": true,
+  "CLEVR-Math": true,
+  "IconQA": true,
+  "ImageNet-R": true
+ },
+ "within_task_rises_count": "4/4",
+ "mean_forgetting_by_elapsed": {
+  "1": 0.0481,
+  "2": 0.1079,
+  "3": 0.176,
+  "4": 0.1523,
+  "5": 0.1523
+ }
+}

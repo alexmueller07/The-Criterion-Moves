@@ -1,0 +1,46 @@
+[
+  {
+    "ckpt": "S0",
+    "category": "adversarial",
+    "n": 30,
+    "accuracy": 0.91,
+    "precision": 0.905,
+    "recall": 0.895,
+    "f1": 0.9,
+    "yes_rate": 0.5,
+    "parse_fail_rate": 0.0
+  },
+  {
+    "ckpt": "S0",
+    "category": "all",
+    "n": 90,
+    "accuracy": 0.89,
+    "precision": 0.885,
+    "recall": 0.875,
+    "f1": 0.88,
+    "yes_rate": 0.5,
+    "parse_fail_rate": 0.0
+  },
+  {
+    "ckpt": "S0",
+    "category": "popular",
+    "n": 30,
+    "accuracy": 0.89,
+    "precision": 0.885,
+    "recall": 0.875,
+    "f1": 0.88,
+    "yes_rate": 0.5,
+    "parse_fail_rate": 0.0
+  },
+  {
+    "ckpt": "S0",
+    "category": "random",
+    "n": 30,
+    "accuracy": 0.87,
+    "precision": 0.865,
+    "recall": 0.855,
+    "f1": 0.86,
+    "yes_rate": 0.5,
+    "parse_fail_rate": 0.0
+  }
+]
