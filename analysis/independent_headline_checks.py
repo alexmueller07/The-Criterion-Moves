@@ -165,6 +165,30 @@ rng = max(wc[str(s)]["pope"]["c"] for s in range(1, 7)) - min(wc[str(s)]["pope"]
 check("that cell's criterion range", rng, 0.395, 3)
 check("margin (x)", rng / bound, 14, 0)
 
+print("\nSecond backbone (Qwen2.5-VL-7B, five-task UCIT ordering, three seeds)")
+QB_C, QB_D = 0.5479, 2.6658          # untuned Qwen base, same 9000 POPE items
+try:
+    Q = json.load(open(os.path.join(HERE, "readout", "qwen_q5_trajectory.json")))
+except FileNotFoundError:
+    print("  qwen_q5_trajectory.json absent -- second-backbone checks SKIPPED")
+    Q = None
+if Q:
+    usable = {s: [k for k in sorted(Q[s], key=int) if Q[s][k]["usable"]] for s in Q}
+    crs = [max(Q[s][k]["c"] for k in usable[s]) - min(Q[s][k]["c"] for k in usable[s]) for s in Q]
+    drs = [max(Q[s][k]["dprime"] for k in usable[s]) - min(Q[s][k]["dprime"] for k in usable[s]) for s in Q]
+    check("Qwen criterion range (mean over seeds)", st.mean(crs), 0.162, 3)
+    check("Qwen d' range (mean over seeds)", st.mean(drs), 0.112, 3)
+    check("Qwen criterion-to-d' range ratio", st.mean(crs) / st.mean(drs), 1.45, 2)
+    check("Qwen endpoint dc from base", st.mean(Q[s]["5"]["c"] - QB_C for s in Q), -0.079, 3)
+    check("Qwen endpoint dd' from base", st.mean(Q[s]["5"]["dprime"] - QB_D for s in Q), -0.048, 3)
+    check("Qwen worst |dd'| from base (margin 0.30)",
+          max(max(abs(Q[s][k]["dprime"] - QB_D) for k in usable[s]) for s in Q), 0.084, 3)
+    for seed, want in (("s17", 87.7), ("s23", 11.8), ("s31", 79.0)):
+        check("Qwen stage-4 parse rate, seed " + seed[1:] + " (%)",
+              100 * Q[seed]["4"]["parse_rate"], want, 1)
+        if Q[seed]["4"]["usable"]:
+            FAILS.append("stage 4 of " + seed + " should be flagged unusable")
+
 print("\nz-ROC model comparison (maximum likelihood; separate script)")
 out = subprocess.run([sys.executable, os.path.join(HERE, "independent_zroc_modelcomp_check.py")],
                      capture_output=True, text=True, cwd=os.path.dirname(HERE)).stdout
