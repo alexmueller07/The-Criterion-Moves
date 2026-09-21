@@ -1,0 +1,84 @@
+{
+ "benchmark": "MLLM-CL/DCL",
+ "seed": 17,
+ "tasks": {
+  "RS": {
+   "n_train": 8000,
+   "max_new_tokens": 16,
+   "answer_stats": {
+    "yes_frac": 0.2204,
+    "no_frac": 0.3776,
+    "refusal_frac": 0.0,
+    "mean_target_words": 1.0,
+    "p95_target_words": 1
+   }
+  },
+  "Med": {
+   "n_train": 8000,
+   "max_new_tokens": 20,
+   "answer_stats": {
+    "yes_frac": 0.2751,
+    "no_frac": 0.2298,
+    "refusal_frac": 0.0,
+    "mean_target_words": 1.78,
+    "p95_target_words": 6
+   }
+  },
+  "AD": {
+   "n_train": 8000,
+   "max_new_tokens": 64,
+   "answer_stats": {
+    "yes_frac": 0.128,
+    "no_frac": 0.2447,
+    "refusal_frac": 0.0,
+    "mean_target_words": 7.26,
+    "p95_target_words": 28
+   }
+  },
+  "Sci": {
+   "n_train": 8000,
+   "max_new_tokens": 26,
+   "answer_stats": {
+    "yes_frac": 0.0403,
+    "no_frac": 0.0469,
+    "refusal_frac": 0.0,
+    "mean_target_words": 2.1,
+    "p95_target_words": 9
+   }
+  },
+  "Fin": {
+   "n_train": 8000,
+   "max_new_tokens": 16,
+   "answer_stats": {
+    "yes_frac": 0.1859,
+    "no_frac": 0.1445,
+    "refusal_frac": 0.0,
+    "mean_target_words": 1.0,
+    "p95_target_words": 1
+   }
+  }
+ },
+ "orders": {
+  "d1": [
+   "RS",
+   "Med",
+   "AD",
+   "Sci",
+   "Fin"
+  ],
+  "d2": [
+   "Fin",
+   "Sci",
+   "AD",
+   "Med",
+   "RS"
+  ],
+  "d3": [
+   "Med",
+   "Fin",
+   "RS",
+   "AD",
+   "Sci"
+  ]
+ }
+}

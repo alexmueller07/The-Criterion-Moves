@@ -70,7 +70,7 @@ def plot_arm_lines(ax, table, getter):
 def style_stage_axis(ax):
     ax.set_xticks(range(5))
     ax.set_xticklabels(STAGE_LABELS)
-    ax.set_xlabel("checkpoint (stage-matched)")
+    ax.set_xlabel("Checkpoint (stage-matched)")
 
 
 def save_both(fig, out_dir, name, rendered):
@@ -82,21 +82,26 @@ def save_both(fig, out_dir, name, rendered):
 def fig_trajectory(table, out_dir, rendered):
     # figure* span: 0.9\textwidth. Captions live in the tex; ylabels carry the
     # metric + a minimal direction hint, nothing else.
-    fig, axes = plt.subplots(1, 2, figsize=(FS.FULL_W, FS.h_full(2.0)))
+    fig, axes = plt.subplots(1, 2, figsize=(FS.FULL_W, 1.95))
 
     ax = axes[0]
     plot_arm_lines(ax, table, lambda t, c: chair_metric(t, c, "chair_i"))
     style_stage_axis(ax)
-    ax.set_ylabel("CHAIR$_i$  ($\\uparrow$ worse)")
-    if ax.get_legend_handles_labels()[0]:
-        ax.legend(loc="best")
+    ax.set_ylabel("CHAIR$_i$")
+    FS.panel_title(ax, "a", "Raw CHAIR$_i$ (higher is worse)")
 
     ax = axes[1]
     plot_arm_lines(ax, table, lambda t, c: pope_metric(t, c, "adversarial", "f1"))
     style_stage_axis(ax)
-    ax.set_ylabel("adv. F1  ($\\downarrow$ worse)")
+    ax.set_ylabel("F1")
+    FS.panel_title(ax, "b", "POPE-adversarial F1 (lower is worse)")
 
-    fig.tight_layout(w_pad=1.6)
+    # Legend below the axes: inside either panel it sat on a data line.
+    handles, labels = axes[0].get_legend_handles_labels()
+    if handles:
+        fig.legend(handles, labels, loc="lower center", ncol=2, frameon=False,
+                   bbox_to_anchor=(0.5, 0.0))
+    fig.tight_layout(w_pad=1.8, rect=(0, 0.11, 1, 0.93))
     save_both(fig, out_dir, "fig_trajectory", rendered)
 
 
@@ -107,7 +112,8 @@ def fig_forgetting_matrix(table, out_dir, rendered):
     M = [[task_score(table, c, t) for c in SEQ_CKPTS] for t in TASKS]
 
     # 0.9\columnwidth in the tex.
-    fig, ax = plt.subplots(figsize=(FS.COL_W90, FS.h_col90(2.25)))
+    # 2.6 in tall, not h_col90(2.25) = 3.8 in: the resize scaled legacy heights 1.69x.
+    fig, ax = plt.subplots(figsize=(FS.COL_W90, 2.6))
     try:
         cmap = matplotlib.colormaps["viridis"].copy()
     except (AttributeError, KeyError):   # older matplotlib fallback
@@ -136,7 +142,7 @@ def fig_forgetting_matrix(table, out_dir, rendered):
                 any_missing = True
             else:
                 ax.text(j + 0.5, i + 0.5, "%.3f" % v, ha="center", va="center",
-                        fontsize=6.2, color=cell_text_color(v))
+                        fontsize=7.5, color=cell_text_color(v))
 
     ax.set_xticks([j + 0.5 for j in range(n_cols)])
     ax.set_xticklabels(SEQ_CKPTS)
@@ -151,8 +157,8 @@ def fig_forgetting_matrix(table, out_dir, rendered):
     for spine in ax.spines.values():
         spine.set_visible(False)
     cbar = fig.colorbar(im, ax=ax, fraction=0.05, pad=0.03)
-    cbar.set_label("task score", fontsize=7)
-    cbar.ax.tick_params(labelsize=6.5, width=0.6, length=2.4)
+    cbar.set_label("Task score")
+    cbar.ax.tick_params(width=0.6, length=2.4)
     cbar.outline.set_linewidth(0.6)
     if any_missing:
         # colorbar is the value legend; add a proxy only when n/a cells exist

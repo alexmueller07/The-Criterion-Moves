@@ -97,7 +97,7 @@ _ARM_LINE = {
 }
 
 ARM_LABEL = {"SEQ": "SEQ", "JOINT": "JOINT", "ER": "ER",
-             "V1": "anchor v1", "V2": "anchor v2"}
+             "V1": "Anchor v1", "V2": "Anchor v2"}
 
 
 def arm_line(key, mute=False, **overrides):
@@ -123,27 +123,39 @@ def arm_bar(key, **overrides):
 
 
 def apply_style():
-    """Set rcParams once, at import time of each figure script."""
+    """Set rcParams once, at import time of each figure script.
+
+    2026-09-21, per co-author review (Jae-Ho Lee): Times New Roman to match the
+    paper body (iclr2027_conference + times), sentence case, one set of panel
+    labels, one set of sizes and line weights. Math is set in Times New Roman too
+    (custom mathtext), falling back to STIX -- a Times-metric face -- only for
+    glyphs Times New Roman lacks, so no figure mixes a sans-serif symbol into
+    serif text. Sizes rise one step from the old 7 pt: Times has a much smaller
+    x-height than DejaVu Sans, so 7 pt Times reads noticeably smaller than the
+    7 pt DejaVu it replaces.
+    """
     matplotlib.rcParams.update({
-        # One font family across all figures; embed as TrueType (Type 42)
-        # so PDF text stays vector and editable, never Type 3 / rasterized.
-        "font.family": "sans-serif",
-        "font.sans-serif": ["DejaVu Sans", "Helvetica", "Arial"],
-        "mathtext.fontset": "dejavusans",
+        # Embed as TrueType (Type 42): PDF text stays vector and editable.
+        "font.family": "serif",
+        "font.serif": ["Times New Roman", "Times", "STIXGeneral"],
+        # STIX for math: Times-metric, and it sets primes, sub/superscripts and
+        # operators the way LaTeX does. Times New Roman's own italic used as a
+        # custom mathtext face floated the prime of d' a full x-height too high.
+        "mathtext.fontset": "stix",
         "pdf.fonttype": 42,
         "ps.fonttype": 42,
         # Point sizes AT FINAL PRINTED SIZE (figsize == included size).
-        "font.size": 7.0,
-        "axes.titlesize": 8.0,
+        "font.size": 8.0,
+        "axes.titlesize": 8.5,
         "axes.labelsize": 8.0,
-        "xtick.labelsize": 7.0,
-        "ytick.labelsize": 7.0,
-        "legend.fontsize": 7.0,
-        "figure.titlesize": 8.0,
-        # Line weights tuned for ~3in-wide panels.
+        "xtick.labelsize": 7.5,
+        "ytick.labelsize": 7.5,
+        "legend.fontsize": 7.5,
+        "figure.titlesize": 8.5,
+        # One set of line weights for every figure.
         "axes.linewidth": 0.6,
-        "lines.linewidth": 1.1,
-        "lines.markersize": 3.2,
+        "lines.linewidth": 1.2,
+        "lines.markersize": 3.4,
         "xtick.major.width": 0.6,
         "ytick.major.width": 0.6,
         "xtick.major.size": 2.4,
@@ -152,6 +164,7 @@ def apply_style():
         "ytick.major.pad": 2.0,
         "axes.labelpad": 2.5,
         "axes.titlepad": 4.0,
+        "axes.titlelocation": "left",
         # Compact legends, light grid.
         "legend.frameon": False,
         "legend.handlelength": 1.7,
@@ -163,10 +176,31 @@ def apply_style():
         "grid.alpha": 0.3,
         "grid.linewidth": 0.4,
         "axes.axisbelow": True,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
         "axes.prop_cycle": plt.cycler(color=OKABE_ITO),
         "figure.autolayout": False,
         "savefig.dpi": PNG_DPI,
     })
+
+
+def panel_title(ax, letter, text, pad=4.0, size=None):
+    """The one panel-label convention for every figure: a bold Times "(a)"
+    followed by a sentence-case title, left-aligned over the axes.
+
+    Drawn as two real text objects anchored at the axes' top-left corner with
+    point offsets, so "(a)" is genuine Times New Roman Bold (not math bold) and
+    the pair stays attached to its axes through any later subplots_adjust."""
+    from matplotlib.transforms import offset_copy
+    fig = ax.figure
+    size = size or matplotlib.rcParams["axes.titlesize"]
+    at = lambda dx: offset_copy(ax.transAxes, fig=fig, x=dx, y=pad, units="points")
+    if not letter:
+        return ax.text(0, 1, text, transform=at(0), ha="left", va="baseline", fontsize=size)
+    t1 = ax.text(0, 1, "(%s)" % letter, transform=at(0), ha="left", va="baseline",
+                 fontsize=size, fontweight="bold")
+    w = t1.get_window_extent(fig.canvas.get_renderer()).width * 72.0 / fig.dpi
+    return ax.text(0, 1, text, transform=at(w + 0.28 * size), ha="left", va="baseline", fontsize=size)
 
 
 def save_fig(fig, out_dir, name, rendered, log_tag):

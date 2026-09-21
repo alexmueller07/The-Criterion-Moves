@@ -50,12 +50,15 @@ def series(prefix, key):
     return out
 
 
-fig, axes = plt.subplots(1, 2, figsize=(W, 2.05))
+# Rendered at EXACTLY its included width (0.86\textwidth) so every point size
+# prints at its stated size; the old 4.95 in render was shrunk to 96%.
+W = 0.86 * FS.TEXTWIDTH
+fig, axes = plt.subplots(1, 2, figsize=(W, 2.00))
 stages = list(range(1, 7))
 
 panels = [
-    (axes[0], "c", "decision criterion $c$", CSTAR, base["c"]),
-    (axes[1], "dprime", "discriminability $d'$", None, base["dprime"]),
+    (axes[0], "c", ("a", "Decision criterion $c$"), CSTAR, base["c"]),
+    (axes[1], "dprime", ("b", "Discriminability $d$′"), None, base["dprime"]),
 ]
 spans = []
 for ax, key, title, star, b in panels:
@@ -70,14 +73,13 @@ for ax, key, title, star, b in panels:
     ax.set_ylim(mid - half, mid + half)
     spans.append(2 * half)
     ax.axhline(b, color=BASE, lw=0.8, ls=(0, (3, 2)), zorder=1)
-    ax.text(6.12, b + 0.018, "base", color=BASE, fontsize=5.8, va="bottom", ha="left")
+    ax.text(6.12, b + 0.018, "Base", color=BASE, fontsize=7, va="bottom", ha="left")
     if star is not None:
         ax.axhline(star, color=JOINT, lw=0.8, ls=(0, (1, 1.6)), zorder=1)
-        ax.text(6.12, star + 0.018, "$c^{*}$", color=JOINT, fontsize=6.2, va="bottom", ha="left")
+        ax.text(6.12, star + 0.018, "$c^{*}$", color=JOINT, fontsize=8, va="bottom", ha="left")
     ax.set_xticks(stages)
-    ax.set_xlabel("stage", fontsize=6.6)
-    ax.set_title(title, fontsize=7.2, pad=3)
-    ax.tick_params(labelsize=6.0, length=2)
+    ax.set_xlabel("Stage")
+    FS.panel_title(ax, *title)
     ax.set_xlim(0.8, 6.75)   # room right of stage 6 so the reference labels sit inside the axes
     for sp in ("top", "right"):
         ax.spines[sp].set_visible(False)
@@ -89,11 +91,10 @@ assert abs(spans[0] - spans[1]) < 1e-9, (
 h = [plt.Line2D([], [], color=SEQ, lw=1.4), plt.Line2D([], [], color=ANCH, lw=1.4),
      plt.Line2D([], [], color=JOINT, lw=1.6)]
 # the d' panel is empty below its data band, so the legend goes there rather than over the anchor lines
-axes[1].legend(h, ["sequential (9)", "anchor (9)", "joint (2)"], fontsize=5.8,
-               frameon=False, loc="lower left", handlelength=1.3,
-               borderaxespad=0.2, labelspacing=0.25)
+axes[1].legend(h, ["Sequential (9 runs)", "Anchor (9)", "Joint (2)"],
+               loc="lower left", handlelength=1.3, borderaxespad=0.2, labelspacing=0.25)
 
-fig.subplots_adjust(left=0.075, right=0.985, bottom=0.19, top=0.89, wspace=0.22)
+fig.subplots_adjust(left=0.085, right=0.985, bottom=0.175, top=0.90, wspace=0.24)
 out = os.path.join(HERE, "out")
 os.makedirs(out, exist_ok=True)
 for ext in ("pdf", "png"):

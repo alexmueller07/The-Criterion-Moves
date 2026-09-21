@@ -1,0 +1,162 @@
+{
+ "benchmark": "MLLM-CL/DCL",
+ "order_d1": [
+  "RS",
+  "Med",
+  "AD",
+  "Sci",
+  "Fin"
+ ],
+ "seed": 17,
+ "base": {
+  "c": 0.4314,
+  "dprime": 2.3477,
+  "f1": 0.8449
+ },
+ "answer_stats": {
+  "RS": {
+   "yes_frac": 0.2204,
+   "no_frac": 0.3776,
+   "refusal_frac": 0.0,
+   "mean_target_words": 1.0,
+   "p95_target_words": 1
+  },
+  "Med": {
+   "yes_frac": 0.2751,
+   "no_frac": 0.2298,
+   "refusal_frac": 0.0,
+   "mean_target_words": 1.78,
+   "p95_target_words": 6
+  },
+  "AD": {
+   "yes_frac": 0.128,
+   "no_frac": 0.2447,
+   "refusal_frac": 0.0,
+   "mean_target_words": 7.26,
+   "p95_target_words": 28
+  },
+  "Sci": {
+   "yes_frac": 0.0403,
+   "no_frac": 0.0469,
+   "refusal_frac": 0.0,
+   "mean_target_words": 2.1,
+   "p95_target_words": 9
+  },
+  "Fin": {
+   "yes_frac": 0.1859,
+   "no_frac": 0.1445,
+   "refusal_frac": 0.0,
+   "mean_target_words": 1.0,
+   "p95_target_words": 1
+  }
+ },
+ "SEQ": {
+  "arm": "SEQ",
+  "stages": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "complete": true,
+  "all_usable": true,
+  "c": [
+   0.4684,
+   0.3441,
+   0.3175,
+   0.3026,
+   -0.0596
+  ],
+  "dprime": [
+   2.2537,
+   2.1894,
+   2.1024,
+   2.2413,
+   2.1505
+  ],
+  "f1": [
+   0.8276,
+   0.8369,
+   0.829,
+   0.8482,
+   0.8603
+  ],
+  "yes_rate": [
+   0.4001,
+   0.4243,
+   0.427,
+   0.4353,
+   0.5133
+  ],
+  "parse_rate": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "post_settling_sum": 0.528,
+  "per_step": 0.132,
+  "endpoint_c": -0.0596,
+  "endpoint_f1": 0.8603,
+  "endpoint_dprime": 2.1505
+ },
+ "JOINT": {
+  "arm": "JOINT",
+  "stages": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "complete": true,
+  "all_usable": true,
+  "c": [
+   0.0719,
+   0.445,
+   0.4491,
+   0.2884,
+   0.1836
+  ],
+  "dprime": [
+   2.2263,
+   2.246,
+   2.3367,
+   2.2759,
+   2.2632
+  ],
+  "f1": [
+   0.8645,
+   0.8302,
+   0.841,
+   0.8538,
+   0.8618
+  ],
+  "yes_rate": [
+   0.4846,
+   0.4048,
+   0.4084,
+   0.4396,
+   0.4613
+  ],
+  "parse_rate": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "post_settling_sum": 0.6427,
+  "per_step": 0.1607,
+  "endpoint_c": 0.1836,
+  "endpoint_f1": 0.8618,
+  "endpoint_dprime": 2.2632
+ },
+ "ucit_per_step_reference": {
+  "SEQ": 0.15628,
+  "JOINT (n=2)": 0.045579999999999996
+ },
+ "verdict": "DOES NOT REPRODUCE"
+}

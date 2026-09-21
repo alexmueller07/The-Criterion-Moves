@@ -2801,3 +2801,176 @@ in general, and nothing about o2 or o3.
 
 **Final experimental state.** Nine SEQ, nine anchor, two JOINT, two EWC, one LwF, one calibrated-target
 cell, plus the Qwen loss probe. ER and the second backbone remain unrun.
+
+---
+
+## 2026-09-20 — E4 on UCIT: reading committed before the data is complete
+
+The single-task control arms Table 5 records as absent on the full study are running
+(`fsL_single_<task>_o1_s17`, one per UCIT task, o1/seed 17). This clause fixes how they
+will be read, because the rest of the design has an unusual property worth declaring in
+advance rather than discovering afterwards.
+
+**Disclosure — what was already seen when this clause was written.** Two of six controls
+had been scored: ArxivQA (position 1) and CLEVR-Math (position 2). Four were outstanding
+(Flickr30k, IconQA, ImageNet-R, VizWiz). This is therefore a partial, not a clean,
+pre-registration, and it says so. The four outstanding tasks are the ones the endpoint
+below is actually decided on, and all four are criterion-active.
+
+**The measured floor.** Position 1 of ordering o1 is not a control at all but a
+*replication*: reading `run_arm.py`, the `single:<task>` branch and the `seq` branch's
+first stage issue the identical call — same seed, same `train.jsonl`, same step budget,
+`extra=None` in both. Their gap is therefore run-level nondeterminism alone (GPU
+assignment, bf16 kernel nondeterminism): **0.0111** in criterion units. This is NOT a
+seed-variance floor, which is strictly wider and is what the three seeds already bound,
+and it may not be quoted as the paper's general error bar. Inside E4 it is the correct
+null, because the E4 contrast holds task and seed fixed and varies only the history.
+
+**Two models, scored on the same observations.**
+- *Naive memorylessness*: the criterion is whatever the most recent task produces alone.
+  Prediction at position k: `c_single(T_k)`.
+- *Carry*: the criterion is whatever the most recent criterion-**active** task left, so a
+  task that does not move the threshold carries its predecessor's criterion forward.
+  Prediction at position k: `c_single(T_k)` if T_k is active, else `c_seq(k-1)`.
+
+Activity is fixed in advance from Table `tab:orderfx` (mean post-settling per-task
+$\Delta c$), cut at $|\Delta c| \ge 0.05$. Under o1 this makes Flickr30k, IconQA,
+ImageNet-R and VizWiz active and CLEVR-Math inactive — assigned from already-published
+numbers, not from the control data.
+
+**Endpoint.** Mean residual of the CARRY model over the criterion-**active** deep
+positions (3, 4, 5, 6), expressed in units of the 0.0111 floor. The two models coincide
+on active tasks, so these four positions test memorylessness itself; the single inactive
+position is where the models separate and is reported separately, never pooled.
+
+**Decision rule, committed now.**
+- Mean active-task residual $\le 3\times$ floor: near-memorylessness holds on UCIT, and
+  the pilot-scoped hedge in Section 4 is replaced by the full-study measurement.
+- $> 3\times$ and $\le 8\times$: partial memory of the earlier stream. Reported as a
+  bounded departure with the number; the near-memorylessness wording is withdrawn.
+- $> 8\times$ floor: memorylessness fails on UCIT. The claim is withdrawn outright and
+  the E4 row of `tab:status` reports the failure, whatever the pilot showed.
+
+Any of the three outcomes is a reported result. A failure here does not threaten the
+paper's thesis — drift magnitude, its variance decomposition and the placement result
+are all independent of whether the criterion is path-dependent — so there is no motive
+to prefer one branch, and this clause exists so the branch is not chosen after the fact.
+
+**Already observed and binding.** At position 2 (CLEVR-Math, inactive) the naive model
+misses by 13.6x the floor and the carry model by 1.6x. That row is disclosed here, is
+excluded from the endpoint by the rule above, and may not be presented as a confirmation
+of anything on its own.
+
+---
+
+## 2026-09-20 — the third JOINT cell validates c*, it does not redefine it
+
+`fsL_joint_o1_s31` is running. It is the third matched joint cell, where the placement
+reference $c^{*}$ was fixed at **+0.088** from the first two.
+
+**$c^{*}$ stays at +0.088.** It is a pre-registered constant (`PREREG_TARGET = 0.088`
+in `does_drift_cost.py`, `CSTAR` in `independent_headline_checks.py`,
+`mechanism_readout.py`, `make_fig_trajectory_main.py`, and thirteen sites in the paper).
+Recomputing a pre-registered reference after seeing another draw is the move the
+pre-registration exists to prevent: every $|c - c^{*}|$ in the paper would shift, and
+the arm ordering they support would be re-derived on data chosen after the fact.
+
+So the third cell is read as an **out-of-sample test of the reference**, which is a
+stronger use of it than averaging it in. The reference was fixed on two cells; the third
+was run afterwards and can disagree.
+
+**Decision rule, committed before the cell lands.**
+- Endpoint $c$ within the two-cell range $[+0.06, +0.11]$: $c^{*}$ is confirmed
+  out-of-sample. Reported as a validation, with the third cell's value quoted and the
+  n=3 mean stated alongside it. No derived quantity changes.
+- Outside that range but within $0.05$ of $+0.088$: reported as a wider-than-expected
+  spread. $c^{*}$ still holds, the n=3 mean is quoted, and the joint arm's endpoint
+  interval in Table 3 is widened to cover all three cells.
+- More than $0.05$ from $+0.088$: the reference is not stable at n=3. This is a
+  reportable negative — it weakens "SEQ's endpoint is already at the JOINT bound",
+  which is a claim the paper leans on — and it is stated in the limitations rather
+  than absorbed by re-averaging.
+
+The n=3 mean is reported in every branch. What does not happen in any branch is a silent
+re-definition of $c^{*}$ followed by re-derived placement numbers.
+
+---
+
+## 2026-09-20 — DCL as a second benchmark: endpoint fixed before the data exists
+
+`MLLM-CL/DCL` (Zhao et al., arXiv:2506.05453), five domains: Med, Fin, Sci, AD, RS,
+8,000 train / 500 val each, ordering `d1` = preparation order, seed 17. Two arms only,
+sequential and its matched joint bound. POPE and CHAIR remain the measuring instrument
+unchanged (`DP=$ROOT/data`, the COCO assets), so the only thing that varies between
+benchmarks is the training stream. AMBER has no DCL counterpart and is skipped.
+
+**The quantity is per-step, not summed.** The paper's UCIT endpoint is post-settling
+$\sum_{k\ge2}|\Delta c_k|$, which over six tasks sums five transitions. DCL has five
+domains and therefore four. A sum is not comparable across sequence lengths, so the
+cross-benchmark quantity is the **mean post-settling per-step $|\Delta c_k|$**,
+$\sum_{k\ge2}|\Delta c_k| / (K-1)$. On UCIT that makes SEQ $0.781/5 = 0.156$ and JOINT
+$0.228/5 = 0.046$. This is fixed now, before any DCL number exists, because choosing
+between the sum and the mean after seeing the result is a free parameter and the sum
+would flatter DCL's shorter stream by construction.
+
+**What counts as reproducing.** SEQ's mean per-step drift exceeds its matched JOINT
+arm's on DCL, in the same direction as UCIT. That is the whole claim: the effect is not
+an artifact of one benchmark's task mix.
+
+**What it will not be used for.** No pooling of DCL and UCIT cells into a single
+estimate, and no re-derivation of $c^{*}$, which is a UCIT JOINT quantity and does not
+transfer -- DCL's own joint endpoint is its own reference. One cell per arm, one
+ordering, one seed: existence and direction, never a magnitude comparison between
+benchmarks.
+
+**Declared in advance as reportable either way.** If DCL's sequential drift does not
+exceed its joint bound, that is a failure to replicate on a second benchmark and it is
+reported as one, in the body, not the appendix. The paper's single-benchmark limitation
+is currently stated honestly; a null here replaces it with a stronger statement against
+us, and that is the outcome this clause exists to make unavoidable.
+
+**Note on the DCL answer distribution.** The Med schema inspection returned targets like
+`'yes'`, so unlike all six UCIT tasks (yes_frac $0.00$ throughout) DCL carries genuine
+yes/no supervision. The dose-response result says answer statistics explain the sign of
+drift but not its magnitude; DCL is therefore a different dose, not a repeat of the same
+one. Whatever the per-domain `answer_stats` turn out to be, they are reported as measured
+and are not to be recruited after the fact to explain whichever direction the drift takes.
+
+---
+
+## 2026-09-21 — outcomes of the three clauses above, and one pre-existing rule
+
+Every branch below was committed before its data was scored. None was chosen afterwards.
+
+**E4 on UCIT: FAILS.** All six single-task controls in. Mean naive residual over the four
+criterion-active positions is **14.4x** the 0.0111 run-level floor (11.2, 3.5, 21.3, 21.6),
+past the >8x line. At all five deep positions the single-task model is more conservative than
+the sequence, by 0.04-0.24. Neither alternative model rescues it (carry 11.8x, increment
+11.2x; figures from the canonical aggregate scorer -- the e4 script's own parser gives 11.9x
+for carry, fourth-decimal scorer difference, and the paper quotes the aggregate throughout).
+Per the rule: near-memorylessness withdrawn outright; tab:status E4 row reports FAILS;
+Withdrawn Claims (vii). The pilot's two controls stay reported as pilot facts.
+
+**Third JOINT cell: branch 3 ("not stable at n=3").** o1/s31 endpoint c = +0.166, 0.078 from
+c* = +0.088 and outside [+0.06, +0.11]. c* was NOT re-derived; every placement number still
+uses +0.088. The n=3 mean (+0.114) and the spread (+0.06 to +0.17) are stated in the body's
+limitations, and the cell is a visible row (dagger, out of sample) in tab:singlecell. It
+weakens the precision of "SEQ's endpoint is at the joint bound"; the SEQ mean endpoint
+(+0.090) remains inside the three-cell joint range.
+
+**DCL: DOES NOT REPRODUCE.** SEQ per-step 0.132 vs JOINT 0.161. Reported where the clause
+required -- in the body (Limitations, one sentence), with details in Appendix F.3 and a
+tab:status row. The c-over-d' dominance does carry over (range ratio 3.5x SEQ, 3.4x JOINT);
+that is reported as the part that replicates, not as a substitute for the failed contrast.
+
+**Pre-existing rule, now executed: the E3 recency reading's out-of-sample test. FAILS.** The
+paper already stated, before these arms existed, that the single-task controls would confirm
+or withdraw the post-hoc "generative axis tracks task recency" reframe. Rank order not
+reproduced (Spearman 0.60); predicted endpoint gaps -0.0035 (o1) and +0.0474 (o2) fall
+outside seed bands [-0.0588, -0.0288] and [+0.0161, +0.0265]. Withdrawn: Withdrawn Claims
+(viii); E3 stands unexplained.
+
+**Also changed by the new cells.** ER (o1/s17) lands 0.003 from c*, closer than LwF's 0.004,
+so the appendix sentence "LwF lands nearer than any other arm" was false and is corrected;
+ER's drift is 41% ABOVE its matched SEQ cell. All new numbers are independently re-derived in
+analysis/independent_headline_checks.py (130 checks, all reproduce).

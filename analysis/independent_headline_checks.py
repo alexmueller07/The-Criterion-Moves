@@ -158,12 +158,30 @@ check("POPE answers scored", tot, 1080000, 0)
 check("rows excluded", excl, 602, 0)
 check("exclusion rate (%)", 100 * excl / tot, 0.056, 3)
 check("worst stage-cell, rows", worst[0], 101, 0)
-bound = (worst[0] / 9000) / (1 / math.sqrt(2 * math.pi))
-check("worst-case criterion movement", bound, 0.028, 3)
 wc = ARMS[worst[1][0]]
+# Density at the cell's own operating point, and the 4500 items of one class --
+# not phi(0) over all 9000, which understates the bound by ~1.8x.
+zfa = z(wc[str(worst[1][1])]["pope"]["FA"])
+bound = 0.5 * (worst[0] / 4500) / (math.exp(-zfa * zfa / 2) / math.sqrt(2 * math.pi))
+check("worst-case criterion movement", bound, 0.052, 3)
 rng = max(wc[str(s)]["pope"]["c"] for s in range(1, 7)) - min(wc[str(s)]["pope"]["c"] for s in range(1, 7))
 check("that cell's criterion range", rng, 0.395, 3)
-check("margin (x)", rng / bound, 14, 0)
+check("margin (x)", rng / bound, 7.6, 1)
+
+print("\nRandom-walk null for the z-ROC linearity")
+try:
+    RW = json.load(open(os.path.join(HERE, "readout", "zroc_randomwalk_null.json")))
+except FileNotFoundError:
+    print("  zroc_randomwalk_null.json absent -- SKIPPED")
+    RW = None
+if RW:
+    check("observed mean R^2 (9 sequential cells)", RW["observed_mean_r2"], 0.957, 3)
+    for lab, want_p in (("isotropic_random_walk", 0.004), ("random_walk_with_drift", 0.012)):
+        check(lab + ": P(single cell >= observed)", RW["nulls"][lab]["p_single_cell_ge_observed_mean"], want_p, 3)
+        if RW["nulls"][lab]["mean_over_cells_max"] >= RW["observed_mean_r2"]:
+            FAILS.append(lab + ": a simulated nine-cell study reached the observed mean")
+    print("  %-52s %s" % ("no simulated 9-cell study reached the observed mean",
+                          "OK" if not any("nine-cell" in f for f in FAILS) else "MISMATCH"))
 
 print("\nSecond backbone (Qwen2.5-VL-7B, five-task UCIT ordering, three seeds)")
 QB_C, QB_D = 0.5479, 2.6658          # untuned Qwen base, same 9000 POPE items
@@ -188,6 +206,198 @@ if Q:
               100 * Q[seed]["4"]["parse_rate"], want, 1)
         if Q[seed]["4"]["usable"]:
             FAILS.append("stage 4 of " + seed + " should be flagged unusable")
+
+print("\nLate experiments (fs_aggregate_v2.json, dcl_readout.json; added 2026-09-21)")
+V2 = json.load(open(os.path.join(HERE, "readout", "fs_aggregate_v2.json")))["backbones"]["llava15"]
+V2A, V2B = V2["arms"], V2["base"]["pope"]
+# v2 must reproduce the canonical readout before any new cell is trusted
+check("v2 reproduces all canonical cells (mismatches)",
+      sum(1 for k, v in ARMS.items() for s_ in v if s_.isdigit() and "pope" in v[s_]
+          and abs(v[s_]["pope"]["c"] - V2A[k][s_]["pope"]["c"]) > 1e-9), 0, 0)
+O1 = ["ArxivQA", "CLEVR-Math", "Flickr30k", "IconQA", "ImageNet-R", "VizWiz"]
+SQ = V2A["seq|o1|s17"]
+single = {t: V2A["single_%s|o1|s17" % t]["1"]["pope"]["c"] for t in O1}
+seqc = {t: SQ[str(k)]["pope"]["c"] for k, t in enumerate(O1, 1)}
+for t, (ws, wq) in zip(O1, ((0.201, 0.212), (0.346, 0.195), (0.443, 0.318), (0.068, 0.029), (0.227, -0.009), (0.308, 0.068))):
+    check("E4 single-task c, " + t, single[t], ws, 3)
+    check("E4 sequential c at its position, " + t, seqc[t], wq, 3)
+floor = abs(single["ArxivQA"] - seqc["ArxivQA"])
+check("E4 run-level floor (position-1 replication)", floor, 0.011, 3)
+active = ["Flickr30k", "IconQA", "ImageNet-R", "VizWiz"]
+check("E4 mean active gap / floor", st.mean(abs(single[t] - seqc[t]) for t in active) / floor, 14.4, 1)
+check("E4 positions where single > sequential (of 5)", sum(single[t] > seqc[t] for t in O1[1:]), 5, 0)
+check("E4 smallest deep gap", min(single[t] - seqc[t] for t in O1[1:]), 0.04, 2)
+check("E4 largest deep gap", max(single[t] - seqc[t] for t in O1[1:]), 0.24, 2)
+carry, incr = [], []
+for k, t in enumerate(O1[1:], 2):
+    prev = SQ[str(k - 1)]["pope"]["c"]
+    act = t != "CLEVR-Math"
+    carry.append(abs(seqc[t] - (single[t] if act else prev)))
+    incr.append(abs(seqc[t] - (prev + single[t] - V2B["c"])))
+check("E4 carry model mean residual / floor", st.mean(carry) / floor, 11.8, 1)
+check("E4 increment model mean residual / floor", st.mean(incr) / floor, 11.2, 1)
+check("E4 Flickr30k shift mid-stream", seqc["Flickr30k"] - seqc["CLEVR-Math"], 0.124, 3)
+check("E4 Flickr30k shift from base", single["Flickr30k"] - V2B["c"], 0.012, 3)
+# E3 recency test on the same controls
+ch = {t: V2A["single_%s|o1|s17" % t]["1"]["chair"]["chair_i60"] for t in O1}
+for t, w in (("CLEVR-Math", 0.1109), ("IconQA", 0.1066), ("ArxivQA", 0.1041), ("ImageNet-R", 0.1006), ("VizWiz", 0.0635), ("Flickr30k", 0.0617)):
+    check("E3 test: single-task CHAIR@60, " + t, ch[t], w, 4)
+pred = ["CLEVR-Math", "ArxivQA", "VizWiz", "IconQA", "Flickr30k", "ImageNet-R"]
+got = sorted(O1, key=lambda t: -ch[t])
+check("E3 test: Spearman rho vs predicted order",
+      1 - 6 * sum((pred.index(t) - got.index(t)) ** 2 for t in O1) / (6 * 35), 0.60, 2)
+for o, (a, b), wp, (wlo, whi) in (("o1", ("ArxivQA", "ImageNet-R"), -0.0035, (-0.0588, -0.0288)),
+                                   ("o2", ("VizWiz", "CLEVR-Math"), 0.0474, (0.0161, 0.0265))):
+    d = [V2A[k]["5"]["chair"]["chair_i60"] - V2A[k]["1"]["chair"]["chair_i60"] for k in V2A if k.startswith("seq|%s|" % o)]
+    check("E3 test: %s control-predicted gap" % o, ch[b] - ch[a], wp, 4)
+    check("E3 test: %s seed band low" % o, min(d), wlo, 4)
+    check("E3 test: %s seed band high" % o, max(d), whi, 4)
+    if min(d) <= ch[b] - ch[a] <= max(d):
+        FAILS.append("E3 test %s gap should fall OUTSIDE its seed band" % o)
+# ER and the third JOINT cell (single-cell table rows)
+def row(key):
+    v = V2A[key]
+    cs = [v[str(k)]["pope"]["c"] for k in range(1, 7)]
+    return (sum(abs(cs[i] - cs[i - 1]) for i in range(1, 6)), cs[-1], abs(cs[-1] - CSTAR),
+            v["6"]["pope"]["f1"], max(abs(v[str(k)]["pope"]["dprime"] - V2B["dprime"]) for k in range(1, 7)))
+for key, want in (("er|o1|s17", (0.7663, 0.090, 0.003, 0.8609, 0.202)),
+                  ("joint|o1|s31", (0.1254, 0.166, 0.078, 0.8615, 0.109))):
+    for lab, g, w, nd in zip(("drift", "endpoint c", "|c-c*|", "endpoint F1", "max |dd'|"), row(key), want, (4, 3, 3, 4, 3)):
+        check("%s %s" % (key.split("|")[0].upper(), lab), g, w, nd)
+check("ER drift rise over matched SEQ (%)", 100 * (row("er|o1|s17")[0] / 0.5451 - 1), 41, 0)
+# DCL
+D = json.load(open(os.path.join(HERE, "readout", "dcl_readout.json")))
+for arm, w_ps, w_dd, w_cr, w_dr in (("SEQ", 0.132, 0.095, 0.528, 0.151), ("JOINT", 0.161, 0.046, 0.377, 0.110)):
+    c_, d_ = D[arm]["c"], D[arm]["dprime"]
+    check("DCL %s per-step |dc|" % arm, st.mean(abs(c_[i] - c_[i - 1]) for i in range(1, 5)), w_ps, 3)
+    check("DCL %s per-step |dd'|" % arm, st.mean(abs(d_[i] - d_[i - 1]) for i in range(1, 5)), w_dd, 3)
+    check("DCL %s c range" % arm, max(c_) - min(c_), w_cr, 3)
+    check("DCL %s d' range" % arm, max(d_) - min(d_), w_dr, 3)
+    check("DCL %s range ratio" % arm, (max(c_) - min(c_)) / (max(d_) - min(d_)), 3.5 if arm == "SEQ" else 3.4, 1)
+    check("DCL %s all stages parsed" % arm, min(D[arm]["parse_rate"]), 1.0, 3)
+check("DCL verdict string", 1 if D["verdict"] == "DOES NOT REPRODUCE" else 0, 1, 0)
+# Figure 1, panel (c): the median-drift run
+MR = V2A["seq|o3|s31"]
+accs = [0.5 * (V2B["H"] + 1 - V2B["FA"])] + [0.5 * (MR[str(k)]["pope"]["H"] + 1 - MR[str(k)]["pope"]["FA"]) for k in range(1, 7)]
+dcs = [0] + [MR[str(k)]["pope"]["c"] - V2B["c"] for k in range(1, 7)]
+dds = [0] + [MR[str(k)]["pope"]["dprime"] - V2B["dprime"] for k in range(1, 7)]
+check("Fig 1c accuracy min", min(accs), 0.86, 2)
+check("Fig 1c accuracy max", max(accs), 0.87, 2)
+check("Fig 1c c range", max(dcs) - min(dcs), 0.40, 2)
+check("Fig 1c d' range", max(dds) - min(dds), 0.12, 2)
+
+print("\nExternal-review numbers (2026-09-21)")
+import random as _rnd
+from collections import defaultdict as _dd
+BASE = AGG["base"]["pope"]
+def _cells(arm):
+    return {k: [v[str(s_)]["pope"] for s_ in range(1, 7)] for k, v in ARMS.items() if k.startswith(arm + "|")}
+def _fit(pts):
+    xs = [z(p_["FA"]) for p_ in pts]; ys = [z(p_["H"]) for p_ in pts]; mx, my = st.mean(xs), st.mean(ys)
+    b_ = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs)
+    a_ = my - b_ * mx
+    return a_, b_, math.sqrt(st.mean([(y - a_ - b_ * x) ** 2 for x, y in zip(xs, ys)])), xs
+_Phi = lambda x: 0.5 * (1 + math.erf(x / math.sqrt(2)))
+_phi = lambda x: math.exp(-x * x / 2) / math.sqrt(2 * math.pi)
+# Table 3 rates and the abstract's percentages
+for arm, wH, wHr, wF, wFr in (("seq", 0.846, (0.81, 0.87), 0.116, (0.08, 0.14)),
+                              ("anchor", 0.683, (0.66, 0.72), 0.032, (0.02, 0.05)),
+                              ("joint", 0.851, (0.84, 0.86), 0.112, (0.11, 0.12))):
+    E = [c_[-1] for c_ in _cells(arm).values()]
+    check(arm + " endpoint H", st.mean(e["H"] for e in E), wH, 3)
+    check(arm + " endpoint H min", min(e["H"] for e in E), wHr[0], 2)
+    check(arm + " endpoint H max", max(e["H"] for e in E), wHr[1], 2)
+    check(arm + " endpoint FA", st.mean(e["FA"] for e in E), wF, 3)
+    check(arm + " endpoint FA min", min(e["FA"] for e in E), wFr[0], 2)
+    check(arm + " endpoint FA max", max(e["FA"] for e in E), wFr[1], 2)
+check("base H", BASE["H"], 0.771, 3)
+check("base FA", BASE["FA"], 0.054, 3)
+acc = lambda e: 0.5 * (e["H"] + 1 - e["FA"])
+check("anchor accuracy deficit vs SEQ (points)",
+      100 * (st.mean(acc(c_[-1]) for c_ in _cells("seq").values()) - st.mean(acc(c_[-1]) for c_ in _cells("anchor").values())), 4.0, 1)
+# fixed-ROC prediction of the d' decline, and the base on the sequential curves
+zH0, zF0 = z(BASE["H"]), z(BASE["FA"])
+pred, dab, das, res = [], [], [], []
+for pts in _cells("seq").values():
+    a_, b_, r_, xs = _fit(pts)
+    pred.append((zH0 + b_ * (xs[-1] - zF0) - xs[-1]) - (zH0 - zF0))
+    dab.append(math.sqrt(2 / (1 + b_ * b_)) * (zH0 - b_ * zF0)); das.append(math.sqrt(2 / (1 + b_ * b_)) * a_)
+    res.append(zH0 - (a_ + b_ * zF0))
+check("fixed-ROC predicted endpoint dd'", st.mean(pred), -0.117, 3)
+check("observed endpoint dd'", st.mean(c_[-1]["dprime"] - BASE["dprime"] for c_ in _cells("seq").values()), -0.121, 3)
+check("base d_a on sequential slopes", st.mean(dab), 2.170, 3)
+check("sequential d_a", st.mean(das), 2.159, 3)
+check("base residual from sequential lines (mean)", st.mean(res), 0.011, 3)
+check("base residual from sequential lines (sd)", st.pstdev(res), 0.025, 3)
+# residual RMSE against an independent-binomial floor
+for arm, wr, wf in (("seq", 0.018, 0.024), ("joint", 0.007, 0.023), ("anchor", 0.032, 0.024)):
+    rm, fl = [], []
+    for pts in _cells(arm).values():
+        a_, b_, r_, xs = _fit(pts); rm.append(r_)
+        fl.append(math.sqrt(st.mean([(p_["H"] * (1 - p_["H"]) / 4500) / _phi(z(p_["H"])) ** 2
+                                     + b_ * b_ * (p_["FA"] * (1 - p_["FA"]) / 4500) / _phi(z(p_["FA"])) ** 2 for p_ in pts])) * math.sqrt(4 / 6))
+    check(arm + " residual RMSE", st.mean(rm), wr, 3)
+    check(arm + " independent-binomial floor", st.mean(fl), wf, 3)
+    if arm == "anchor":
+        check("anchor RMSE / floor", st.mean(rm) / st.mean(fl), 1.3, 1)
+# accuracy-maximizing criterion on each run's own fitted ROC
+def _opt(a_, b_):
+    best = max(((0.5 * (_Phi(a_ + b_ * (-4 + i * 0.001)) + 1 - _Phi(-4 + i * 0.001)), -4 + i * 0.001) for i in range(8001)))
+    zf = best[1]; return -0.5 * (a_ + b_ * zf + zf), best[0]
+for arm, wc, wgap in (("seq", 0.15, 0.001), ("joint", 0.18, 0.003), ("anchor", None, 0.017)):
+    co, gap, dist = [], [], []
+    for pts in _cells(arm).values():
+        a_, b_, r_, xs = _fit(pts); c_o, acc_o = _opt(a_, b_)
+        co.append(c_o); gap.append(acc_o - acc(pts[-1])); dist.append(abs(pts[-1]["c"] - c_o))
+    if wc is not None:
+        check(arm + " accuracy-maximizing c (mean)", st.mean(co), wc, 2)
+    check(arm + " endpoint accuracy below its peak", st.mean(gap), wgap, 3)
+    if arm == "anchor":
+        check("anchor endpoint distance from its peak c", st.mean(dist), 0.38, 2)
+check("Fisher exact 0/9 vs 3/9, one-sided", math.comb(9, 3) / math.comb(18, 3), 0.10, 2)
+check("anchor share of SEQ->JOINT gap, n=3 joint (%)",
+      100 * (0.781 - 0.364) / (0.781 - st.mean([0.2400, 0.2157, 0.1254])), 71, 0)
+# unit-level permutation tests (seeds averaged; seed 17, B = 20000)
+def _eta(lab, val):
+    g = _dd(list)
+    for l_, v_ in zip(lab, val): g[l_].append(v_)
+    m_ = st.mean(val); return sum(len(x) * (st.mean(x) - m_) ** 2 for x in g.values()) / sum((v_ - m_) ** 2 for v_ in val)
+def _perm(lab, val, B=20000):
+    o_ = _eta(lab, val); r_ = _rnd.Random(17); v_ = list(val); ge = 0
+    for _ in range(B):
+        r_.shuffle(v_); ge += _eta(lab, v_) >= o_ - 1e-12
+    return o_, (ge + 1) / (B + 1)
+ORD = {"o1": ["ArxivQA", "CLEVR-Math", "Flickr30k", "IconQA", "ImageNet-R", "VizWiz"],
+       "o2": ["VizWiz", "ImageNet-R", "IconQA", "Flickr30k", "CLEVR-Math", "ArxivQA"],
+       "o3": ["ImageNet-R", "VizWiz", "ArxivQA", "CLEVR-Math", "Flickr30k", "IconQA"]}
+for arm, wt, wpt, wd, wpd in (("seq", 0.883, 0.001, 0.059, 0.96), ("anchor", 0.624, 0.08, 0.093, 0.89)):
+    u = _dd(list)
+    for k, v in ARMS.items():
+        if k.startswith(arm + "|"):
+            cs = [v[str(s_)]["pope"]["c"] for s_ in range(1, 7)]
+            for s_ in range(2, 7): u[(k.split("|")[1], s_)].append(cs[s_ - 1] - cs[s_ - 2])
+    ks = sorted(u); vals = [st.mean(u[k_]) for k_ in ks]
+    et, pt = _perm([ORD[o][s_ - 1] for o, s_ in ks], vals); ed, pd = _perm([s_ for o, s_ in ks], vals)
+    check(arm + " unit-level task eta2", et, wt, 3); check(arm + " unit-level task p", pt, wpt, 3 if wpt < 0.01 else 2)
+    check(arm + " unit-level depth eta2", ed, wd, 3); check(arm + " unit-level depth p", pd, wpd, 2)
+fu, pos = _dd(list), {}
+for k, v in ARMS.items():
+    if not k.startswith("seq|"): continue
+    o = k.split("|")[1]
+    tr = {v[str(s_)]["task_trained"]: s_ for s_ in range(1, 7)}
+    for t, kt in tr.items():
+        pos[(o, t)] = kt
+        if v[str(kt)]["tasks"][t]["open_ended"]: continue
+        for s_ in range(kt + 1, 7):
+            fu[(o, t, s_)].append(v[str(kt)]["tasks"][t]["acc"] - v[str(s_)]["tasks"][t]["acc"])
+ks = sorted(fu); vals = [st.mean(fu[k_]) for k_ in ks]
+check("forgetting units", len(ks), 30, 0)
+for name, lab, we, wp in (("elapsed", [s_ - pos[(o, t)] for o, t, s_ in ks], 0.399, 0.009),
+                          ("task", [t for o, t, s_ in ks], 0.175, 0.17),
+                          ("absolute depth", [s_ for o, t, s_ in ks], 0.131, 0.46)):
+    e_, p_ = _perm(lab, vals)
+    check("forgetting unit-level " + name + " eta2", e_, we, 3)
+    check("forgetting unit-level " + name + " p", p_, wp, 3 if wp < 0.01 else 2)
 
 print("\nz-ROC model comparison (maximum likelihood; separate script)")
 out = subprocess.run([sys.executable, os.path.join(HERE, "independent_zroc_modelcomp_check.py")],

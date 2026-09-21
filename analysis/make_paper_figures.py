@@ -70,7 +70,7 @@ Builds the two figures the REFRAMED paper leads with (paper/main.tex:
                            and the z-ROC coherence fit shows it does not
                            merely mis-place the threshold but distorts the
                            evidence geometry (R^2 0.586 vs SEQ's 0.957; d_a
-                           1.788 vs 2.159). The project's standing rule is
+                           1.788 vs 2.159). The standing rule in CLAUDE.md is
                            that the Sigma|Delta c| win may not be reported
                            without this cost in the same view -- hence panel
                            (b). The pilot CHAIR_i@60 reduction is likewise
@@ -297,10 +297,10 @@ def build_fig1(mcj, adv_f1, out_dir, rendered):
     # No titles, banners or annotation prose on the canvas: every number and
     # every reading of the figure is stated in the caption (printed below).
     fig = plt.figure(figsize=(FS.FULL_W, FS.h_full(4.0)))
-    gs_top = fig.add_gridspec(1, 2, left=0.085, right=0.975, top=0.935,
-                              bottom=0.635, wspace=0.28)
-    gs_bot = fig.add_gridspec(1, 2, left=0.085, right=0.975, top=0.475,
-                              bottom=0.130, wspace=0.28)
+    gs_top = fig.add_gridspec(1, 2, left=0.095, right=0.975, top=0.925,
+                              bottom=0.625, wspace=0.30)
+    gs_bot = fig.add_gridspec(1, 2, left=0.095, right=0.975, top=0.460,
+                              bottom=0.135, wspace=0.30)
     ax_f1 = fig.add_subplot(gs_top[0, 0])
     ax_ch = fig.add_subplot(gs_top[0, 1])
     ax_c = fig.add_subplot(gs_bot[0, 0])
@@ -313,7 +313,7 @@ def build_fig1(mcj, adv_f1, out_dir, rendered):
             ax.set_xticklabels([str(i) for i in xs])
         else:
             ax.set_xticklabels(["%d\n%s" % (i, STAGE_TASKS[i]) for i in xs],
-                               fontsize=6.0)
+                               fontsize=7)
         # Shared S4 (VizWiz) highlight, drawn behind everything.
         ax.axvspan(3.55, 4.30, color=HILITE, alpha=0.75, zorder=0, lw=0)
 
@@ -328,7 +328,7 @@ def build_fig1(mcj, adv_f1, out_dir, rendered):
     ax_f1.set_ylabel("F1")
     fpad = 0.10 * (max(seq_f1) - min(seq_f1))
     ax_f1.set_ylim(min(seq_f1) - fpad - 0.006, max(seq_f1) + fpad)
-    ax_f1.set_title("(a) POPE-adversarial F1", fontsize=7.4)
+    FS.panel_title(ax_f1, "a", "POPE-adversarial F1")
 
     # ---------------- (b) raw CHAIR_i ---------------------------------------
     stage_axis(ax_ch, top=True)
@@ -339,7 +339,7 @@ def build_fig1(mcj, adv_f1, out_dir, rendered):
     ax_ch.set_ylabel("CHAIR$_i$")
     cpad = 0.12 * (max(seq_chair) - min(seq_chair))
     ax_ch.set_ylim(min(seq_chair) - cpad, max(seq_chair) + cpad)
-    ax_ch.set_title("(b) raw CHAIR$_i$", fontsize=7.4)
+    FS.panel_title(ax_ch, "b", "Raw CHAIR$_i$")
 
     # ---------------- (c) criterion c ---------------------------------------
     stage_axis(ax_c, top=False)
@@ -352,11 +352,11 @@ def build_fig1(mcj, adv_f1, out_dir, rendered):
     xb = 0.30
     ax_c.annotate("", xy=(xb, c_hi_i), xytext=(xb, c_lo_i),
                   arrowprops=dict(arrowstyle="<->", color=FS.SEQ_COLOR, lw=1.0))
-    ax_c.set_ylabel("criterion $c$")
+    ax_c.set_ylabel("Criterion $c$")
     cpad2 = 0.16 * c_swing
     ax_c.set_ylim(c_lo_i - cpad2 - 0.02, c_hi_i + cpad2)
-    ax_c.set_xlabel("training stage (task)")
-    ax_c.set_title("(c) decision criterion $c$", fontsize=7.4)
+    ax_c.set_xlabel("Training stage (task)")
+    FS.panel_title(ax_c, "c", "Decision criterion $c$")
     c_axspan = ax_c.get_ylim()[1] - ax_c.get_ylim()[0]
 
     # ---------------- (d) d' on a MATCHED y-span (honest flatness) -----------
@@ -365,9 +365,9 @@ def build_fig1(mcj, adv_f1, out_dir, rendered):
     ax_d.plot(xs, seq_d, **seq_st)
     d_mid = 0.5 * (max(seq_d) + min(seq_d))
     ax_d.set_ylim(d_mid - c_axspan / 2.0, d_mid + c_axspan / 2.0)
-    ax_d.set_ylabel("$d'$")
-    ax_d.set_xlabel("training stage (task)")
-    ax_d.set_title("(d) discriminability $d'$, same span as (c)", fontsize=7.4)
+    ax_d.set_ylabel("$d$′")
+    ax_d.set_xlabel("Training stage (task)")
+    FS.panel_title(ax_d, "d", "Discriminability $d$′ (same span as c)")
 
     print("[fig1_paradox] F1 S0->S4 drop %.4f | CHAIR S0->S4 drop %.4f | "
           "c range %.3f endpoint %+.3f | d' range %.3f endpoint %+.3f | ratio %.2f"

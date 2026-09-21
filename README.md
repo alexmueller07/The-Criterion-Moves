@@ -21,19 +21,27 @@ pip install -r requirements.txt
 python3 analysis/independent_headline_checks.py
 ```
 
-That script re-derives 54 headline quantities from the released readouts — the
-z-ROC fits and the model comparison, the task-versus-depth decomposition, both
-main tables, and the parser audit — using its own z-transform, its own OLS and
-its own sums, sharing no code with the scripts that produced them. It prints the
+That script re-derives 187 quantities from the released readouts — the z-ROC
+fits and the model comparison, the task-versus-depth decomposition over the
+independent ordering-by-position units, the single-task controls, the second
+benchmark (MLLM-CL DCL), the replay and third joint cells, both main tables, and
+the parser audit — using its own z-transform, its own OLS and its own sums,
+sharing no code with the scripts that produced them. It prints the
 paper's value beside the recomputed one for each, and exits non-zero on any
 mismatch.
 
 Figures regenerate the same way, from the same readouts:
 
 ```bash
-python3 analysis/make_fig_trajectory_main.py     # the main trajectory figure
-python3 analysis/make_figures.py                 # the rest
+python3 analysis/make_fig_concept.py             # Figure 1 (also writes an editable fig_concept.pptx)
+python3 analysis/make_fig_trajectory_main.py     # Figure 2
+python3 analysis/make_fig_zroc.py                # Figure 3
+python3 analysis/make_paper_figures.py --diag analysis/diag --out analysis/out
 ```
+
+The remaining appendix figures (`analysis/make_figures.py`, and the robustness
+figure in `analysis/make_diag_figures.py`) recompute from the raw per-checkpoint
+generation logs, which are available on request (see below).
 
 ## What is in here
 

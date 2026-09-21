@@ -199,14 +199,14 @@ panels = [("seq", "Sequential", C_SEQ), ("anchor", "Anchor (probe)", C_ANC),
 # the aspect EQUAL BY CONSTRUCTION (no set_aspect, so subplots_adjust stays
 # authoritative and nothing floats), which both shortens the figure and stops
 # the panels from exaggerating slope -- the one quantity this figure is about.
-INCL_FRAC = 0.90                             # must match the fig_zroc include in paper/main.tex
+INCL_FRAC = 0.88                             # must match the fig_zroc include in paper/main.tex (it is 0.88)
 FIG_W = INCL_FRAC * TEXTWIDTH                # 3.19in
 
 XLIM = (-2.28, -0.76)   # drawn data spans -2.2314..-0.8069 / 0.1960..1.3271
 YLIM = (0.12, 1.38)     # (verified against every drawn segment, not eyeballed)
 L_M, R_M, WSPACE = 0.115, 0.995, 0.07        # axes-area fractions of FIG_W
-TOP_IN, BOT_IN = 0.300, 0.265                # inches reserved for title / xlabel
-TITLE_PAD = 14.0                             # pt; must clear the statistic line
+TOP_IN, BOT_IN = 0.340, 0.275                # inches reserved for title + statistic line / xlabel
+TITLE_PAD = 13.5                             # pt; must clear the statistic line
 
 _aw = (R_M - L_M) * FIG_W / (3 + 2 * WSPACE)                   # panel width, in
 _ah = _aw * (YLIM[1] - YLIM[0]) / (XLIM[1] - XLIM[0])          # panel height, in
@@ -245,15 +245,14 @@ for ax, (arm, title, col) in zip(axes, panels):
     # Heading = arm name only.  One statistic line beneath it: mean R^2 with the
     # worst cell beside it, because the spread is the finding and a mean alone
     # hides it.  Both numbers are certified above.
-    ax.set_title(title, fontsize=7.2, color=col, fontweight="bold",
-                 pad=TITLE_PAD)
-    ax.text(0.5, 1.035, "$R^2$ %.3f  min %.3f" % (s["mean_r2"], s["min_r2"]),
-            transform=ax.transAxes, ha="center", va="bottom",
-            fontsize=6.0, color=C_MUT)
+    FS.panel_title(ax, "abc"[list(axes).index(ax)], title, pad=TITLE_PAD)
+    ax.text(0.0, 1.035, "Mean $R^2$ %.3f (min %.3f)" % (s["mean_r2"], s["min_r2"]),
+            transform=ax.transAxes, ha="left", va="bottom",
+            fontsize=7, color=C_MUT)
     # Cell count, in the corner rather than the title: the joint bound is n=2
     # against n=9, and a reader must not have to take mean R^2 on trust.
-    ax.text(0.975, 0.035, "$n$ = %d" % s["n"], transform=ax.transAxes,
-            ha="right", va="bottom", fontsize=6.0, color=C_MUT)
+    ax.text(0.975, 0.035, "%d runs" % s["n"], transform=ax.transAxes,
+            ha="right", va="bottom", fontsize=7, color=C_MUT)
 
     ax.set_xlim(*XLIM)
     ax.set_ylim(*YLIM)
@@ -261,7 +260,7 @@ for ax, (arm, title, col) in zip(axes, panels):
     # 1-decimal tick labels on purpose: 2 decimals widen the left margin
     # enough to push the y-label into them.
     ax.set_yticks([0.4, 0.8, 1.2])
-    ax.set_xlabel("$z(\\mathrm{FA})$", fontsize=6.8, color=C_INK, labelpad=1.6)
+    ax.set_xlabel("$z(\\mathrm{FA})$", color=C_INK, labelpad=1.6)
     ax.grid(color="#D8D5CE", lw=0.35, zorder=0)
     ax.set_axisbelow(True)
     for sp in ("top", "right"):
@@ -269,15 +268,15 @@ for ax, (arm, title, col) in zip(axes, panels):
     for sp in ("left", "bottom"):
         ax.spines[sp].set_color(C_MUT)
         ax.spines[sp].set_linewidth(0.6)
-    ax.tick_params(colors=C_MUT, labelsize=6.0, length=0, pad=1.8)
+    ax.tick_params(colors=C_INK, length=0, pad=1.8)
 
-axes[0].set_ylabel("$z(H)$", fontsize=6.8, color=C_INK, labelpad=3.0)
+axes[0].set_ylabel("$z(H)$", color=C_INK, labelpad=3.0)
 # In-axes legend: costs zero page height.  It goes in the ANCHOR panel's upper
 # right, the largest genuinely empty region on the canvas (that arm's whole
 # cloud sits below z(H)=0.75), so it cannot collide with data or with the n
 # annotation.  That the diamond is the same point in every panel is a sentence,
 # so it goes in the caption.
-axes[1].legend([base_handle], ["untuned base"], frameon=False, fontsize=6.2,
+axes[1].legend([base_handle], ["Untuned base"], frameon=False,
                loc="upper right", labelcolor=C_INK, handletextpad=0.25,
                borderaxespad=0.55, borderpad=0.0, scatterpoints=1)
 

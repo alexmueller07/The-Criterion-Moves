@@ -205,7 +205,9 @@ def fig_criterion_dprime(sd, mcj, cvs, out_dir, rendered):
         ("V2", mc_vals(G_CKPTS, "c"), mc_vals(G_CKPTS, "dprime"), False),
     ]
 
-    fig, (ax_c, ax_d) = plt.subplots(1, 2, figsize=(FS.COL_W, FS.h_col(2.15)))
+    # 2.35 in, not h_col(2.15) = 3.63 in: the single-column resize scaled every
+    # legacy height by 1.69x, which is what made these figures so tall.
+    fig, (ax_c, ax_d) = plt.subplots(1, 2, figsize=(FS.COL_W, 2.35))
 
     # S0 reference (dotted): both panels, from the SEQ series' shared base.
     s0_c, s0_d = arms[0][1][0], arms[0][2][0]
@@ -225,10 +227,12 @@ def fig_criterion_dprime(sd, mcj, cvs, out_dir, rendered):
     for ax in (ax_c, ax_d):
         ax.set_xticks(range(5))
         ax.set_xticklabels(["0", "1", "2", "3", "4"])
-        ax.set_xlabel("stage")
+        ax.set_xlabel("Stage")
 
-    ax_c.set_ylabel("criterion $c$")
-    ax_d.set_ylabel("$d'$")
+    ax_c.set_ylabel("Criterion $c$")
+    ax_d.set_ylabel("$d$′")
+    FS.panel_title(ax_c, "a", "Decision criterion $c$")
+    FS.panel_title(ax_d, "b", "Discriminability $d$′ (same span as a)")
 
     c_all = [v for _, cs, _, _ in arms for v in cs]
     c_span = max(c_all) - min(c_all)
@@ -242,10 +246,10 @@ def fig_criterion_dprime(sd, mcj, cvs, out_dir, rendered):
     mid = 0.5 * (max(d_all) + min(d_all))
     ax_d.set_ylim(mid - span / 2.0, mid + span / 2.0)
 
-    fig.legend(handles, labels, loc="lower center", ncol=5, fontsize=6.5,
+    fig.legend(handles, labels, loc="lower center", ncol=5,
                frameon=False, bbox_to_anchor=(0.5, 0.0),
-               columnspacing=0.7, handlelength=1.3, handletextpad=0.4)
-    fig.tight_layout(rect=(0, 0.10, 1, 1), w_pad=1.2)
+               columnspacing=1.0, handlelength=1.5, handletextpad=0.4)
+    fig.tight_layout(rect=(0, 0.075, 1, 0.95), w_pad=1.6)
     save_both(fig, out_dir, "fig_criterion_dprime", rendered)
 
 
@@ -299,12 +303,12 @@ def fig_method_endpoint(mcj, lcc, cvs, out_dir, rendered):
     ax_l.set_xticks(range(4))
     ax_l.set_xticklabels(["%d\n%s" % (k, short.get(tasks[k], tasks[k]))
                           for k in (1, 2, 3, 4)])
-    ax_l.set_xlabel("training stage")
-    ax_l.set_ylabel("per-stage $|\\Delta c|$")
+    ax_l.set_xlabel("Training stage")
+    ax_l.set_ylabel("Per-stage $|\\Delta c|$")
     l_top = max(abs(c_series(ck)[i + 1] - c_series(ck)[i])
                 for _, ck in arms for i in range(4))
     ax_l.set_ylim(0, l_top * 1.08)
-    ax_l.set_title("(a) criterion displacement per stage", fontsize=7.4)
+    FS.panel_title(ax_l, "a", "Criterion displacement per stage")
 
     # ------------- right: endpoint CHAIR_i@60 bars ---------------------------
     def at60(ckpt):
@@ -327,26 +331,26 @@ def fig_method_endpoint(mcj, lcc, cvs, out_dir, rendered):
     for i, ((ckpt, key), v) in enumerate(zip(endpoints, vals)):
         ax_r.bar([i], [v], width=0.6, **FS.arm_bar(key))
         ax_r.text(i, v + 0.0015, "%.4f" % v, ha="center", va="bottom",
-                  fontsize=6.3)
+                  fontsize=7)
 
     ax_r.set_xticks(range(5))
-    ax_r.set_xticklabels([FS.ARM_LABEL[k].replace("anchor ", "anchor\n")
+    ax_r.set_xticklabels([FS.ARM_LABEL[k].replace("Anchor ", "Anchor\n")
                           for _, k in endpoints])
-    ax_r.set_xlabel("endpoint checkpoint")
+    ax_r.set_xlabel("Endpoint checkpoint")
     ax_r.set_ylabel("CHAIR$_i$@60")
     ax_r.set_ylim(0, max(vals) * 1.16)
     # Withdrawn as a claim (the full study did not reproduce it). The panel
     # title keeps that attached to the panel without prose on the canvas; the
     # caption carries the full statement.
-    ax_r.set_title("(b) endpoint CHAIR$_i$@60, pilot only", fontsize=7.4)
+    FS.panel_title(ax_r, "b", "Endpoint CHAIR$_i$@60 (pilot only)")
 
     # One legend row for both panels, below the axes, so it covers no bars.
     keys = ["SEQ", "ER", "V1", "V2", "JOINT"]
     handles = [mpatches.Patch(label=FS.ARM_LABEL[k], **FS.arm_bar(k)) for k in keys]
-    fig.legend(handles=handles, loc="lower center", ncol=5, fontsize=6.3,
+    fig.legend(handles=handles, loc="lower center", ncol=5,
                frameon=False, handlelength=1.2, columnspacing=1.1,
                bbox_to_anchor=(0.5, 0.0))
-    fig.tight_layout(rect=(0, 0.08, 1, 1), w_pad=1.6)
+    fig.tight_layout(rect=(0, 0.08, 1, 0.95), w_pad=1.6)
     save_both(fig, out_dir, "fig_method_endpoint", rendered)
 
 
@@ -399,7 +403,8 @@ def fig_dose_response(cvs, out_dir, rendered):
     se_yes = jnum(cvs, ["se_approx", "yes_rate"], fname)
     se_diff = math.sqrt(2.0) * se_yes
 
-    fig, ax = plt.subplots(figsize=(FS.COL_W, FS.h_col(2.55)))
+    # One bar chart: 0.72\\textwidth x 2.5 in (was 5.2 x 4.3 in after the resize).
+    fig, ax = plt.subplots(figsize=(0.72 * FS.TEXTWIDTH, 2.5))
     x = range(4)
     ax.bar(x, deltas, width=0.62, color=colors, edgecolor="black",
            linewidth=0.5, yerr=[se_diff] * 4, capsize=2,
@@ -407,25 +412,25 @@ def fig_dose_response(cvs, out_dir, rendered):
     ax.axhline(0.0, color="black", linewidth=0.7, zorder=2)
     for xi, d in zip(x, deltas):
         off = 0.006 if d >= 0 else -0.006
-        ax.text(xi, d + off + (se_diff if d >= 0 else -se_diff), "%+.3f" % d,
-                ha="center", va="bottom" if d >= 0 else "top", fontsize=7,
+        ax.text(xi, d + off + (se_diff if d >= 0 else -se_diff), ("%+.3f" % d).replace("-", "\u2212"),
+                ha="center", va="bottom" if d >= 0 else "top", fontsize=7.5,
                 fontweight="bold")
     # Headroom so value labels never collide with the axes edges.
     hi = max(d + se_diff for d in deltas)
     lo = min(d - se_diff for d in deltas)
     ax.set_ylim(lo - 0.033, hi + 0.028)
     ax.set_xticks(list(x))
-    ax.set_xticklabels(ticklabels, fontsize=6.0)
+    ax.set_xticklabels(ticklabels, fontsize=7)
     ax.set_ylabel("$\\Delta$ POPE yes-rate (pooled)")
     # error-bar definition is stated in the caption, not on the canvas
     ax.legend(handles=[
         mpatches.Patch(fc=C_YES, ec="black", lw=0.5,
-                       label="prior pushes toward yes"),
+                       label="Prior pushes toward yes"),
         mpatches.Patch(fc=C_REFUSE, ec="black", lw=0.5,
-                       label="prior pushes toward refusal/no"),
+                       label="Prior pushes toward refusal or no"),
         mpatches.Patch(fc=C_NEUTRAL, ec="black", lw=0.5,
-                       label="no yes/no supervision"),
-    ], fontsize=6.5, loc="lower left", handlelength=1.2, handleheight=0.9)
+                       label="No yes/no supervision"),
+    ], loc="lower left", handlelength=1.2, handleheight=0.9)
     fig.tight_layout()
     save_both(fig, out_dir, "fig_dose_response", rendered)
 
@@ -461,9 +466,10 @@ def fig_length_controlled(lcc, out_dir, rendered):
                 % (key, fname, ci))
         boots[key] = (gap, float(ci[0]), float(ci[1]))
 
-    fig, (ax_f, ax_k) = plt.subplots(2, 1, figsize=(FS.COL_W, FS.h_col(3.5)), sharex=True)
-    panels = ((ax_f, seq_full, joint_full, "full", "full captions"),
-              (ax_k, seq_60, joint_60, "60", "fixed 60-word budget"))
+    # Side by side, not stacked: the stacked version printed 6.1 in tall.
+    fig, (ax_f, ax_k) = plt.subplots(1, 2, figsize=(FS.COL_W, 2.45))
+    panels = ((ax_f, seq_full, joint_full, "full", ("a", "Full captions")),
+              (ax_k, seq_60, joint_60, "60", ("b", "Fixed 60-word budget")))
     for ax, seq, joint, tag, title in panels:
         # BOTH callout boxes live in the clear band ABOVE every marker, one
         # left one right.  They used to be anchored at y = 0.05 of the axes,
@@ -487,19 +493,23 @@ def fig_length_controlled(lcc, out_dir, rendered):
         ax.plot(range(5), joint, label="JOINT", **FS.arm_line("JOINT"))
         # The endpoint gap itself stays in the data: a bare double arrow, no
         # text, so nothing can occlude a line.
-        ax.annotate("", xy=(4.0, seq[4]), xytext=(4.0, joint[4]),
-                    arrowprops=dict(arrowstyle="<->", color="#444444", lw=0.8,
-                                    shrinkA=3, shrinkB=3))
+        # Skip the arrow when the gap is too small to draw: at the 60-word
+        # budget the endpoints differ by 0.001 and the arrowheads collapsed
+        # into a small cross that read as a marker.
+        if abs(seq[4] - joint[4]) > 0.08 * (max(vals) - min(vals)):
+            ax.annotate("", xy=(4.0, seq[4]), xytext=(4.0, joint[4]),
+                        arrowprops=dict(arrowstyle="<->", color="#444444", lw=0.8,
+                                        shrinkA=3, shrinkB=3))
         ax.set_ylabel("CHAIR$_i$")
-        ax.set_title(title, fontsize=8)
-    ax_k.set_xticks(range(5))
-    ax_k.set_xticklabels(STAGE_LABELS)
-    ax_k.set_xlabel("checkpoint (stage-matched)")
+        FS.panel_title(ax, *title)
+        ax.set_xticks(range(5))
+        ax.set_xticklabels(STAGE_LABELS)
+        ax.set_xlabel("Checkpoint (stage-matched)")
 
     handles, labels = ax_f.get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=2, fontsize=6.5,
+    fig.legend(handles, labels, loc="lower center", ncol=2,
                frameon=False, bbox_to_anchor=(0.5, 0.0))
-    fig.tight_layout(rect=(0, 0.055, 1, 1), h_pad=1.2)
+    fig.tight_layout(rect=(0, 0.07, 1, 0.95), w_pad=1.6)
     save_both(fig, out_dir, "fig_length_controlled", rendered)
 
 
@@ -517,7 +527,8 @@ def fig_leakage(fd, out_dir, rendered):
     seq = {c: unans(c) for c in SEQ_CKPTS}
     joint = {c: unans(c) for c in JOINT_CKPTS[1:]}   # S0 shared with SEQ
 
-    fig, ax = plt.subplots(figsize=(FS.COL_W, FS.h_col(2.3)))
+    # One bar chart: 0.72\\textwidth x 2.3 in (was 5.2 x 3.9 in after the resize).
+    fig, ax = plt.subplots(figsize=(0.72 * FS.TEXTWIDTH, 2.3))
     w = 0.35
     # Shared base checkpoint as one neutral bar.
     ax.bar([0], [seq["S0"][0]], width=w, color=FS.BASE_COLOR, edgecolor="black",
@@ -534,14 +545,14 @@ def fig_leakage(fd, out_dir, rendered):
     for xs, vs in (([0], [seq["S0"][0]]), (seq_x, seq_v), (joint_x, joint_v)):
         for xi, v in zip(xs, vs):
             ax.text(xi, v + 0.25, "%.1f" % v, ha="center", va="bottom",
-                    fontsize=6.5)
+                    fontsize=7)
 
     ax.set_xticks(range(5))
     ax.set_xticklabels(STAGE_LABELS)
-    ax.set_xlabel("checkpoint (stage-matched)")
-    ax.set_ylabel('exact "Unanswerable" (%)')
+    ax.set_xlabel("Checkpoint (stage-matched)")
+    ax.set_ylabel("Exact \u201cUnanswerable\u201d (%)")
     ax.set_ylim(0, max(seq_v + joint_v) * 1.18 + 1.0)
-    ax.legend(fontsize=6.5, loc="upper left")
+    ax.legend(loc="upper left")
     fig.tight_layout()
     save_both(fig, out_dir, "fig_leakage", rendered)
 
@@ -678,13 +689,13 @@ def fig_robustness(rob, results_dir, out_dir, rendered):
         labels.append(label)
 
     for ax, xlabels, title in (
-            (ax_l, FWD_TASK_LABELS, "forward ordering (3 seeds)"),
-            (ax_r, REV_TASK_LABELS, "reverse ordering (1 run)")):
+            (ax_l, FWD_TASK_LABELS, ("a", "Forward ordering (3 seeds)")),
+            (ax_r, REV_TASK_LABELS, ("b", "Reverse ordering (1 run)"))):
         ax.set_xticks(range(5))
-        ax.set_xticklabels(xlabels, fontsize=6.0)
-        ax.set_xlabel("stage (task trained)")
-        ax.set_title(title, fontsize=8)
-    ax_l.set_ylabel("criterion $c$ (pooled POPE)")
+        ax.set_xticklabels(xlabels, fontsize=7)
+        ax.set_xlabel("Stage (task trained)")
+        FS.panel_title(ax, *title)
+    ax_l.set_ylabel("Criterion $c$ (pooled POPE)")
 
     vals = ([v for cs in fwd.values() for v in cs]
             + [v for cs in rev.values() for v in cs]
@@ -692,10 +703,10 @@ def fig_robustness(rob, results_dir, out_dir, rendered):
     span = max(vals) - min(vals)
     ax_l.set_ylim(min(vals) - 0.08 * span, max(vals) + 0.08 * span)
 
-    fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=6.5,
+    fig.legend(handles, labels, loc="lower center", ncol=4,
                frameon=False, bbox_to_anchor=(0.5, 0.0),
                columnspacing=1.0, handlelength=1.4, handletextpad=0.4)
-    fig.tight_layout(rect=(0, 0.09, 1, 1), w_pad=1.4)
+    fig.tight_layout(rect=(0, 0.11, 1, 0.94), w_pad=1.6)
     save_both(fig, out_dir, "fig_robustness", rendered)
 
 

@@ -1,0 +1,27 @@
+{
+ "n_cells": 9,
+ "observed_mean_r2": 0.9568969725478724,
+ "observed_min_r2": 0.8435097501294064,
+ "step_sd_zH": 0.15678922094633374,
+ "step_sd_zFA": 0.22062796077401137,
+ "B": 20000,
+ "seed": 20260920,
+ "nulls": {
+  "isotropic_random_walk": {
+   "single_cell_median_r2": 0.24193672936036925,
+   "single_cell_p99_r2": 0.9296454376774618,
+   "p_single_cell_ge_observed_mean": 0.004083310648274176,
+   "mean_over_cells_median": 0.30660402839775386,
+   "mean_over_cells_max": 0.6969862040465847,
+   "p_mean_ge_observed": 4.999750012499375e-05
+  },
+  "random_walk_with_drift": {
+   "single_cell_median_r2": 0.3650000777903111,
+   "single_cell_p99_r2": 0.9610617415318209,
+   "p_single_cell_ge_observed_mean": 0.012044377531235937,
+   "mean_over_cells_median": 0.39623974791530264,
+   "mean_over_cells_max": 0.7778775618126901,
+   "p_mean_ge_observed": 4.999750012499375e-05
+  }
+ }
+}

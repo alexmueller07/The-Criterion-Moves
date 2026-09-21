@@ -1,0 +1,21 @@
+{
+ "anchor": {
+  "observed_sd_da": 0.3618,
+  "null_median_sd_da": 0.3173,
+  "null_p99": 0.634,
+  "p_null_ge_observed": 0.3257,
+  "mean_zFA_range": 0.2121,
+  "mean_residual_rmse": 0.0316
+ },
+ "seq": {
+  "observed_sd_da": 0.0401,
+  "null_median_sd_da": 0.0252,
+  "null_p99": 0.0471,
+  "p_null_ge_observed": 0.0425,
+  "mean_zFA_range": 0.4441,
+  "mean_residual_rmse": 0.0183
+ },
+ "B": 20000,
+ "seed": 20260920,
+ "verdict": "anchor d_a scatter is consistent with one fixed ROC plus estimation noise (p=0.33); Result 2 withdrawn"
+}
