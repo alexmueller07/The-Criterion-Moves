@@ -220,7 +220,7 @@ fig.subplots_adjust(left=L_M, right=R_M, top=1 - TOP_IN / FIG_H,
 # data, not from a thicker line on the arm we want the reader to notice.
 LW, ALPHA, MS = 0.7, 0.55, 9.0
 
-base_handle = None
+base_labels = []
 for ax, (arm, title, col) in zip(axes, panels):
     rows = cells_for(arms, arm)
     s = summarize(arm, rows)
@@ -233,14 +233,17 @@ for ax, (arm, title, col) in zip(axes, panels):
                 alpha=ALPHA, zorder=2)
         ax.scatter(xs, [p[1] for p in r["pts"]], s=MS, color=col, alpha=0.85,
                    zorder=3, edgecolor="white", linewidth=0.3)
-    # the untuned base, the same point in all three panels; labelled once
-    # sized to the DATA markers, not larger: it is a reference point, not the
-    # finding, and an oversized diamond was the loudest thing on the canvas.
+    # The untuned base: the same point in all three panels, sized to the data
+    # markers (it is a reference point, not the finding). Labelled beside the
+    # diamond in EVERY panel rather than by one legend in the middle panel,
+    # which read as belonging to that panel alone (co-author feedback,
+    # 2026-09-21). Above-left of the diamond is empty in all three panels.
     h = ax.scatter([z(base["FA"])], [z(base["H"])], marker="D", s=9,
-                   color=C_INK, zorder=4, edgecolor="white", linewidth=0.3,
-                   label="untuned base")
-    if base_handle is None:
-        base_handle = h
+                   color=C_INK, zorder=4, edgecolor="white", linewidth=0.3)
+    base_labels.append(ax.annotate("Untuned base", xy=(z(base["FA"]), z(base["H"])),
+                                   xytext=(-3.5, 2.5), textcoords="offset points",
+                                   ha="right", va="bottom", fontsize=7, color=C_INK,
+                                   zorder=5))
 
     # Heading = arm name only.  One statistic line beneath it: mean R^2 with the
     # worst cell beside it, because the spread is the finding and a mean alone
@@ -271,14 +274,28 @@ for ax, (arm, title, col) in zip(axes, panels):
     ax.tick_params(colors=C_INK, length=0, pad=1.8)
 
 axes[0].set_ylabel("$z(H)$", color=C_INK, labelpad=3.0)
-# In-axes legend: costs zero page height.  It goes in the ANCHOR panel's upper
-# right, the largest genuinely empty region on the canvas (that arm's whole
-# cloud sits below z(H)=0.75), so it cannot collide with data or with the n
-# annotation.  That the diamond is the same point in every panel is a sentence,
-# so it goes in the caption.
-axes[1].legend([base_handle], ["Untuned base"], frameon=False,
-               loc="upper right", labelcolor=C_INK, handletextpad=0.25,
-               borderaxespad=0.55, borderpad=0.0, scatterpoints=1)
+# Each "Untuned base" label must clear every data point and fit line in its
+# panel; checked on the rendered geometry, not by eye.
+fig.canvas.draw()
+_r = fig.canvas.get_renderer()
+for _ax, _lab in zip(axes, base_labels):
+    _bb = _lab.get_window_extent(_r).expanded(1.04, 1.10)
+    _hit = 0
+    _base = (z(base["FA"]), z(base["H"]))
+    for _coll in _ax.collections:
+        for _xy in _coll.get_offsets():
+            if abs(_xy[0] - _base[0]) < 1e-9 and abs(_xy[1] - _base[1]) < 1e-9:
+                continue                     # the label's own diamond
+            _hit += _bb.contains(*_ax.transData.transform(_xy))
+    for _ln in _ax.get_lines():
+        _xs, _ys = _ln.get_data()
+        for _i in range(40):
+            _t = _i / 39.0
+            _x = _xs[0] + _t * (_xs[-1] - _xs[0]); _y = _ys[0] + _t * (_ys[-1] - _ys[0])
+            _hit += _bb.contains(*_ax.transData.transform((_x, _y)))
+    assert _hit == 0, "Untuned base label overlaps data in a panel (%d hits)" % _hit
+    assert _ax.bbox.contains(_bb.x0, _bb.y0) and _ax.bbox.contains(_bb.x1, _bb.y1), "label leaves its panel"
+    print("  label clear of data in panel %s" % "abc"[list(axes).index(_ax)])
 
 out = os.path.join(here, "out")
 os.makedirs(out, exist_ok=True)
