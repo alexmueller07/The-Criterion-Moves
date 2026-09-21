@@ -21,7 +21,7 @@ pip install -r requirements.txt
 python3 analysis/independent_headline_checks.py
 ```
 
-That script re-derives 187 quantities from the released readouts — the z-ROC
+That script re-derives 189 quantities from the released readouts — the z-ROC
 fits and the model comparison, the task-versus-depth decomposition over the
 independent ordering-by-position units, the single-task controls, the second
 benchmark (MLLM-CL DCL), the replay and third joint cells, both main tables, and

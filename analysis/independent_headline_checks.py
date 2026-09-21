@@ -197,6 +197,14 @@ if Q:
     check("Qwen criterion range (mean over seeds)", st.mean(crs), 0.162, 3)
     check("Qwen d' range (mean over seeds)", st.mean(drs), 0.112, 3)
     check("Qwen criterion-to-d' range ratio", st.mean(crs) / st.mean(drs), 1.45, 2)
+    _lc = [max(v[str(k)]["pope"]["c"] for k in range(1, 7)) - min(v[str(k)]["pope"]["c"] for k in range(1, 7))
+           for kk, v in ARMS.items() if kk.startswith("seq|")]
+    _ld = [max(v[str(k)]["pope"]["dprime"] for k in range(1, 7)) - min(v[str(k)]["pope"]["dprime"] for k in range(1, 7))
+           for kk, v in ARMS.items() if kk.startswith("seq|")]
+    # LLaVA on the SAME definition as the Qwen ratio (mean within-cell range); the
+    # paper once quoted 2.36x here, which was the absolute-range ratio mislabelled.
+    check("LLaVA criterion-to-d' range ratio (same definition)", st.mean(_lc) / st.mean(_ld), 2.66, 2)
+    check("LLaVA / Qwen absolute criterion range", st.mean(_lc) / st.mean(crs), 2.35, 2)
     check("Qwen endpoint dc from base", st.mean(Q[s]["5"]["c"] - QB_C for s in Q), -0.079, 3)
     check("Qwen endpoint dd' from base", st.mean(Q[s]["5"]["dprime"] - QB_D for s in Q), -0.048, 3)
     check("Qwen worst |dd'| from base (margin 0.30)",
